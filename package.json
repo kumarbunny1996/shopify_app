@@ -1,0 +1,29 @@
+{
+    "name": "shopify_app",
+    "version": "1.0.0",
+    "description": "e-commerce website",
+    "main": "server.js",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "mongodb": "^3.5.9",
+        "mongoose": "^5.9.19"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-preset-es2015": "^6.24.1",
+        "css-loader": "^3.6.0",
+        "style-loader": "^1.2.1",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "dev": "webpack ./src/js/main.js --mode=development",
+        "build": "webpack --mode=production"
+    },
+    "author": "",
+    "license": "ISC"
+}

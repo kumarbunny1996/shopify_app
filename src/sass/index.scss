@@ -1,0 +1,456 @@
+@import "common";
+@import "mixin";
+@import "variables";
+//styles the scroll bars
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: $deepBlue;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+header {
+    display: flex;
+    background-color: $deepBlue;
+    color: $deepWhite;
+    height: 100px;
+    padding: 15px;
+    justify-content: center;
+    .logo {
+        @include mq(650px) {
+            height: 35px;
+        }
+    }
+    .logo a {
+        margin-left: 20px;
+        color: $deepWhite;
+        font-size: 24px;
+        @include mq(800px) {
+            font-size: 18px;
+        }
+        @include mq(650px) {
+            font-size: 25px;
+            position: absolute;
+            left: 200px;
+        }
+        @include mq(550px) {
+            font-size: 25px;
+            position: absolute;
+            left: 170px;
+        }
+        @include mq(490px) {
+            font-size: 25px;
+            position: absolute;
+            left: 150px;
+        }
+        @include mq(420px) {
+            font-size: 25px;
+            position: absolute;
+            left: 100px;
+        }
+    }
+    .logo .logo-title {
+        color: $lightOrange;
+    }
+    .wrapper {
+        height: 30px;
+        background-color: $deepWhite;
+        position: relative;
+        padding: 0px;
+        border-radius: 5px;
+        margin: 0px 55px 0px 35px;
+        @include mq(750px) {
+            margin: 0px 20px 0px 15px;
+        }
+        @include mq(650px) {
+            position: relative;
+            top: 45px;
+            left: -10px;
+            margin: 0;
+        }
+        @include mq(450px) {
+            position: relative;
+            top: 45px;
+            left: -10px;
+            width: 340px;
+        }
+    }
+    .nav-left {
+        position: absolute;
+    }
+    .nav-search-dropdown {
+        position: absolute;
+        border: none;
+        font-size: 14px;
+        background-color: rgb(221, 219, 219);
+        width: 100px;
+        @include mq(650px) {
+            display: none;
+        }
+        height: 30px;
+        -webkit-appearance: none;
+        outline: none;
+        padding: 8px;
+        border-right: 1px solid $blackClr;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        &:hover {
+            background-color: rgb(182, 179, 179);
+        }
+    }
+    .nav-sort-icon {
+        position: absolute;
+        top: 0px;
+        left: 70px;
+        color: $blackClr;
+        width: 30px;
+        @include mq(650px) {
+            display: none;
+        }
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        pointer-events: none;
+    }
+    .nav-right {
+        position: relative;
+        left: 100px;
+        top: 0px;
+    }
+    .search-input {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 294px;
+        font-size: 18px;
+        @include mq(900px) {
+            width: 164px;
+        }
+        @include mq(650px) {
+            position: absolute;
+            top: 0px;
+            left: -100px;
+            width: 264px;
+        }
+        @include mq(425px) {
+            position: absolute;
+            top: 0px;
+            left: -100px;
+            width: 154px;
+        }
+        height: 24px;
+        outline: none;
+        border: none;
+    }
+    .nav-search-icon {
+        position: absolute;
+        top: 0px;
+        right: 100px;
+        width: 50px;
+        height: 30px;
+        background-color: $lightOrange;
+        color: $deepBlue;
+        line-height: 30px;
+        text-align: center;
+        font-size: 20px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .nav-cart {
+        @include nav;
+        position: relative;
+        margin-top: 15px;
+        font-size: 24px;
+        @include mq(800px) {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        @include mq(650px) {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+    }
+    .cart-item {
+        position: absolute;
+        color: $lightOrange;
+        top: -12px;
+        right: 0px;
+        font-size: 16px;
+        font-weight: $headingFontWeight;
+    }
+    .nav-account-wrapper {
+        @include nav;
+        @include mq(800px) {
+            font-size: 14px;
+            margin-right: 10px;
+        }
+    }
+    .nav-order-details {
+        @include nav;
+        @include mq(800px) {
+            margin-right: 10px;
+        }
+    }
+    .nav-order-details a {
+        @include nav;
+        @include mq(800px) {
+            font-size: 14px;
+        }
+    }
+    .nav-items {
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        background-color: lighten($deepBlue, $amount: 6);
+        padding: 10px;
+    }
+    .nav-items ul li {
+        display: inline;
+        margin-left: 20px;
+    }
+    .nav-items ul li a {
+        font-size: 14px;
+        color: $deepWhite;
+        &:hover {
+            @include borderBox;
+        }
+    }
+}
+
+section {
+    height: 400px;
+    width: 100%;
+}
+
+footer {
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    .nav-to-top {
+        line-height: 40px;
+        @include footer;
+        color: $deepWhite;
+        background-color: lighten($deepBlue, $amount: 6);
+        font-size: 14px;
+    }
+    .top-btn {
+        cursor: pointer;
+        &:hover {
+            @include borderBox;
+        }
+    }
+    .wrapper {
+        background-color: $deepBlue;
+        padding: 20px 20px;
+    }
+    .footer-content {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .content {
+        color: $deepWhite;
+        align-content: center;
+        font-weight: $headingFontWeight;
+    }
+    .content a {
+        color: $deepWhite;
+        align-content: center;
+        font-size: 12px;
+    }
+    .footer-line {
+        @include line;
+    }
+    .footer-logo {
+        background-color: $deepBlue;
+        @include footer;
+    }
+    .footer-logo a {
+        color: $deepWhite;
+    }
+    .footer-icon {
+        color: $lightOrange;
+    }
+    .footer-dead {
+        background-color: darken($deepBlue, $amount: 6);
+        @include footer;
+    }
+    .footer-line {
+        @include line;
+    }
+    .footer-items {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+    }
+    .footer-items li a {
+        color: lighten($deepWhite, $amount: 20);
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .footer-rights {
+        margin-left: 10px;
+        font-size: 10px;
+        color: grey;
+        @include mq(650px) {
+            display: block;
+        }
+    }
+}
+
+.nav-bar {
+    margin-left: 20px;
+    font-size: 28px;
+    height: 30px;
+    color: $deepWhite;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+//responsive css
+.nav-overlay {
+    background-color: $deepBlue !important;
+    opacity: 0.95;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    visibility: hidden;
+    transition: $transition;
+}
+
+.navigationMenu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 60%;
+    height: 100%;
+    background-color: white !important;
+    transform: translateX(-100%);
+    z-index: 3;
+    overflow: scroll;
+    overflow-x: hidden;
+    transition: $transition;
+}
+
+.nav-close {
+    position: absolute;
+    left: 62%;
+    top: 20px;
+    cursor: pointer;
+}
+
+.nav-close i.fa {
+    font-size: 35px;
+    color: lighten($deepWhite, $amount: 99);
+}
+
+.nav-menu {
+    height: 60px;
+    color: $deepWhite;
+    line-height: 60px;
+    background-color: $deepBlue !important;
+    cursor: pointer;
+}
+
+.user-name {
+    font-size: 34px;
+    padding: 20px;
+    @include mq(375px) {
+        font-size: 24px;
+    }
+}
+
+.user-div h2 {
+    position: absolute;
+    left: 20%;
+    top: -20px;
+    margin-top: 20px;
+    @include mq(375px) {
+        font-size: 22px;
+        left: 24%;
+    }
+}
+
+.menu-items {
+    padding: 20px;
+    text-align: center;
+}
+
+.menu-items li a {
+    color: $blackClr;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.menu-items li {
+    margin-bottom: 20px;
+    padding: 10px 0px;
+    &:hover {
+        background-color: rgb(218, 215, 215);
+    }
+}
+
+.border-item {
+    @include line;
+    margin: 0px;
+    padding: 0px !important;
+    &:hover {
+        background-color: $deepWhite !important;
+    }
+}
+
+@include mq(650px) {
+    .wrapper {
+        padding: 0px;
+        .foot-list ul {
+            text-align: center;
+        }
+        .foot-list a {
+            color: $deepWhite;
+        }
+    }
+}
+
+.footer-items li {
+    @include mq(650px) {
+        margin-right: 30px;
+    }
+}
+
+.footer-div {
+    position: relative;
+    top: -20px;
+    text-align: center;
+}
+
+.show-nav {
+    transform: translateX(0%);
+}
+
+.transparentbcg {
+    visibility: visible;
+}
