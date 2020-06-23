@@ -142,24 +142,19 @@ header {
         position: absolute;
         top: 0px;
         left: 0px;
-        width: 294px;
+        width: 82%;
+        padding-top: 7px;
         font-size: 18px;
-        @include mq(900px) {
-            width: 164px;
+        @include mq(1100px) {
+            width: 65%;
         }
         @include mq(650px) {
             position: absolute;
             top: 0px;
             left: -100px;
-            width: 264px;
+            width: 80%;
         }
-        @include mq(425px) {
-            position: absolute;
-            top: 0px;
-            left: -100px;
-            width: 154px;
-        }
-        height: 24px;
+        height: 30px;
         outline: none;
         border: none;
     }
@@ -205,11 +200,17 @@ header {
             font-size: 14px;
             margin-right: 10px;
         }
+        @include mq(650px) {
+            display: none;
+        }
     }
     .nav-order-details {
         @include nav;
         @include mq(800px) {
             margin-right: 10px;
+        }
+        @include mq(650px) {
+            display: none;
         }
     }
     .nav-order-details a {
@@ -224,6 +225,9 @@ header {
         top: 60px;
         background-color: lighten($deepBlue, $amount: 6);
         padding: 10px;
+        @include mq(650px) {
+            display: none;
+        }
     }
     .nav-items ul li {
         display: inline;
@@ -238,87 +242,7 @@ header {
     }
 }
 
-section {
-    height: 400px;
-    width: 100%;
-}
-
-footer {
-    position: relative;
-    bottom: 0px;
-    left: 0px;
-    .nav-to-top {
-        line-height: 40px;
-        @include footer;
-        color: $deepWhite;
-        background-color: lighten($deepBlue, $amount: 6);
-        font-size: 14px;
-    }
-    .top-btn {
-        cursor: pointer;
-        &:hover {
-            @include borderBox;
-        }
-    }
-    .wrapper {
-        background-color: $deepBlue;
-        padding: 20px 20px;
-    }
-    .footer-content {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-    }
-    .content {
-        color: $deepWhite;
-        align-content: center;
-        font-weight: $headingFontWeight;
-    }
-    .content a {
-        color: $deepWhite;
-        align-content: center;
-        font-size: 12px;
-    }
-    .footer-line {
-        @include line;
-    }
-    .footer-logo {
-        background-color: $deepBlue;
-        @include footer;
-    }
-    .footer-logo a {
-        color: $deepWhite;
-    }
-    .footer-icon {
-        color: $lightOrange;
-    }
-    .footer-dead {
-        background-color: darken($deepBlue, $amount: 6);
-        @include footer;
-    }
-    .footer-line {
-        @include line;
-    }
-    .footer-items {
-        display: flex;
-        justify-content: center;
-        margin-top: 0;
-    }
-    .footer-items li a {
-        color: lighten($deepWhite, $amount: 20);
-        margin-left: 10px;
-        font-size: 12px;
-    }
-    .footer-rights {
-        margin-left: 10px;
-        font-size: 10px;
-        color: grey;
-        @include mq(650px) {
-            display: block;
-        }
-    }
-}
-
+// navigation menu css
 .nav-bar {
     margin-left: 20px;
     font-size: 28px;
@@ -346,7 +270,13 @@ footer {
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 60%;
+    width: 30%;
+    @include mq(650px) {
+        width: 60% !important;
+    }
+    @include mq(1000px) {
+        width: 40%;
+    }
     height: 100%;
     background-color: white !important;
     transform: translateX(-100%);
@@ -358,7 +288,13 @@ footer {
 
 .nav-close {
     position: absolute;
-    left: 62%;
+    left: 32%;
+    @include mq(1000px) {
+        left: 42%
+    }
+    @include mq(650px) {
+        left: 62% !important;
+    }
     top: 20px;
     cursor: pointer;
 }
@@ -423,28 +359,111 @@ footer {
     }
 }
 
-@include mq(650px) {
+section {
+    height: 400px;
+    width: 100%;
+}
+
+footer {
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    .nav-to-top {
+        line-height: 40px;
+        @include footer;
+        color: $deepWhite;
+        background-color: lighten($deepBlue, $amount: 6);
+        font-size: 14px;
+    }
+    .top-btn {
+        cursor: pointer;
+        &:hover {
+            @include borderBox;
+        }
+    }
     .wrapper {
-        padding: 0px;
+        background-color: $deepBlue;
+        padding: 20px 20px;
+        display: block;
+        @include mq(650px) {
+            display: none;
+        }
+    }
+    .footer-content {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .content {
+        color: $deepWhite;
+        align-content: center;
+        font-weight: $headingFontWeight;
+    }
+    .content a {
+        color: $deepWhite;
+        align-content: center;
+        font-size: 12px;
+    }
+    .footer-line {
+        @include line;
+    }
+    .footer-logo {
+        background-color: $deepBlue;
+        @include footer;
+    }
+    .footer-logo a {
+        color: $deepWhite;
+    }
+    .footer-icon {
+        color: $lightOrange;
+    }
+    .footer-dead {
+        background-color: darken($deepBlue, $amount: 6);
+        @include footer;
+    }
+    .footer-line {
+        @include line;
+    }
+    .footer-items {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+        @include mq(650px) {
+            display: block !important;
+            background-color: darken($deepBlue, $amount: 6) !important;
+        }
+    }
+    .footer-items li a {
+        color: lighten($deepWhite, $amount: 20);
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .footer-rights {
+        margin-left: 10px;
+        font-size: 10px;
+        color: grey;
+    }
+    @include mq(650px) {
+        .wrapper2 {
+            padding: 20px 20px;
+            background-color: $deepBlue;
+            .foot-list {
+                display: block;
+            }
+        }
         .foot-list ul {
             text-align: center;
+        }
+        .foot-list li {
+            padding-bottom: 5px;
         }
         .foot-list a {
             color: $deepWhite;
         }
     }
-}
-
-.footer-items li {
-    @include mq(650px) {
-        margin-right: 30px;
+    .foot-list {
+        display: none;
     }
-}
-
-.footer-div {
-    position: relative;
-    top: -20px;
-    text-align: center;
 }
 
 .show-nav {

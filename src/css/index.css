@@ -181,15 +181,16 @@ header .search-input {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 294px;
+  width: 82%;
+  padding-top: 7px;
   font-size: 18px;
-  height: 24px;
+  height: 30px;
   outline: none;
   border: none;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
   header .search-input {
-    width: 164px;
+    width: 65%;
   }
 }
 @media screen and (max-width: 650px) {
@@ -197,15 +198,7 @@ header .search-input {
     position: absolute;
     top: 0px;
     left: -100px;
-    width: 264px;
-  }
-}
-@media screen and (max-width: 425px) {
-  header .search-input {
-    position: absolute;
-    top: 0px;
-    left: -100px;
-    width: 154px;
+    width: 80%;
   }
 }
 header .nav-search-icon {
@@ -263,6 +256,11 @@ header .nav-account-wrapper {
     margin-right: 10px;
   }
 }
+@media screen and (max-width: 650px) {
+  header .nav-account-wrapper {
+    display: none;
+  }
+}
 header .nav-order-details {
   color: #f8f9fb;
   font-size: 19px;
@@ -272,6 +270,11 @@ header .nav-order-details {
 @media screen and (max-width: 800px) {
   header .nav-order-details {
     margin-right: 10px;
+  }
+}
+@media screen and (max-width: 650px) {
+  header .nav-order-details {
+    display: none;
   }
 }
 header .nav-order-details a {
@@ -292,6 +295,11 @@ header .nav-items {
   background-color: #04455b;
   padding: 10px;
 }
+@media screen and (max-width: 650px) {
+  header .nav-items {
+    display: none;
+  }
+}
 header .nav-items ul li {
   display: inline;
   margin-left: 20px;
@@ -303,99 +311,6 @@ header .nav-items ul li a {
 header .nav-items ul li a:hover {
   padding: 5px 10px;
   border: 1px solid #f8f9fb;
-}
-
-section {
-  height: 400px;
-  width: 100%;
-}
-
-footer {
-  position: relative;
-  bottom: 0px;
-  left: 0px;
-}
-footer .nav-to-top {
-  line-height: 40px;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  color: #f8f9fb;
-  background-color: #04455b;
-  font-size: 14px;
-}
-footer .top-btn {
-  cursor: pointer;
-}
-footer .top-btn:hover {
-  padding: 5px 10px;
-  border: 1px solid #f8f9fb;
-}
-footer .wrapper {
-  background-color: #032f3e;
-  padding: 20px 20px;
-}
-footer .footer-content {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-footer .content {
-  color: #f8f9fb;
-  align-content: center;
-  font-weight: 700px;
-}
-footer .content a {
-  color: #f8f9fb;
-  align-content: center;
-  font-size: 12px;
-}
-footer .footer-line {
-  border-bottom: 1px solid #05506a;
-}
-footer .footer-logo {
-  background-color: #032f3e;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-}
-footer .footer-logo a {
-  color: #f8f9fb;
-}
-footer .footer-icon {
-  color: #f8bf2e;
-}
-footer .footer-dead {
-  background-color: #021921;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-}
-footer .footer-line {
-  border-bottom: 1px solid #05506a;
-}
-footer .footer-items {
-  display: flex;
-  justify-content: center;
-  margin-top: 0;
-}
-footer .footer-items li a {
-  color: white;
-  margin-left: 10px;
-  font-size: 12px;
-}
-footer .footer-rights {
-  margin-left: 10px;
-  font-size: 10px;
-  color: grey;
-}
-@media screen and (max-width: 650px) {
-  footer .footer-rights {
-    display: block;
-  }
 }
 
 .nav-bar {
@@ -424,7 +339,7 @@ footer .footer-rights {
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 60%;
+  width: 30%;
   height: 100%;
   background-color: white !important;
   transform: translateX(-100%);
@@ -433,12 +348,32 @@ footer .footer-rights {
   overflow-x: hidden;
   transition: 0.1s linear;
 }
+@media screen and (max-width: 650px) {
+  .navigationMenu {
+    width: 60% !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .navigationMenu {
+    width: 40%;
+  }
+}
 
 .nav-close {
   position: absolute;
-  left: 62%;
+  left: 32%;
   top: 20px;
   cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+  .nav-close {
+    left: 42%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .nav-close {
+    left: 62% !important;
+  }
 }
 
 .nav-close i.fa {
@@ -505,27 +440,128 @@ footer .footer-rights {
   background-color: #f8f9fb !important;
 }
 
+section {
+  height: 400px;
+  width: 100%;
+}
+
+footer {
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+}
+footer .nav-to-top {
+  line-height: 40px;
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  text-align: center;
+  padding: 20px;
+  color: #f8f9fb;
+  background-color: #04455b;
+  font-size: 14px;
+}
+footer .top-btn {
+  cursor: pointer;
+}
+footer .top-btn:hover {
+  padding: 5px 10px;
+  border: 1px solid #f8f9fb;
+}
+footer .wrapper {
+  background-color: #032f3e;
+  padding: 20px 20px;
+  display: block;
+}
 @media screen and (max-width: 650px) {
-  .wrapper {
-    padding: 0px;
+  footer .wrapper {
+    display: none;
   }
-  .wrapper .foot-list ul {
+}
+footer .footer-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+footer .content {
+  color: #f8f9fb;
+  align-content: center;
+  font-weight: 700px;
+}
+footer .content a {
+  color: #f8f9fb;
+  align-content: center;
+  font-size: 12px;
+}
+footer .footer-line {
+  border-bottom: 1px solid #05506a;
+}
+footer .footer-logo {
+  background-color: #032f3e;
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  text-align: center;
+  padding: 20px;
+}
+footer .footer-logo a {
+  color: #f8f9fb;
+}
+footer .footer-icon {
+  color: #f8bf2e;
+}
+footer .footer-dead {
+  background-color: #021921;
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  text-align: center;
+  padding: 20px;
+}
+footer .footer-line {
+  border-bottom: 1px solid #05506a;
+}
+footer .footer-items {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+@media screen and (max-width: 650px) {
+  footer .footer-items {
+    display: block !important;
+    background-color: #021921 !important;
+  }
+}
+footer .footer-items li a {
+  color: white;
+  margin-left: 10px;
+  font-size: 12px;
+}
+footer .footer-rights {
+  margin-left: 10px;
+  font-size: 10px;
+  color: grey;
+}
+@media screen and (max-width: 650px) {
+  footer .wrapper2 {
+    padding: 20px 20px;
+    background-color: #032f3e;
+  }
+  footer .wrapper2 .foot-list {
+    display: block;
+  }
+  footer .foot-list ul {
     text-align: center;
   }
-  .wrapper .foot-list a {
+  footer .foot-list li {
+    padding-bottom: 5px;
+  }
+  footer .foot-list a {
     color: #f8f9fb;
   }
 }
-@media screen and (max-width: 650px) {
-  .footer-items li {
-    margin-right: 30px;
-  }
-}
-
-.footer-div {
-  position: relative;
-  top: -20px;
-  text-align: center;
+footer .foot-list {
+  display: none;
 }
 
 .show-nav {
