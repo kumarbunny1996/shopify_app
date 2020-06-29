@@ -1,5 +1,5 @@
-const { events } = require('./common');
-require('../css/index.css');
+const { events, showNav, closeNav } = require('../app/uiHandler');
+require('../../css/index.css');
 
 function indexPage() {
     document.body.innerHTML = `
@@ -8,7 +8,7 @@ function indexPage() {
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </div>      
                 <div class="logo" id="logo">
-                    <a href=""><span class="logo-title">@</span>shopify</a>
+                    <a href="#home"><span class="logo-title">@</span>shopify</a>
                 </div>
                 <div class="wrapper" id="search-wrapper">
                     <div class="nav-left" style="width:auto">
@@ -34,18 +34,18 @@ function indexPage() {
                 </div>
                 <div class="nav-account-wrapper" id="nav-account">
                     <div class="account-details">
-                        <span class="nav-line-1">Hello, sign in</span>
+                        <a href="#login" class="nav-line-1">Hello, sign in</a>
                     </div>
                 </div>
                 <div class="account-details2" user-id="" style="display:none">
-                    <span class="nav-line-3">Hello, sign in</span>
+                    <a href="#login" class="nav-line-3">Hello, sign in</a>
                 </div>
 
                 <div class="nav-order-details" id="nav-order" user-id="">
                     <a href="#">Return & orders</a>
                 </div>
                 <div class="nav-cart" id="nav-cart">
-                    <span class="nav-icon"><i class="fa fa-cart-plus" aria-hidden="true"></i></span>
+                    <a href="#" class="nav-icon"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                     <div class="cart-item">0</div>
                 </div>
 
@@ -64,17 +64,17 @@ function indexPage() {
                 <div id="navigationMenu" class="navigationMenu">
                     <div class="nav-menu">
                         <div class="user-div">
-                            <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                            <a href="#login" class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                             <h2>hello, sign in</h2>
                         </div>
                         <div class="user-div" id="user-div" user-id="" style="display:none">
-                            <span class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                            <a href="#login" class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                             <h2>hello, sign in</h2>
                         </div>
                     </div>
                     <div class="menu-items">
                             <ul class="items">
-                                <li><a href="#">Home</a></li>
+                                <li><a href="#home">Home</a></li>
                                 <li><a href="#">Shop by categories</a></li>
                                 <li><a href="#">Your orders</a></li>
                                 <li class="border-item"></li>
@@ -143,7 +143,7 @@ function indexPage() {
                 </div>
                 <div class="footer-line"></div>
                 <div class="footer-logo">
-                    <a href="#"><span class="footer-icon">@</span>shopify</a>
+                    <a href="#home"><span class="footer-icon">@</span>shopify</a>
                 </div>
                 <div class="footer-line"></div>
                 <div class="footer-dead">
@@ -159,34 +159,15 @@ function indexPage() {
 
     return;
 }
-indexPage();
+//ui handler events
+function UI_handlerEvents() {
+    events('#navBar', 'click', showNav);
+    events('#close-btn', 'click', closeNav);
+    events('#nav-overlay', 'click', closeNav);
 
-
-//show the nav menu
-function showNav() {
-    document.body.style.overflowY = "hidden";
-    const navCart = document.querySelector('#navigationMenu');
-    const navOverlay = document.querySelector('#nav-overlay');
-    navCart.classList.add('show-nav');
-    navOverlay.classList.add('transparentbcg');
-}
-//close the nav
-function closeNav() {
-    document.body.style.overflowY = "scroll";
-    const navCart = document.querySelector('#navigationMenu');
-    const navOverlay = document.querySelector('#nav-overlay');
-    navCart.classList.remove('show-nav');
-    navOverlay.classList.remove('transparentbcg');
 }
 
-const home = document.getElementById('logo');
-home.addEventListener('click', function(e) {
-    console.log(e.target);
-    e.preventDefault();
-    history.pushState('home', null, 'home');
-    document.querySelector('#main-content').innerHTML = `<h1>this is home page</h1>`;
-});
-
-events('#navBar', 'click', showNav);
-events('#close-btn', 'click', closeNav);
-events('#nav-overlay', 'click', closeNav);
+module.exports = {
+    indexPage,
+    UI_handlerEvents
+};

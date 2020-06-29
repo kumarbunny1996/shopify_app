@@ -28,3 +28,144 @@
         @content;
     }
 }
+
+//form css
+@mixin logo() {
+    width: 100%;
+    position: relative;
+    top: 20px;
+    text-align: center;
+    text-transform: capitalize;
+    transform: translateY(40%);
+}
+
+@mixin logoTitle() {
+    color: $borderColour;
+    font-weight: 900;
+}
+
+@mixin logoLink() {
+    font-size: 28px;
+    font-weight: 700;
+    color: $deepBlue;
+}
+
+@mixin formStyle() {
+    width: 400px;
+    margin: -180px auto;
+    padding: 20px;
+    border: 0.5px solid rgb(216, 212, 212);
+    box-shadow: inset 1px 1px 0.5px 0.5px $formBorder, inset -1px -1px 0.5px 0.5px $formBorder;
+    transform: translateY(50%);
+    color: $deepBlue;
+}
+
+@mixin formContent() {
+    width: 360px;
+    position: relative;
+    height: 50px;
+    margin: 20px 0px;
+    overflow: hidden;
+}
+
+@mixin formInput() {
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    color: $inputFontColor;
+    border: none;
+    font-size: 18px;
+    outline: none;
+    background-color: $inputBgColor;
+}
+
+@mixin formLabel() {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid $deepBlue;
+}
+
+@mixin labelAfter() {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid $borderColour;
+    left: 0px;
+    bottom: -1px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+@mixin contentOnly() {
+    position: absolute;
+    left: 0px;
+    bottom: 5px;
+    transition: all 0.1s ease;
+}
+
+@mixin buttonStyle() {
+    border: none;
+    text-decoration: none;
+    background-color: $lightOrange;
+    text-align: center;
+    width: 100%;
+    color: $deepBlue;
+    padding: 15px 0px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 1px 1px 0.5px 1px $borderColour, 1px 1px 0.5px 1px $borderColour;
+    outline: none;
+    transition: all 0.1s ease;
+    margin-top: 20px;
+}
+
+@mixin formFooter() {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: $inputFontColor;
+}
+
+@mixin toggle() {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    cursor: pointer;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-20%);
+}
+
+@mixin overlay() {
+    background-color: $deepBlue !important;
+    opacity: 0.95;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    transition: $transition;
+}
+
+@mixin loader() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 4;
+    border: 10px solid $inputFontColor;
+    border-radius: 50%;
+    border-top: 10px solid $borderColour;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}

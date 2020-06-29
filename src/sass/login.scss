@@ -1,0 +1,154 @@
+@import "common";
+@import "mixin";
+@import "variables";
+.logo2 {
+    @include logo();
+}
+
+.logo-title {
+    @include logoTitle();
+}
+
+.logo2 a {
+    @include logoLink();
+}
+
+.form {
+    @include formStyle();
+    height: 530px;
+    @include mq(430px) {
+        width: 350px;
+    }
+    @include mq(370px) {
+        width: 300px;
+    }
+}
+
+.form-content {
+    @include formContent();
+    @include mq(430px) {
+        width: 310px;
+    }
+    @include mq(370px) {
+        width: 260px;
+    }
+}
+
+.form-content .user-input {
+    @include formInput();
+}
+
+.form .label-content {
+    @include formLabel();
+}
+
+.form .label-content::after {
+    @include labelAfter();
+}
+
+.content2 {
+    @include contentOnly();
+}
+
+.form-content .user-input:focus+label .content2,
+.form-content .user-input:valid+label .content2 {
+    transform: translateY(-150%);
+}
+
+.form-content .user-input:focus+label::after,
+.form-content .user-input:valid+label::after {
+    transform: translateX(0%);
+}
+
+.button {
+    @include buttonStyle();
+}
+
+.button a {
+    font-size: 16px;
+    font-weight: 700;
+    color: $deepBlue;
+}
+
+.button:hover {
+    background-color: darken($borderColour, $amount: 2);
+}
+
+.login-footer {
+    @include formFooter();
+    top: 480px;
+}
+
+.check {
+    color: $deepBlue;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#toggle {
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+.option-login {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.google-sign {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    color: $deepBlue;
+    padding: 15px 0px;
+    box-shadow: -4px -4px 10px rgba(255, 255, 255, 1), inset 4px 4px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 10px rgba(255, 255, 255, 1), 4px 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.1s ease;
+    margin: 10px 0px;
+    &:hover {
+        background-color: rgb(144, 164, 219);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05), -4px -4px 10px rgba(255, 255, 255, 1);
+    }
+    cursor: pointer;
+}
+
+.google-sign a {
+    font-size: 16px;
+    font-weight: 700;
+    color: $deepBlue;
+}
+
+.google-logo {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 20%;
+    @include mq(430px) {
+        left: 15%;
+    }
+    @include mq(370px) {
+        left: 10%;
+    }
+    top: 9px;
+    background-image: url('/images/google-logo.png');
+    background-size: cover;
+    cursor: pointer;
+}
+
+.loaderOverlay {
+    @include overlay;
+    visibility: visible!important;
+}
+.loader{
+    @include loader();
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

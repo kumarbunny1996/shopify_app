@@ -1,0 +1,173 @@
+    @import "common";
+    @import "mixin";
+    @import "variables";
+    .logo3 {
+        @include logo();
+    }
+    
+    .logo-title2 {
+        @include logoTitle();
+    }
+    
+    .logo3 a {
+        @include logoLink();
+    }
+    
+    .form-wrapper {
+        @include formStyle();
+        margin: 0 auto;
+        margin-top: -240px !important;
+        @include mq(430px) {
+            width: 350px;
+        }
+        @include mq(370px) {
+            width: 300px;
+        }
+    }
+    
+    .input-container {
+        @include formContent();
+        @include mq(430px) {
+            width: 310px;
+        }
+        @include mq(370px) {
+            width: 260px;
+        }
+    }
+    
+    .input-container .input {
+        @include formInput();
+    }
+    
+    .form-wrapper .label-content2 {
+        @include formLabel();
+    }
+    
+    .form-wrapper .label-content2::after {
+        @include labelAfter();
+    }
+    
+    .content-name {
+        @include contentOnly();
+    }
+    
+    .input-container .input:focus+label .content-name,
+    .input-container .input:valid+label .content-name {
+        transform: translateY(-150%);
+    }
+    
+    .input-container .input:focus+label::after,
+    .input-container .input:valid+label::after {
+        transform: translateX(0%);
+    }
+    
+    .registerButton button {
+        @include buttonStyle();
+    }
+    
+    .registerButton button:hover {
+        background-color: darken($borderColour, $amount: 2);
+    }
+    
+    .registerButton button:disabled {
+        background-color: rgb(255, 228, 202);
+        box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+        cursor: default;
+    }
+    
+    .lead {
+        font-size: 14px;
+        padding: 15px 0px;
+    }
+    
+    .lead a {
+        font-size: 18px;
+        text-decoration: solid;
+        color: rgb(80, 105, 247);
+    }
+    
+    .login-footer2 {
+        @include formFooter();
+        margin: 20px 0px 0px 0px;
+    }
+    /* The message box is shown when the user clicks on the password field */
+    
+    #messages {
+        display: none;
+        background: #f1f1f1;
+        color: $inputFontColor;
+        position: relative;
+        padding: 20px 20px 0px 20px;
+        margin-top: 10px;
+    }
+    
+    #messages p {
+        padding: 5px;
+        font-size: 16px;
+    }
+    /* Add a green text color and a checkmark when the requirements are right */
+    
+    .valid {
+        color: $deepBlue;
+    }
+    
+    .valid:before {
+        position: relative;
+        left: -30px;
+        content: "\2714";
+        color: rgb(29, 134, 29);
+    }
+    /* Add a red text color and an "x" icon when the requirements are wrong */
+    
+    .invalid {
+        color: $deepBlue;
+    }
+    
+    .invalid:before {
+        position: relative;
+        left: -30px;
+        content: "\2613";
+        color: rgb(245, 38, 31)!important;
+    }
+    
+    //toggle class
+    .eye-toggle {
+        @include toggle();
+        display: none;
+        background-image: url('/images/show.png');
+    }
+    
+    .hide {
+        background-image: url('/images/hide.png');
+    }
+    
+    .error-content {
+        color: rgb(255, 95, 95);
+        font-size: 14px;
+        display: none;
+    }
+    
+    .correct-content {
+        color: rgb(29, 134, 29);
+        font-size: 14px;
+        display: none;
+    }
+    
+    .loadOverlay {
+        @include overlay;
+        visibility: visible !important;
+        opacity: 0.8;
+    }
+    
+    .loader {
+        @include loader();
+    }
+    
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }

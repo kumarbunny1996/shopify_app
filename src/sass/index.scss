@@ -46,7 +46,7 @@ header {
         margin-left: 20px;
         color: $deepWhite;
         font-size: 24px;
-        @include mq(800px) {
+        @include mq(900px) {
             font-size: 18px;
         }
         @include mq(650px) {
@@ -148,6 +148,9 @@ header {
         @include mq(1100px) {
             width: 65%;
         }
+        @include mq(850px) {
+            width: 60%;
+        }
         @include mq(650px) {
             position: absolute;
             top: 0px;
@@ -177,7 +180,7 @@ header {
         position: relative;
         margin-top: 15px;
         font-size: 24px;
-        @include mq(800px) {
+        @include mq(900px) {
             font-size: 18px;
             margin-right: 10px;
         }
@@ -185,6 +188,9 @@ header {
             font-size: 22px;
             margin-top: 10px;
         }
+    }
+    .nav-cart a {
+        color: $deepWhite;
     }
     .cart-item {
         position: absolute;
@@ -196,7 +202,8 @@ header {
     }
     .nav-account-wrapper {
         @include nav;
-        @include mq(800px) {
+        font-size: 14px;
+        @include mq(900px) {
             font-size: 14px;
             margin-right: 10px;
         }
@@ -204,9 +211,12 @@ header {
             display: none;
         }
     }
+    .nav-line-1 {
+        color: $deepWhite;
+    }
     .nav-order-details {
         @include nav;
-        @include mq(800px) {
+        @include mq(900px) {
             margin-right: 10px;
         }
         @include mq(650px) {
@@ -215,7 +225,8 @@ header {
     }
     .nav-order-details a {
         @include nav;
-        @include mq(800px) {
+        font-size: 16px;
+        @include mq(900px) {
             font-size: 14px;
         }
     }
@@ -254,16 +265,8 @@ header {
 
 //responsive css
 .nav-overlay {
-    background-color: $deepBlue !important;
-    opacity: 0.95;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
+    @include overlay;
     visibility: hidden;
-    transition: $transition;
 }
 
 .navigationMenu {
@@ -315,6 +318,7 @@ header {
 .user-name {
     font-size: 34px;
     padding: 20px;
+    color: $deepWhite;
     @include mq(375px) {
         font-size: 24px;
     }
@@ -472,4 +476,22 @@ footer {
 
 .transparentbcg {
     visibility: visible;
+}
+
+.loaderOverlay {
+    @include overlay;
+    visibility: visible!important;
+}
+
+.loader {
+    @include loader();
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
