@@ -7,7 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
-    watch: true,
+    watch: process.env.NODE_ENV !== 'production',
     module: {
         rules: [{
                 test: /\.js$/,

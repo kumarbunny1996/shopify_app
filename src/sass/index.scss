@@ -253,6 +253,62 @@ header {
     }
 }
 
+//tool tip box 
+#user-id {
+    @include toolTip();
+    .tool-tip-content {
+        @include toolTipContent();
+    }
+    .tool-tip-content::after {
+        @include toolTipArrow();
+    }
+    &:hover .tool-tip-content {
+        visibility: visible;
+    }
+    .tool-tip-list {
+        padding: 20px;
+    }
+    li {
+        margin-top: 20px;
+    }
+    li a {
+        color: $deepBlue;
+        font-size: 16px;
+        font-weight: 300;
+    }
+    .button .btn {
+        width: 80%;
+        padding: 10px 0px;
+    }
+}
+
+#user-login {
+    @include toolTip();
+    .tool-tip-content {
+        @include toolTipContent();
+    }
+    .tool-tip-content::after {
+        @include toolTipArrow();
+    }
+    &:hover .tool-tip-content {
+        visibility: visible;
+    }
+    .lead2 {
+        margin: 20px 0px;
+    }
+    .lead2 a {
+        font-size: 10px;
+        color: rgb(97, 105, 224);
+        &:hover {
+            border-bottom: 0.3px solid rgb(97, 105, 224);
+        }
+    }
+    .btn {
+        width: 80%;
+        padding: 10px 0px;
+    }
+}
+
 // navigation menu css
 .nav-bar {
     margin-left: 20px;
@@ -346,6 +402,13 @@ header {
     font-size: 20px;
 }
 
+.menu-items .links {
+    color: $blackClr;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .menu-items li {
     margin-bottom: 20px;
     padding: 10px 0px;
@@ -363,9 +426,11 @@ header {
     }
 }
 
-section {
+.main {
     height: 400px;
     width: 100%;
+    text-align: center;
+    transform: translateY(100px);
 }
 
 footer {

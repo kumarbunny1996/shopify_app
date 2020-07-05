@@ -1,3 +1,5 @@
+@import "mixin";
+@import "variables";
 * {
     margin: 0;
     padding: 0;
@@ -31,4 +33,75 @@ button {
     padding: 0px;
     margin: 0 auto;
     box-sizing: border-box;
+}
+
+.info-style {
+    @include model();
+    margin: 30px auto !important;
+    //background-color: rgb(248, 241, 218);
+}
+
+.modal {
+    @include overlay();
+    background-color: rgb(0, 0, 0)!important;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4)!important;
+    visibility: hidden !important;
+    /* Black w/ opacity */
+}
+
+.model-content {
+    @include model();
+}
+
+.model-close {
+    @include close();
+}
+
+.success {
+    background-color: rgb(232, 252, 232);
+    border: 1px solid rgb(88, 153, 88);
+    box-shadow: inset 1px 1px 1px 2px rgb(88, 153, 88), inset -1px -1px 1px 2px rgb(88, 153, 88), inset 1px 1px 1px 2px rgb(88, 153, 88), inset -1px -1px 1px 2px rgb(88, 153, 88);
+    h4 {
+        font-size: 22px;
+        font-weight: 700;
+        color: rgb(88, 153, 88);
+    }
+    h4 .term {
+        font-size: 22px;
+        font-weight: 900;
+        color: rgb(88, 153, 88);
+    }
+}
+
+.failure {
+    background-color: rgb(255, 232, 232);
+    border: 1px solid rgb(255, 96, 96);
+    box-shadow: inset 1px 1px 1px 2px rgb(255, 96, 96), inset -1px -1px 1px 2px rgb(255, 96, 96), inset 1px 1px 1px 2px rgb(255, 96, 96), inset -1px -1px 1px 2px rgb(255, 96, 96);
+    h4 {
+        font-size: 20px;
+        font-weight: 700;
+        color: rgb(255, 96, 96);
+    }
+    h4 .term {
+        font-size: 22px;
+        font-weight: 900;
+        color: rgb(255, 96, 96);
+    }
+}
+
+.warning {
+    background-color: rgb(223, 215, 196);
+    border: 1px solid rgb(250, 194, 90);
+    box-shadow: inset 1px 1px 1px 2px rgb(250, 194, 90), inset -1px -1px 1px 2px rgb(250, 194, 90), inset 1px 1px 1px 2px rgb(250, 194, 90), inset -1px -1px 1px 2px rgb(250, 194, 90);
+    h4 {
+        font-size: 20px;
+        font-weight: 700;
+        color: rgb(250, 194, 90);
+    }
+    h4 .term {
+        font-size: 22px;
+        font-weight: 900;
+        color: rgb(250, 194, 90);
+    }
 }

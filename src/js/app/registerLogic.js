@@ -4,14 +4,17 @@ const {
     validateMsg,
     displayPng,
     notDisplayPng,
-    showHidePass
+    showHidePass,
+    showMsg,
+    removeOverlayLoader
 } = require('./uiHandler');
 const makeRequestToServer = require('../ajax/ajax');
+const { loaderDiv } = require('../utils/utils');
 
 
 
 const checkName = () => {
-    let namePattern = /^[a-zA-Z0-9_@\!\#\%\~\$\.\&\*\-\^\%\`\']{2,15}$/;
+    let namePattern = /^[a-zA-Z0-9_@\!\#\%\~\$\.\&\*\-\^\%\`\']{5,256}$/;
     let nameInput = document.getElementById('username');
     let name = nameInput.value.match(namePattern);
     if (!name) {
@@ -51,8 +54,9 @@ const checkEmail = () => {
     }
     return email;
 }
+
 const checkPassword = () => {
-    let passwordPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    let passwordPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,256}/;
     let myInput = document.getElementById("password");
     let password = myInput.value.match(passwordPattern);
     if (!password) {
@@ -62,7 +66,7 @@ const checkPassword = () => {
     } else {
         document.getElementById("error2").style.display = "none";
         document.getElementById("correct-content2").style.display = "block";
-        document.getElementById('register-btn').disabled = false;
+        document.getElementById("register-btn").disabled = false;
 
     }
     return password;
@@ -71,7 +75,7 @@ const checkPassword = () => {
 const confirmPassword = () => {
     let password = document.getElementById("password");
     let confirmPassword = document.getElementById("confirm-password");
-    let pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    let pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,256}/;
     let confirmPswd = password.value != confirmPassword.value;
     if (confirmPswd || confirmPassword.value === "" || !confirmPassword.value.match(pattern)) {
         document.getElementById("correct-content").style.display = "none";
@@ -89,21 +93,61 @@ const confirmPassword = () => {
 
 const inputElements = () => {
     //input elements
-    let nameInput = document.getElementById('username').value;
-    let mobileInput = document.getElementById('number').value;
-    let emailInput = document.getElementById('email').value;
-    let myInput = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirm-password").value;
+    let username = document.getElementById('username').value;
+    let mobile = document.getElementById('number').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById("password").value;
 
     const data = {
-        nameInput,
-        mobileInput,
-        emailInput,
-        myInput,
-        confirmPassword
+        username,
+        mobile,
+        email,
+        password,
     }
     return data;
 
+}
+
+//save user to server by request
+const saveUserProfile = () => {
+    const data = inputElements();
+    let requestObject = {
+        method: 'POST',
+        url: '/api/users/register',
+        name: undefined,
+        value: undefined,
+        data: data
+    };
+    makeRequestToServer(requestObject)
+        .then(successObj => {
+            if (successObj.created) {
+                let msgObject = {
+                    message: successObj.msg,
+                    code: '&#10004',
+                    term: 'Success',
+                    value1: 'info-style',
+                    value2: 'success'
+                }
+                showMsg(msgObject);
+                location.hash = "#login";
+            }
+
+        })
+        .catch(errObj => {
+            if (errObj) {
+                let msgObject = {
+                    message: errObj.message,
+                    code: '&#10008',
+                    term: 'Failure',
+                    value1: 'info-style',
+                    value2: 'failure'
+                }
+                showMsg(msgObject);
+            }
+        })
+        .finally(() => {
+            removeOverlayLoader();
+        });
 }
 
 //validate method for input data
@@ -118,11 +162,8 @@ const formValidation = () => {
         document.getElementById('register-btn').disabled = true;
     } else {
         document.getElementById('register-btn').disabled = false;
-        const data = inputElements();
-        makeRequestToServer('POST', '/api/register', data)
-            .then(data => location.hash = "#login")
-            .catch(err => console.log(err))
-            .finally(() => console.log('finished'));
+        loaderDiv();
+        saveUserProfile();
     }
 
 

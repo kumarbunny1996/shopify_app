@@ -2,7 +2,11 @@ const { indexPage, UI_handlerEvents } = require("../components/index");
 const loginForm = require("../components/login");
 const registerForm = require("../components/register");
 const { passwordEvents, registerEvents } = require('../app/registerLogic');
-const { events, showHide } = require("../app/uiHandler");
+const { loginEvents } = require("../app/loginLogic");
+const displayUserAccount = require("../app/userslogic");
+const { loginAreaAfterSuccess } = require("../utils/utils");
+//const homePage = require("../components/home");
+
 
 
 //sets the home page as default
@@ -16,11 +20,14 @@ setDefaultPage();
 //navigation event handler
 const navigation = () => {
     const fragmentId = location.hash.substr(1);
+    let token = JSON.parse(localStorage.getItem('AccessToken'));
 
     if (fragmentId === "login") {
+        if (token) {
+            return loginAreaAfterSuccess();
+        }
         loginForm();
-        //show or hide the input password
-        events("#toggle", 'click', showHide);
+        loginEvents();
     }
     if (fragmentId === "register") {
         registerForm();
@@ -30,6 +37,9 @@ const navigation = () => {
     if (fragmentId === "home") {
         indexPage();
         UI_handlerEvents();
+        if (token) {
+            displayUserAccount();
+        }
     }
 
 }

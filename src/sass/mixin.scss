@@ -146,7 +146,7 @@
 }
 
 @mixin overlay() {
-    background-color: $deepBlue !important;
+    background-color: $deepBlue;
     opacity: 0.95;
     position: fixed;
     top: 0;
@@ -168,4 +168,63 @@
     width: 60px;
     height: 60px;
     animation: spin 1s linear infinite;
+}
+
+@mixin model() {
+    position: relative;
+    z-index: 3;
+    color: $deepBlue;
+    margin: 15% auto;
+    width: 30%;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+@mixin close() {
+    color: $deepWhite;
+    font-size: 32px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+    font-weight: bold;
+    &:hover {
+        color: $formBorder;
+    }
+}
+
+@mixin toolTip() {
+    position: relative;
+    display: inline-block;
+}
+
+@mixin toolTipContent() {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(233, 225, 225);
+    //border: 0.5px solid rgb(216, 212, 212);
+    color: $deepBlue;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 140%;
+    left: 50%;
+    margin-left: -100px;
+    //box-shadow: inset 1px 1px 0.5px 0.5px $formBorder, inset -1px -1px 0.5px 0.5px $formBorder;
+}
+
+@mixin toolTipArrow() {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -6.5px;
+    border-width: 6.5px;
+    border-style: solid;
+    border-color: transparent transparent $deepWhite transparent;
 }

@@ -15,7 +15,6 @@
 
 .form {
     @include formStyle();
-    height: 530px;
     @include mq(430px) {
         width: 350px;
     }
@@ -60,23 +59,23 @@
     transform: translateX(0%);
 }
 
-.button {
+.button .btn {
     @include buttonStyle();
 }
 
-.button a {
+.button .btn {
     font-size: 16px;
     font-weight: 700;
     color: $deepBlue;
 }
 
-.button:hover {
+.button .btn:hover {
     background-color: darken($borderColour, $amount: 2);
 }
 
 .login-footer {
     @include formFooter();
-    top: 480px;
+    margin: 20px 0px 0px 0px;
 }
 
 .check {
@@ -98,13 +97,22 @@
 
 .google-sign {
     position: relative;
-    text-align: center;
     width: 100%;
-    color: $deepBlue;
-    padding: 15px 0px;
-    box-shadow: -4px -4px 10px rgba(255, 255, 255, 1), inset 4px 4px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 10px rgba(255, 255, 255, 1), 4px 4px 10px rgba(0, 0, 0, 0.05);
-    transition: all 0.1s ease;
     margin: 10px 0px;
+}
+
+.google-sign .google-btn {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    position: relative;
+    width: 100%;
+    padding: 15px 0px;
+    transition: all 0.1s ease;
+    color: $deepBlue;
+    box-shadow: -4px -4px 10px rgba(255, 255, 255, 1), inset 4px 4px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 10px rgba(255, 255, 255, 1), 4px 4px 10px rgba(0, 0, 0, 0.05);
     &:hover {
         background-color: rgb(144, 164, 219);
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05), -4px -4px 10px rgba(255, 255, 255, 1);
@@ -112,17 +120,12 @@
     cursor: pointer;
 }
 
-.google-sign a {
-    font-size: 16px;
-    font-weight: 700;
-    color: $deepBlue;
-}
-
 .google-logo {
     position: absolute;
     height: 30px;
     width: 30px;
     left: 20%;
+    z-index: 1;
     @include mq(430px) {
         left: 15%;
     }
@@ -135,11 +138,16 @@
     cursor: pointer;
 }
 
-.loaderOverlay {
+.loadOverlay {
     @include overlay;
-    visibility: visible!important;
+    visibility: visible !important;
+    background-color: rgb(0, 0, 0) !important;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    /* Black w/ opacity */
 }
-.loader{
+
+.loader {
     @include loader();
 }
 
@@ -147,8 +155,17 @@
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
+}
+
+.errorMsg {
+    color: rgb(255, 76, 76);
+}
+
+#login-btn:disabled {
+    background-color: rgb(255, 228, 202);
+    box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+    cursor: default;
 }

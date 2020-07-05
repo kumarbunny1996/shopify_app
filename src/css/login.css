@@ -33,6 +33,110 @@ button {
   box-sizing: border-box;
 }
 
+.info-style {
+  position: relative;
+  z-index: 3;
+  color: #032f3e;
+  margin: 15% auto;
+  width: 30%;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+  margin: 30px auto !important;
+}
+
+.modal {
+  background-color: #032f3e;
+  opacity: 0.95;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  transition: 0.1s linear;
+  background-color: black !important;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  visibility: hidden !important;
+  /* Black w/ opacity */
+}
+
+.model-content {
+  position: relative;
+  z-index: 3;
+  color: #032f3e;
+  margin: 15% auto;
+  width: 30%;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.model-close {
+  color: #f8f9fb;
+  font-size: 32px;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  font-weight: bold;
+}
+.model-close:hover {
+  color: #a8a7a7;
+}
+
+.success {
+  background-color: #e8fce8;
+  border: 1px solid #589958;
+  box-shadow: inset 1px 1px 1px 2px #589958, inset -1px -1px 1px 2px #589958, inset 1px 1px 1px 2px #589958, inset -1px -1px 1px 2px #589958;
+}
+.success h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #589958;
+}
+.success h4 .term {
+  font-size: 22px;
+  font-weight: 900;
+  color: #589958;
+}
+
+.failure {
+  background-color: #ffe8e8;
+  border: 1px solid #ff6060;
+  box-shadow: inset 1px 1px 1px 2px #ff6060, inset -1px -1px 1px 2px #ff6060, inset 1px 1px 1px 2px #ff6060, inset -1px -1px 1px 2px #ff6060;
+}
+.failure h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff6060;
+}
+.failure h4 .term {
+  font-size: 22px;
+  font-weight: 900;
+  color: #ff6060;
+}
+
+.warning {
+  background-color: #dfd7c4;
+  border: 1px solid #fac25a;
+  box-shadow: inset 1px 1px 1px 2px #fac25a, inset -1px -1px 1px 2px #fac25a, inset 1px 1px 1px 2px #fac25a, inset -1px -1px 1px 2px #fac25a;
+}
+.warning h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fac25a;
+}
+.warning h4 .term {
+  font-size: 22px;
+  font-weight: 900;
+  color: #fac25a;
+}
+
 .logo2 {
   width: 100%;
   position: relative;
@@ -61,7 +165,6 @@ button {
   box-shadow: inset 1px 1px 0.5px 0.5px #a8a7a7, inset -1px -1px 0.5px 0.5px #a8a7a7;
   transform: translateY(50%);
   color: #032f3e;
-  height: 530px;
 }
 @media screen and (max-width: 430px) {
   .form {
@@ -142,7 +245,7 @@ button {
   transform: translateX(0%);
 }
 
-.button {
+.button .btn {
   border: none;
   text-decoration: none;
   background-color: #f8bf2e;
@@ -159,13 +262,13 @@ button {
   margin-top: 20px;
 }
 
-.button a {
+.button .btn {
   font-size: 16px;
   font-weight: 700;
   color: #032f3e;
 }
 
-.button:hover {
+.button .btn:hover {
   background-color: #e2a508;
 }
 
@@ -176,7 +279,7 @@ button {
   margin-bottom: 20px;
   font-size: 12px;
   color: #595f6e;
-  top: 480px;
+  margin: 20px 0px 0px 0px;
 }
 
 .check {
@@ -198,24 +301,27 @@ button {
 
 .google-sign {
   position: relative;
-  text-align: center;
   width: 100%;
-  color: #032f3e;
-  padding: 15px 0px;
-  box-shadow: -4px -4px 10px white, inset 4px 4px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 10px white, 4px 4px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.1s ease;
   margin: 10px 0px;
-  cursor: pointer;
-}
-.google-sign:hover {
-  background-color: #90a4db;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05), -4px -4px 10px white;
 }
 
-.google-sign a {
+.google-sign .google-btn {
+  text-align: center;
   font-size: 16px;
   font-weight: 700;
+  border: none;
+  outline: none;
+  position: relative;
+  width: 100%;
+  padding: 15px 0px;
+  transition: all 0.1s ease;
   color: #032f3e;
+  box-shadow: -4px -4px 10px white, inset 4px 4px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 10px white, 4px 4px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.google-sign .google-btn:hover {
+  background-color: #90a4db;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05), -4px -4px 10px white;
 }
 
 .google-logo {
@@ -223,6 +329,7 @@ button {
   height: 30px;
   width: 30px;
   left: 20%;
+  z-index: 1;
   top: 9px;
   background-image: url("/images/google-logo.png");
   background-size: cover;
@@ -239,8 +346,8 @@ button {
   }
 }
 
-.loaderOverlay {
-  background-color: #032f3e !important;
+.loadOverlay {
+  background-color: #032f3e;
   opacity: 0.95;
   position: fixed;
   top: 0;
@@ -250,19 +357,20 @@ button {
   z-index: 2;
   transition: 0.1s linear;
   visibility: visible !important;
+  background-color: black !important;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  /* Black w/ opacity */
 }
 
 .loader {
   position: absolute;
-  transform: translateX(50%);
-  transform: translateY(50%);
+  top: 50%;
+  left: 50%;
   z-index: 4;
-  border: 10px solid #032f3e;
+  border: 10px solid #595f6e;
   border-radius: 50%;
   border-top: 10px solid #ecac08;
-  border-right: 10px solid #ecac08;
-  border-bottom: 10px solid #ecac08;
-  border-left: 10px solid #ecac08;
   width: 60px;
   height: 60px;
   animation: spin 1s linear infinite;
@@ -275,4 +383,13 @@ button {
   100% {
     transform: rotate(360deg);
   }
+}
+.errorMsg {
+  color: #ff4c4c;
+}
+
+#login-btn:disabled {
+  background-color: #ffe4ca;
+  box-shadow: 1px 1px 0.5px 1px #a8a7a7, 1px 1px 0.5px 1px #a8a7a7;
+  cursor: default;
 }

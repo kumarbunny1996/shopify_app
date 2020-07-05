@@ -1,3 +1,5 @@
+const { modelDoc, msgDoc, uiAfterLogout } = require('../utils/utils');
+
 //gets event elements
 let events = (element, event, eventHandler) => document.querySelector(element).addEventListener(event, eventHandler);
 let removeEvents = (element, event, eventHandler) => document.querySelector(element).removeEventListener(event, eventHandler);
@@ -79,7 +81,53 @@ const hideValidateMsg = () => {
 
 }
 
-module.exports = {
+//close the model 
+
+const closeModel = () => {
+    document.body.style.overflowY = "scroll";
+    const modal = document.getElementById('modal');
+    modal.removeChild(document.getElementById('model-content'));
+    document.getElementById('modal').style.visibility = 'hidden'
+}
+
+const showModel = (message = undefined, element = null, value = undefined) => {
+    console.log(message);
+    modelDoc(message, element);
+    document.body.style.overflowY = "hidden";
+    document.getElementById('modal').classList.add(value);
+    document.getElementById('modal').style.visibility = 'visible'
+    events('#close2', 'click', closeModel);
+    events('#modal', 'click', closeModel);
+
+}
+
+const showMsg = (object = {}) => {
+    window.scrollTo(0, 0);
+    //console.log(message);
+    msgDoc(object.message, object.code, object.term);
+    const msgCont = document.getElementById('info');
+    const contOfMsg = document.getElementById('contOfMsg')
+    contOfMsg.classList.add(object.value1, object.value2);
+    setTimeout(() => {
+        contOfMsg.classList.remove(object.value1, object.value2);
+        msgCont.removeChild(contOfMsg);
+        //window.scrollTo(0, 392);
+    }, 3000);
+
+}
+const removeOverlayLoader = () => {
+    if (document.getElementById('loadOverlay')) {
+        document.body.removeChild(document.getElementById('loadOverlay'));
+    }
+}
+
+//sign out 
+const logOut = () => {
+    localStorage.clear();
+    uiAfterLogout();
+    location.hash = "#home";
+}
+module.exports = Object.freeze({
     events,
     removeEvents,
     showNav,
@@ -89,5 +137,9 @@ module.exports = {
     validateMsg,
     displayPng,
     notDisplayPng,
-    showHidePass
-};
+    showHidePass,
+    showModel,
+    showMsg,
+    removeOverlayLoader,
+    logOut
+});
