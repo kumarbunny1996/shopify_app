@@ -1,38 +1,60 @@
 const makeRequestToServer = require('../ajax/ajax');
 const userStore = require('../utils/userStore');
 const { displayUserProfile, toolTipBox } = require('../utils/utils');
-const { events, logOut } = require('./uiHandler');
-const homePage = require('../components/home');
+const { events, logOut, showMsg } = require('./uiHandler');
+
+
 
 let init = () => {
     displayUserProfile();
     toolTipBox();
-    homePage();
     events('#logOut', 'click', logOut);
     events('#link4', 'click', logOut);
 }
-let getUserProfile = (requestObj = {}) => {
-    let username = "";
-    if (JSON.parse(localStorage.getItem('username')) == undefined) {
-        makeRequestToServer(requestObj)
-            .then(userObj => {
-                localStorage.setItem('username', JSON.stringify(userObj.user.username))
-                userStore.setUsername(userObj.user.username);
-                init();
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    } else {
-        username = JSON.parse(localStorage.getItem('username'));
-        userStore.setUsername(username);
-        init();
-    }
+
+let loginUserData = (requestObj = {}) => {
+    makeRequestToServer(requestObj)
+        .then(userObj => {
+            //localStorage.setItem('username', JSON.stringify(userObj.user.username))
+            userStore.setUsername(userObj.user.username);
+            location.hash = "#home";
+            window.scrollTo(0, 0);
+        })
+        .catch(err => {
+            //console.log(err);
+            let msgObject = {
+                message: err.message,
+                code: '&#9888',
+                term: 'Warning',
+                value1: 'info-style',
+                value2: 'warning'
+            }
+            showMsg(msgObject);
+        });
+}
+
+let getUserProfileReload = (requestObj = {}) => {
+    makeRequestToServer(requestObj)
+        .then(userObj => {
+            userStore.setUsername(userObj.user.username);
+            init();
+        })
+        .catch(err => {
+            //console.log(err);
+            let msgObject = {
+                message: err.message,
+                code: '&#9888',
+                term: 'Warning',
+                value1: 'info-style',
+                value2: 'warning'
+            }
+            showMsg(msgObject);
+        });
 }
 
 
-const displayUserAccount = () => {
-    let token = JSON.parse(localStorage.getItem('AccessToken'));
+const showUserData = () => {
+    let token = userStore.authToken();
     let requestObject = {
         method: 'GET',
         url: '/api/users/profile',
@@ -40,8 +62,22 @@ const displayUserAccount = () => {
         value: token,
         data: null
     }
-    getUserProfile(requestObject);
+    loginUserData(requestObject);
+}
+
+const showReloadData = () => {
+    let token = userStore.authToken();
+    let requestObject = {
+        method: 'GET',
+        url: '/api/users/profile',
+        name: 'Authorization',
+        value: token,
+        data: null
+    }
+    getUserProfileReload(requestObject);
 }
 
 
-module.exports = displayUserAccount;
+
+
+module.exports = { showUserData, showReloadData, init };

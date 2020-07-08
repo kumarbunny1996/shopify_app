@@ -25,8 +25,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
-        "dev": "webpack ./src/js/main.js --mode=development",
-        "build": "webpack --mode=production"
+        "dev": "webpack ./src/js/main.js --mode development",
+        "build": "webpack --mode production"
     },
     "author": "",
     "license": "ISC"

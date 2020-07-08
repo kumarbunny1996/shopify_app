@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -123,19 +122,19 @@ button {
 }
 
 .warning {
-  background-color: #dfd7c4;
-  border: 1px solid #fac25a;
-  box-shadow: inset 1px 1px 1px 2px #fac25a, inset -1px -1px 1px 2px #fac25a, inset 1px 1px 1px 2px #fac25a, inset -1px -1px 1px 2px #fac25a;
+  background-color: #ffecc0;
+  border: 1px solid #e9b148;
+  box-shadow: inset 1px 1px 1px 2px #e9b148, inset -1px -1px 1px 2px #e9b148, inset 1px 1px 1px 2px #e9b148, inset -1px -1px 1px 2px #e9b148;
 }
 .warning h4 {
   font-size: 20px;
   font-weight: 700;
-  color: #fac25a;
+  color: #e9b148;
 }
 .warning h4 .term {
   font-size: 22px;
   font-weight: 900;
-  color: #fac25a;
+  color: #e9b148;
 }
 
 .logo3 {
@@ -312,30 +311,6 @@ button {
   font-size: 16px;
 }
 
-/* Add a green text color and a checkmark when the requirements are right */
-.valid {
-  color: #032f3e;
-}
-
-.valid:before {
-  position: relative;
-  left: -30px;
-  content: "✔";
-  color: #1d861d;
-}
-
-/* Add a red text color and an "x" icon when the requirements are wrong */
-.invalid {
-  color: #032f3e;
-}
-
-.invalid:before {
-  position: relative;
-  left: -30px;
-  content: "☓";
-  color: #f5261f !important;
-}
-
 .eye-toggle {
   position: absolute;
   width: 30px;
@@ -355,14 +330,22 @@ button {
 
 .error-content {
   color: #ff5f5f;
-  font-size: 14px;
+  font-size: 15px;
   display: none;
 }
 
 .correct-content {
   color: #1d861d;
-  font-size: 14px;
+  font-size: 15px;
   display: none;
+}
+
+.valid {
+  color: #1d861d;
+}
+
+.invalid {
+  color: #ff5f5f;
 }
 
 .loadOverlay {

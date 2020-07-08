@@ -4,12 +4,13 @@ const loginForm = require("../components/login");
 const { loginEvents } = require('../app/loginLogic');
 const registerForm = require("../components/register");
 const { passwordEvents, registerEvents } = require("../app/registerLogic");
-const displayUserAccount = require("../app/userslogic");
+const { showReloadData } = require("../app/userslogic");
 const { loginAreaAfterSuccess } = require('../utils/utils');
+const userStore = require('../utils/userStore');
 //const homePage = require('../components/home');
 
 
-let token = JSON.parse(localStorage.getItem('AccessToken'));
+let token = userStore.authToken();
 
 //calls the common function to all pages when reloaded
 
@@ -19,7 +20,8 @@ const reloadPages = () => {
         indexPage();
         UI_handlerEvents();
         if (token) {
-            displayUserAccount();
+            showReloadData();
+
         }
     }
 

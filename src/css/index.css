@@ -122,19 +122,19 @@ button {
 }
 
 .warning {
-  background-color: #dfd7c4;
-  border: 1px solid #fac25a;
-  box-shadow: inset 1px 1px 1px 2px #fac25a, inset -1px -1px 1px 2px #fac25a, inset 1px 1px 1px 2px #fac25a, inset -1px -1px 1px 2px #fac25a;
+  background-color: #ffecc0;
+  border: 1px solid #e9b148;
+  box-shadow: inset 1px 1px 1px 2px #e9b148, inset -1px -1px 1px 2px #e9b148, inset 1px 1px 1px 2px #e9b148, inset -1px -1px 1px 2px #e9b148;
 }
 .warning h4 {
   font-size: 20px;
   font-weight: 700;
-  color: #fac25a;
+  color: #e9b148;
 }
 .warning h4 .term {
   font-size: 22px;
   font-weight: 900;
-  color: #fac25a;
+  color: #e9b148;
 }
 
 /* width */

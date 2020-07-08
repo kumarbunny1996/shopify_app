@@ -15,11 +15,9 @@ const getUserData = async(user_id) => {
 let userData = (user) => {
     return getUserInfo(user);
 }
-let getUserInfo = ({ _id, username, mobile, email }) => {
+let getUserInfo = ({ username, email }) => {
     let userInfo = {
-        _id,
         username,
-        mobile,
         email
     }
     return userInfo;

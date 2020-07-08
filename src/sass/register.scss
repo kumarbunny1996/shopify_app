@@ -105,30 +105,6 @@
         padding: 5px;
         font-size: 16px;
     }
-    /* Add a green text color and a checkmark when the requirements are right */
-    
-    .valid {
-        color: $deepBlue;
-    }
-    
-    .valid:before {
-        position: relative;
-        left: -30px;
-        content: "\2714";
-        color: rgb(29, 134, 29);
-    }
-    /* Add a red text color and an "x" icon when the requirements are wrong */
-    
-    .invalid {
-        color: $deepBlue;
-    }
-    
-    .invalid:before {
-        position: relative;
-        left: -30px;
-        content: "\2613";
-        color: rgb(245, 38, 31)!important;
-    }
     
     //toggle class
     .eye-toggle {
@@ -143,14 +119,22 @@
     
     .error-content {
         color: rgb(255, 95, 95);
-        font-size: 14px;
+        font-size: 15px;
         display: none;
     }
     
     .correct-content {
         color: rgb(29, 134, 29);
-        font-size: 14px;
+        font-size: 15px;
         display: none;
+    }
+    
+    .valid {
+        color: rgb(29, 134, 29);
+    }
+    
+    .invalid {
+        color: rgb(255, 95, 95);
     }
     
     .loadOverlay {

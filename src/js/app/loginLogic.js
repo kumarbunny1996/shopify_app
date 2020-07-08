@@ -2,6 +2,7 @@
 const { events, showHide, showMsg, removeOverlayLoader } = require("./uiHandler");
 const makeRequestToServer = require('../ajax/ajax');
 const { loaderDiv } = require("../utils/utils");
+const { showUserData } = require("./userslogic");
 
 const checkPassword = () => {
     let passwordPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,256}/;
@@ -64,11 +65,7 @@ const getToken = () => {
             //console.log(successObj);
             if (successObj.logged_in) {
                 localStorage.setItem('AccessToken', JSON.stringify(successObj.token));
-                let token = JSON.parse(localStorage.getItem('AccessToken'));
-                if (token) {
-                    location.hash = "#home";
-                }
-
+                showUserData();
             }
         })
         .catch(errObj => {

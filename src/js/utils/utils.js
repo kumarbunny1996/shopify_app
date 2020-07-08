@@ -108,6 +108,24 @@ const loginAreaAfterSuccess = () => {
     `;
 }
 
+// delay  the events handler func
+
+const debouncing = (fn, delay) => {
+    let timeout;
+    return function() {
+        let context = this,
+            args = arguments;
+        let later = () => {
+            timeout = null;
+            fn.apply(context, args);
+        }
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+        timeout = setTimeout(later, delay || 500);
+    }
+}
+
 module.exports = Object.freeze({
     loaderDiv,
     modelDoc,
@@ -115,5 +133,6 @@ module.exports = Object.freeze({
     displayUserProfile,
     uiAfterLogout,
     toolTipBox,
-    loginAreaAfterSuccess
+    loginAreaAfterSuccess,
+    debouncing
 });

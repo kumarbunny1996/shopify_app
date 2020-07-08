@@ -101,7 +101,7 @@ const showModel = (message = undefined, element = null, value = undefined) => {
 
 }
 
-const showMsg = (object = {}) => {
+const showMsg = (object = {}, timer = 4000) => {
     window.scrollTo(0, 0);
     //console.log(message);
     msgDoc(object.message, object.code, object.term);
@@ -112,13 +112,29 @@ const showMsg = (object = {}) => {
         contOfMsg.classList.remove(object.value1, object.value2);
         msgCont.removeChild(contOfMsg);
         //window.scrollTo(0, 392);
-    }, 3000);
+    }, timer);
 
 }
 const removeOverlayLoader = () => {
     if (document.getElementById('loadOverlay')) {
         document.body.removeChild(document.getElementById('loadOverlay'));
     }
+}
+
+const showUserNameMsg = (object = {}) => {
+    let { value, value2, message } = object;
+    document.getElementById('register-btn').disabled = value;
+    let msgCont = document.getElementById('nameMsg')
+    msgCont.style.display = "block";
+    while (msgCont.firstChild) {
+        msgCont.removeChild(msgCont.firstChild)
+    }
+    msgCont.classList.add(value2);
+    let p = document.createElement('p');
+    //p.id = 'msg-to-client';
+    p.innerText = message;
+    msgCont.appendChild(p)
+
 }
 
 //sign out 
@@ -141,5 +157,6 @@ module.exports = Object.freeze({
     showModel,
     showMsg,
     removeOverlayLoader,
-    logOut
+    logOut,
+    showUserNameMsg
 });

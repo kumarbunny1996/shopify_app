@@ -6,7 +6,7 @@ module.exports = function makeRequestToServer(requestObject = {}) {
             if (this.status === 200) {
                 return resolve(JSON.parse(this.responseText));
             }
-            if (this.status === 400) {
+            if (this.status === 400 || this.status === 401) {
                 return reject(JSON.parse(this.responseText));
             }
         }

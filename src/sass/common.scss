@@ -91,17 +91,18 @@ button {
 }
 
 .warning {
-    background-color: rgb(223, 215, 196);
-    border: 1px solid rgb(250, 194, 90);
-    box-shadow: inset 1px 1px 1px 2px rgb(250, 194, 90), inset -1px -1px 1px 2px rgb(250, 194, 90), inset 1px 1px 1px 2px rgb(250, 194, 90), inset -1px -1px 1px 2px rgb(250, 194, 90);
+    background-color: rgb(255, 236, 192);
+    border: 1px solid rgb(233, 177, 72);
+    box-shadow: inset 1px 1px 1px 2px rgb(233, 177, 72), inset -1px -1px 1px 2px rgb(233, 177, 72), inset 1px 1px 1px 2px rgb(233, 177, 72), inset -1px -1px 1px 2px rgb(233, 177, 72);
+    ;
     h4 {
         font-size: 20px;
         font-weight: 700;
-        color: rgb(250, 194, 90);
+        color: rgb(233, 177, 72);
     }
     h4 .term {
         font-size: 22px;
         font-weight: 900;
-        color: rgb(250, 194, 90);
+        color: rgb(233, 177, 72);
     }
 }

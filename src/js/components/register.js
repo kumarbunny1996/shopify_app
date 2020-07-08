@@ -19,6 +19,7 @@ const registerForm = () => {
                 <div class="error-content" id="error-content">
                 <p>Minimum 5 characters</p>
                 </div>
+                <div class="error-content" id="nameMsg"></div>
                 <div class="input-container">
                     <input type="text" class="input" id="number" name="number" autocomplete="off" required>
                     <label for="number" class="label-content2"><span class="content-name"> Mobile Number *</span></label>
@@ -39,10 +40,10 @@ const registerForm = () => {
                     <div id="eye-toggle" class="eye-toggle"></div>
                 </form>
                 <div class="error-content" id="error2">
-                <p>Password is invalid</p>
+                    <p>Password is invalid</p>
                 </div>
                 <div class="correct-content" id="correct-content2">
-                <p>Password is valid</p>
+                    <p>Password is valid</p>
                 </div>
                 <div id="messages">
                     <h4>Password should be</h4>

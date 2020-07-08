@@ -4,7 +4,7 @@ const authenticateToken = ((req, res, next) => {
     const authHeader = req.headers['authorization'];
     const accessToken = authHeader && authHeader.split(' ')[1];
     if (accessToken == null) {
-        return res.status(401).send({ message: 'Token is not generated' });
+        return res.status(401).send({ message: 'Access is denied' });
     }
     verifyToken(accessToken)
         .then(user => {
