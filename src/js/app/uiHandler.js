@@ -1,6 +1,7 @@
 const { modelDoc, msgDoc, uiAfterLogout } = require('../utils/utils');
 
 //gets event elements
+
 let events = (element, event, eventHandler) => document.querySelector(element).addEventListener(event, eventHandler);
 let removeEvents = (element, event, eventHandler) => document.querySelector(element).removeEventListener(event, eventHandler);
 
@@ -23,16 +24,19 @@ function closeNav() {
 }
 
 // shows the eye-toggler png
-const displayPng = () => {
-    document.getElementById("eye-toggle2").style.display = "block";
+const displayPng = (e) => {
+    const toggle = e.target.parentElement.lastElementChild;
+    toggle.style.display = "block";
 }
-const notDisplayPng = () => {
+const notDisplayPng = (e) => {
+    const password = e.target;
+    const toggle = e.target.parentElement.lastElementChild;
     //check the password input has the value
-    var myInput = document.getElementById("confirm-password");
-    if (myInput.value === "") {
-        document.getElementById("eye-toggle2").style.display = "none";
+    //var myInput = document.getElementById("confirm-password");
+    if (password.value === "") {
+        toggle.style.display = "none";
     } else {
-        document.getElementById("eye-toggle2").style.display = "block";
+        toggle.style.display = "block";
     }
 }
 
@@ -90,14 +94,13 @@ const closeModel = () => {
     document.getElementById('modal').style.visibility = 'hidden'
 }
 
-const showModel = (message = undefined, element = null, value = undefined) => {
-    console.log(message);
-    modelDoc(message, element);
+const showModel = (domValue) => {
+    modelDoc(domValue);
     document.body.style.overflowY = "hidden";
-    document.getElementById('modal').classList.add(value);
+    //document.getElementById('modal').classList.add();
     document.getElementById('modal').style.visibility = 'visible'
     events('#close2', 'click', closeModel);
-    events('#modal', 'click', closeModel);
+    //events('#modal', 'click', closeModel);
 
 }
 
@@ -137,11 +140,12 @@ const showUserNameMsg = (object = {}) => {
 
 }
 
+
 //sign out 
 const logOut = () => {
     localStorage.clear();
-    uiAfterLogout();
-    location.hash = "#home";
+    //uiAfterLogout();
+    location.hash = "#login";
 }
 module.exports = Object.freeze({
     events,

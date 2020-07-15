@@ -38,7 +38,7 @@ const loginForm = () => {
                     <div class="google-logo"></div>
                     <button class="google-btn">Login with Google</button>
                 </div>
-                <h5>New customer</h5>
+                <h5 style="text-align:left;">New customer</h5>
                 <div class="button">
                     <button class="btn" id="create-btn" data-id="">Create an account</button>
                 </div>

@@ -1,5 +1,6 @@
-//loading method
 const userStore = require('./userStore');
+
+//loading method
 
 const loaderDiv = () => {
     let loader = document.createElement('div');
@@ -8,6 +9,9 @@ const loaderDiv = () => {
     loader.innerHTML = `
           <div class="loader" id="loader"></div>    
     `;
+    if (document.getElementById('loadOverlay')) {
+        document.body.removeChild(document.getElementById('loadOverlay'));
+    }
     document.body.appendChild(loader);
 }
 
@@ -24,8 +28,7 @@ const msgDoc = (message, code, term) => {
     `;
 }
 
-const modelDoc = (message, element) => {
-
+const modelDoc = (value) => {
     const model = document.getElementById('modal');
     model.innerHTML = `
         <div class="model-content" id="model-content">
@@ -33,8 +36,10 @@ const modelDoc = (message, element) => {
                 <span class="close" id="close2">
                     &times
                 </span>
+            </div
+            <div>
+                ${value}
             </div>
-            <p class="model-message">${message} ${element}</p>
         </div>
     `;
 }
@@ -51,9 +56,8 @@ const displayUserProfile = () => {
     const account3 = document.getElementById('user-login');
     const account4 = document.getElementById('user-div');
     const link4 = document.getElementById('link4');
-
     let username = userStore.getUsername();
-    console.log(username);
+    //console.log(username);
 
     account.style.display = 'block';
     account2.style.display = 'block';
@@ -91,11 +95,14 @@ const toolTipBox = () => {
         <ul class="tool-tip-list">
             <li><a href="#">Your Account</a></li>
             <li><a href="#">Your Orders</a></li>
-            <li><a href="#">Sell On Shopify</a></li>
-            <li class=button><button class="btn" id="logOut">Sign out</button></li>
+            <li><a href="#sell-on-shopify">Sell On Shopify</a></li>
+            <li class=button id="logOut"><button class="btn">Sign out</button></li>
         </ul>
         
     `;
+    if (document.getElementById('tool-tip-content')) {
+        account.removeChild(document.getElementById('tool-tip-content'));
+    }
     account.appendChild(toolTip);
 }
 

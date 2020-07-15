@@ -89,6 +89,10 @@ const loginValidation = () => {
     let password = checkPassword();
     let userInput = checkMobileOrEmail();
 
+    let mobile = document.getElementById('user-input').value;
+    let passwordInput = document.getElementById("password").value;
+    if (passwordInput === "" || mobile === "") return;
+
     if (password === null || userInput === null) {
         document.getElementById("login-btn").disabled = true;
     } else {

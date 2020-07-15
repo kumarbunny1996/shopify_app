@@ -28,7 +28,7 @@ const checkButtonStatus = () => {
     }
 }
 const checkName = () => {
-    let namePattern = /^[a-zA-Z0-9_@\!\#\%\~\$\.\&\*\-\^\%\`\']{5,256}$/;
+    let namePattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\']{5,256}$/;
     let nameInput = document.getElementById('username');
     let name = nameInput.value.match(namePattern);
     if (!name) {
@@ -148,7 +148,7 @@ const inputElements = () => {
         username,
         mobile,
         email,
-        password,
+        password
     }
     return data;
 
@@ -203,6 +203,13 @@ const formValidation = () => {
     let email = checkEmail();
     let password = checkPassword();
     let confirmPass = confirmPassword();
+    //input elements
+    let usernameInput = document.getElementById('username').value;
+    let mobileInput = document.getElementById('number').value;
+    let emailInput = document.getElementById('email').value;
+    let passwordInput = document.getElementById("password").value;
+
+    if (usernameInput = "" || mobileInput === "" || emailInput === "" || passwordInput === "") return;
 
     if (name === null || mobile === null || email === null || password === null || confirmPass === true) {
         document.getElementById('register-btn').disabled = true;
@@ -219,7 +226,7 @@ const formValidation = () => {
 
 const checkUsernameForAvail = debouncing((e) => {
     let value = e.target.value;
-    console.log(value);
+    //console.log(value);
     let name = checkName();
     let msgCont = document.getElementById('nameMsg');
     if (name === null) return;
@@ -249,7 +256,7 @@ const checkUsernameForAvail = debouncing((e) => {
             }
         })
         .catch(err => {
-            console.log(err);
+            //console.log(err);
 
             let msgObj = {
                 value: true,
@@ -270,7 +277,7 @@ const checkUsernameForAvail = debouncing((e) => {
 
 const checkMobileNumberForAvail = debouncing((e) => {
     let value = e.target.value;
-    console.log(value);
+    //console.log(value);
     let mobile = checkMobileNo();
     if (mobile === null) return;
     let requestObject = {
@@ -305,7 +312,7 @@ const checkMobileNumberForAvail = debouncing((e) => {
 
 const checkEmailForAvail = debouncing((e) => {
     let value = e.target.value;
-    console.log(value);
+    //console.log(value);
     let email = checkEmail();
     if (email === null) return;
     let requestObject = {

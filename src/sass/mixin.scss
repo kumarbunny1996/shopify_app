@@ -32,11 +32,8 @@
 //form css
 @mixin logo() {
     width: 100%;
-    position: relative;
-    top: 20px;
-    text-align: center;
     text-transform: capitalize;
-    transform: translateY(40%);
+    padding-bottom: 20px;
 }
 
 @mixin logoTitle() {
@@ -52,11 +49,10 @@
 
 @mixin formStyle() {
     width: 400px;
-    margin: -180px auto;
+    margin: 0 auto;
     padding: 20px;
     border: 0.5px solid rgb(216, 212, 212);
     box-shadow: inset 1px 1px 0.5px 0.5px $formBorder, inset -1px -1px 0.5px 0.5px $formBorder;
-    transform: translateY(50%);
     color: $deepBlue;
 }
 
@@ -161,7 +157,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 4;
+    z-index: 10;
     border: 10px solid $inputFontColor;
     border-radius: 50%;
     border-top: 10px solid $borderColour;
@@ -170,11 +166,11 @@
     animation: spin 1s linear infinite;
 }
 
-@mixin model() {
+@mixin modelCont() {
     position: relative;
-    z-index: 3;
+    z-index: 9;
     color: $deepBlue;
-    margin: 15% auto;
+    margin: 10% auto;
     width: 30%;
     padding: 20px;
     border-radius: 5px;
@@ -183,7 +179,7 @@
 }
 
 @mixin close() {
-    color: $deepWhite;
+    color: $deepBlue;
     font-size: 32px;
     position: absolute;
     right: 10px;
@@ -192,7 +188,7 @@
     cursor: pointer;
     font-weight: bold;
     &:hover {
-        color: $formBorder;
+        color: $borderColour;
     }
 }
 
@@ -205,7 +201,6 @@
     visibility: hidden;
     width: 200px;
     background-color: rgb(233, 225, 225);
-    //border: 0.5px solid rgb(216, 212, 212);
     color: $deepBlue;
     text-align: center;
     border-radius: 3px;
@@ -215,7 +210,6 @@
     top: 140%;
     left: 50%;
     margin-left: -100px;
-    //box-shadow: inset 1px 1px 0.5px 0.5px $formBorder, inset -1px -1px 0.5px 0.5px $formBorder;
 }
 
 @mixin toolTipArrow() {
@@ -227,4 +221,35 @@
     border-width: 6.5px;
     border-style: solid;
     border-color: transparent transparent $deepWhite transparent;
+}
+
+@mixin toolTipContent2() {
+    width: 200px;
+    color: $deepWhite;
+    text-align: center;
+    border-radius: 3px;
+    padding: 10px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 140%;
+    left: 50%;
+    margin-left: -100px;
+    background-color: $deepBlue;
+    font-size: 11px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+@mixin toolTipArrow2() {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    margin-left: -4px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: $deepBlue transparent transparent transparent;
+    visibility: hidden;
+    opacity: 0;
 }

@@ -2,6 +2,8 @@ const makeRequestToServer = require('../ajax/ajax');
 const userStore = require('../utils/userStore');
 const { displayUserProfile, toolTipBox } = require('../utils/utils');
 const { events, logOut, showMsg } = require('./uiHandler');
+const { productModalShow, removeModal } = require("../app/sellerLogic");
+
 
 
 
@@ -15,8 +17,14 @@ let init = () => {
 let loginUserData = (requestObj = {}) => {
     makeRequestToServer(requestObj)
         .then(userObj => {
-            //localStorage.setItem('username', JSON.stringify(userObj.user.username))
             userStore.setUsername(userObj.user.username);
+            let seller = userStore.getDataValue();
+            //console.log(seller);
+            if (seller) {
+                seller = "";
+                userStore.setDataValue(seller);
+                return location.hash = "#seller-central";
+            }
             location.hash = "#home";
             window.scrollTo(0, 0);
         })
@@ -37,7 +45,17 @@ let getUserProfileReload = (requestObj = {}) => {
     makeRequestToServer(requestObj)
         .then(userObj => {
             userStore.setUsername(userObj.user.username);
-            init();
+            if (document.getElementById('product-form')) {
+                let sellerToken = userStore.authSellerToken();
+                if (sellerToken) {
+                    return removeModal();
+                }
+                productModalShow();
+            };
+
+            if (document.getElementById('index-content')) {
+                return init();
+            };
         })
         .catch(err => {
             //console.log(err);

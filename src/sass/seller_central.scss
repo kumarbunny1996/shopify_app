@@ -1,0 +1,531 @@
+@import "common";
+@import "variables";
+@import "mixin";
+.seller-header {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    color: $deepWhite;
+    line-height: 80px;
+    background-color: rgb(45, 112, 124);
+    .logo-seller {
+        font-size: 24px;
+        font-weight: 700;
+        margin-left: 20px;
+        @include mq(400px) {
+            margin-left: 10px;
+        }
+        @include mq(600px) {
+            font-size: 18px;
+            font-weight: 400;
+        }
+        @include mq(400px) {
+            font-size: 16px;
+            font-weight: 400;
+        }
+        i {
+            font-size: 24px;
+            font-weight: 700;
+            @include mq(600px) {
+                font-size: 18px;
+                font-weight: 400;
+            }
+            @include mq(400px) {
+                font-size: 16px;
+                font-weight: 400;
+            }
+            color: $borderColour;
+        }
+    }
+    .seller-nav {
+        position: absolute;
+        float: right;
+        top: 0px;
+        right: 20px;
+        @include mq(400px) {
+            right: 5px;
+        }
+        .seller-nav-links li {
+            display: inline-block;
+            margin-right: 20px;
+            @include mq(400px) {
+                margin-right: 5px;
+                ;
+            }
+            font-size: 24px;
+            font-weight: 700;
+            cursor: pointer;
+            @include mq(600px) {
+                font-size: 18px;
+                font-weight: 400;
+            }
+            @include mq(400px) {
+                font-size: 14px;
+                font-weight: 400;
+            }
+            color: $deepWhite;
+            &:hover {
+                color: $borderColour;
+            }
+            a {
+                font-size: 24px;
+                font-weight: 700;
+                cursor: pointer;
+                @include mq(600px) {
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+                @include mq(400px) {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+                color: $deepWhite;
+                &:hover {
+                    color: $borderColour;
+                }
+            }
+        }
+    }
+}
+
+#seller-cont {
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    //height: 750px;
+    .logo-seller2 {
+        padding-bottom: 25px;
+    }
+    .logo-seller2 a {
+        font-size: 24px;
+        font-weight: 600;
+        color: $deepBlue;
+        span {
+            font-size: 24px;
+            font-weight: 600;
+            color: $borderColour;
+        }
+    }
+    .seller-form-wrapper {
+        @include formStyle();
+        @include mq(430px) {
+            width: 350px;
+        }
+        @include mq(370px) {
+            width: 300px;
+        }
+    }
+    .input-wrapper {
+        @include formContent();
+        overflow: visible!important;
+        @include mq(430px) {
+            width: 310px;
+        }
+        @include mq(370px) {
+            width: 260px;
+        }
+    }
+    .input-wrapper .seller-input {
+        @include formInput();
+        padding-left: 16px !important;
+    }
+    .seller-input::placeholder {
+        color: $deepBlue;
+        font-size: 14px;
+    }
+    .seller-form-wrapper .label-content-seller {
+        @include formLabel();
+    }
+    // .seller-form-wrapper .label-content-seller::after {
+    //     @include labelAfter();
+    //     border-bottom: 3px solid rgb(72, 198, 236)!important;
+    // }
+    .content-name-seller {
+        @include contentOnly();
+        left: 16px !important;
+    }
+    .input-wrapper .seller-input:focus+label .content-name-seller,
+    .input-wrapper .seller-input:valid+label .content-name-seller {
+        transform: translateY(-150%);
+    }
+    .input-wrapper .seller-input:placeholder-shown+label .content-name-seller {
+        transform: translateY(-150%);
+    }
+    .input-wrapper .seller-input:focus.seller-input::placeholder {
+        opacity: 0;
+    }
+    .input-wrapper .seller-input:focus+label::after,
+    .input-wrapper .seller-input:valid+label::after {
+        transform: translateX(0%);
+    }
+    .input-wrapper .seller-input:focus {
+        border-bottom: 3px solid rgb(72, 198, 236) !important;
+    }
+    .btn #sellButton {
+        @include buttonStyle();
+        background-color: rgb(171, 255, 255)!important;
+        box-shadow: 1px 1px 0.5px 1px rgb(171, 255, 255), 1px 1px 0.5px 1px rgb(171, 255, 255)!important;
+    }
+    .btn #sellButton:disabled {
+        background-color: rgb(255, 228, 202);
+        box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+        cursor: default;
+    }
+    .info-mark2 {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 1px solid rgb(171, 255, 255);
+        position: absolute;
+        top: 1px;
+        left: 0px;
+        cursor: pointer;
+        background-color: $deepBlue;
+        color: $deepWhite;
+        font-size: 10px;
+        font-weight: 600;
+    }
+    .info-mark2::before {
+        content: attr(data-seller);
+        @include toolTipContent2();
+    }
+    .info-mark2:hover::before {
+        visibility: visible;
+        opacity: 1;
+    }
+    .info-mark2:hover::after {
+        visibility: visible;
+        opacity: 1;
+    }
+    .info-mark2::after {
+        @include toolTipArrow2();
+        transition: opacity 0.5s;
+    }
+    .lead-seller {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    #click-to-sell {
+        font-size: 12px;
+        color: rgb(94, 132, 214);
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.footer-dead2 {
+    background-color: rgb(0, 74, 87)!important;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+//modal-content
+.model-content {
+    #user-div4 {
+        a {
+            color: $deepBlue;
+            i.fa {
+                font-size: 32px;
+            }
+        }
+    }
+    .tiny-form2 {
+        width: 100% !important;
+        padding: 20px;
+    }
+    .input-container4 {
+        @include formContent();
+        height: 70px !important;
+        margin: 0px !important;
+    }
+    .input-container4 .input4 {
+        @include formInput();
+    }
+    .tiny-form2 .label-content4 {
+        @include formLabel();
+    }
+    .tiny-form2 .label-content4::after {
+        @include labelAfter();
+        border-bottom: 3px solid rgb(72, 198, 236) !important;
+    }
+    .content-name4 {
+        @include contentOnly();
+    }
+    .input-container4 .input4:focus+label .content-name4,
+    .input-container4 .input4:valid+label .content-name4 {
+        transform: translateY(-150%);
+    }
+    .input-container4 .input4:focus+label::after,
+    .input-container4 .input4:valid+label::after {
+        transform: translateX(0%);
+    }
+    .sellingButton button {
+        @include buttonStyle();
+        background-color: rgb(171, 255, 255) !important;
+        box-shadow: 1px 1px 0.5px 1px rgb(171, 255, 255), 1px 1px 0.5px 1px rgb(171, 255, 255) !important;
+    }
+}
+
+//product form
+#product-form {
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    //height: 750px;
+    .logo-seller3 {
+        padding-bottom: 25px;
+    }
+    .logo-seller3 a {
+        font-size: 24px;
+        font-weight: 600;
+        color: $deepBlue;
+        span {
+            font-size: 24px;
+            font-weight: 600;
+            color: $borderColour;
+        }
+    }
+    .product-form-wrapper {
+        @include formStyle();
+        @include mq(430px) {
+            width: 350px;
+        }
+        @include mq(370px) {
+            width: 300px;
+        }
+    }
+    .input-wrapper2 {
+        @include formContent();
+        overflow: visible !important;
+        @include mq(430px) {
+            width: 310px;
+        }
+        @include mq(370px) {
+            width: 260px;
+        }
+    }
+    .input-wrapper2 .product-input {
+        @include formInput();
+        padding-left: 15px !important;
+    }
+    .product-input::placeholder {
+        color: $deepBlue;
+        font-size: 14px;
+    }
+    .product-form-wrapper .label-content-product {
+        @include formLabel();
+        //left: 16px !important;
+    }
+    // .product-form-wrapper .label-content-product::after {
+    //     @include labelAfter();
+    //     border-bottom: 3px solid rgb(72, 198, 236) !important;
+    // }
+    .content-name-product {
+        @include contentOnly();
+        left: 16px !important;
+    }
+    .input-wrapper2 .product-input:focus+label .content-name-product,
+    .input-wrapper2 .product-input:valid+label .content-name-product {
+        transform: translateY(-150%);
+    }
+    .input-wrapper2 .product-input:focus {
+        border-bottom: 3px solid rgb(72, 198, 236) !important;
+    }
+    .input-wrapper2 .product-input:placeholder-shown+label .content-name-product {
+        transform: translateY(-150%);
+    }
+    .input-wrapper2 .product-input:focus.product-input::placeholder {
+        opacity: 0;
+    }
+    .input-wrapper2 .product-input:focus+label::after,
+    .input-wrapper2 .product-input:valid+label::after {
+        transform: translateX(0%);
+    }
+    .btn #save-btn {
+        @include buttonStyle();
+        background-color: rgb(171, 255, 255) !important;
+        box-shadow: 1px 1px 0.5px 1px rgb(171, 255, 255), 1px 1px 0.5px 1px rgb(171, 255, 255) !important;
+    }
+    .btn #save-btn:disabled {
+        background-color: rgb(255, 228, 202);
+        box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+        cursor: default;
+    }
+    .input-wrapper3 {
+        @include formContent();
+        height: 150px !important;
+        @include mq(430px) {
+            width: 310px;
+        }
+        @include mq(370px) {
+            width: 260px;
+        }
+    }
+    .input-wrapper3 .text-area {
+        width: 100%;
+        height: 100%;
+        padding: 30px 10px 10px 30px;
+        color: $inputFontColor;
+        border: 2px solid $deepBlue;
+        font-size: 18px;
+        outline: none;
+        background-color: $inputBgColor;
+    }
+    .input-wrapper3 .textarea-name {
+        color: $deepBlue;
+        position: absolute;
+        top: 5px;
+        left: 15px;
+    }
+    .imgLabel {
+        text-align: left;
+        position: relative;
+    }
+    .imgLabel span {
+        position: relative;
+        left: 16px;
+    }
+    .img-wrapper {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        margin: 20px 0px;
+        border: 1.5px solid $deepBlue;
+        left: 20%;
+        input[type="file"] {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .image-preview {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0px;
+            opacity: 0;
+            pointer-events: none;
+            cursor: pointer;
+        }
+        label {
+            cursor: pointer;
+        }
+        label span i.fa {
+            text-align: center;
+            font-size: 28px;
+            line-height: 200px;
+        }
+    }
+    .category {
+        position: relative;
+    }
+    .category-name {
+        position: absolute;
+        left: 16px;
+    }
+    .product-category {
+        font-size: 14px;
+        outline: none;
+        text-decoration: none;
+        border: none;
+        border-bottom: 1px solid $deepBlue;
+        color: $deepBlue;
+        -webkit-appearance: none;
+        background-color: $inputBgColor;
+        width: 100%;
+        height: 50px;
+        padding-left: 20px;
+        padding-top: 18px;
+        cursor: pointer;
+    }
+    .category-name {
+        float: left;
+    }
+    .sort-icon {
+        position: absolute;
+        top: -1px;
+        left: 30px;
+        color: $deepBlue;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        padding-top: 5px;
+        pointer-events: none;
+        i.fa {
+            font-size: 22px;
+            line-height: 50px;
+        }
+    }
+    .info-mark {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 1px solid rgb(171, 255, 255);
+        position: absolute;
+        top: 1px;
+        left: 0px;
+        cursor: pointer;
+        background-color: $deepBlue;
+        color: $deepWhite;
+        font-size: 10px;
+        font-weight: 600;
+    }
+    .info-mark::before {
+        content: attr(data-info);
+        @include toolTipContent2();
+    }
+    .info-mark:hover::before {
+        visibility: visible;
+        opacity: 1;
+    }
+    .info-mark:hover::after {
+        visibility: visible;
+        opacity: 1;
+    }
+    .info-mark::after {
+        @include toolTipArrow2();
+        transition: opacity 0.5s;
+    }
+}
+
+
+/*.input-wrapper2 .product-input:focus+label .content-name-product::before,
+.input-wrapper2 .product-input:invalid+label .content-name-product::before {
+    content: "Please fill all fields";
+    width: 200px;
+    color: #f8f9fb;
+    text-align: center;
+    border-radius: 3px;
+    padding: 10px 0;
+    position: absolute;
+    top: 190% !important;
+    left: 190% !important;
+    z-index: 1;
+    margin-left: -100px;
+    background-color: #032f3e;
+    font-size: 11px;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.input-wrapper2 .product-input:focus+label .content-name-product::after,
+.input-wrapper2 .product-input:invalid+label .content-name-product::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    margin-left: -7px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent $deepBlue transparent;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s;
+}*/

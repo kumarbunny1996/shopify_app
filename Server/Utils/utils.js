@@ -23,10 +23,39 @@ const Db = (db) => {
             .catch(err => Promise.reject(err));
     }
 
+    let aggregateDbs = (config = {}) => {
+        let { from, local, foreign, as, } = config;
+        return db.aggregate([{
+                $lookup: {
+                    from: from,
+                    localField: local,
+                    foreignField: foreign,
+                    as: as
+                }
+            },
+            {
+                $replaceRoot: {
+                    newRoot: {
+                        $mergeObjects: [{
+                            $arrayElement: [`$${as}`, 0]
+                        }, "$$ROOT"]
+                    }
+                }
+            },
+
+            {
+                $project: {
+                    fromItems: 0
+                }
+            }
+        ]);
+    }
+
     return Object.freeze({
         insertOne,
         findByKeys,
-        findOne
+        findOne,
+        aggregateDbs
     });
 };
 

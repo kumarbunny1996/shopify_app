@@ -1,0 +1,163 @@
+@import 'common.scss';
+@import 'variables.scss';
+@import 'mixin.scss';
+.seller-section {
+    text-align: center;
+}
+
+.seller-top {
+    background-color: rgba(45, 128, 114, 0.945);
+    padding: 50px;
+    color: $deepWhite;
+    margin-bottom: 25px;
+    blockquote {
+        font-size: 40px;
+        font-weight: 900;
+        margin-bottom: 10px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .btn button {
+        @include buttonStyle();
+        font-size: 24px;
+        font-weight: 600;
+        width: 30%;
+        border-radius: 50px;
+        @include mq(750px) {
+            border-radius: 50px;
+            width: 50%;
+        }
+    }
+}
+
+.seller-head {
+    font-size: 35px;
+    font-weight: 800;
+    color: $deepBlue;
+}
+
+.seller-middle {
+    display: flex;
+    @include mq(750px) {
+        display: block;
+    }
+    justify-content: space-around;
+    padding: 30px 50px 0px 50px;
+    .seller-middle-content {
+        width: 33.33%;
+        @include mq(750px) {
+            display: block;
+            width: 100%;
+        }
+        margin-bottom: 20px;
+        justify-self: center;
+        margin-left: 20px;
+        img {
+            width: 35%;
+            height: 35%;
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: $deepBlue;
+        }
+        p {
+            color: $deepBlue;
+            padding: 0px 25px;
+        }
+    }
+}
+
+.seller-img {
+    padding-top: 20px;
+    background-image: url('/images/loading-truck-warehouse_190619-9.jpg');
+    width: 100%;
+    height: 150px;
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+.seller-bot {
+    background-color: lighten($color: rgb(171, 255, 255), $amount: 12);
+    .btn button {
+        @include buttonStyle();
+        font-size: 24px;
+        font-weight: 600;
+        width: 30%;
+        border-radius: 50px;
+        @include mq(750px) {
+            border-radius: 50px;
+            width: 50%;
+        }
+    }
+    em {
+        font-size: 12px;
+        margin-top: 8px;
+        color: $deepBlue;
+    }
+    .btn #learn-btn {
+        margin: 10px 0px 25px 0px;
+        font-size: 16px;
+        background-color: darken($color: rgb(171, 255, 255), $amount: 50);
+        box-shadow: 1px 1px 0.5px 1px rgb(171, 255, 255), 1px 1px 0.5px 1px rgb(171, 255, 255);
+        @include mq(750px) {
+            border-radius: 50px;
+            width: 50%;
+        }
+    }
+}
+
+.model-content {
+    #user-div3 {
+        a {
+            color: $deepBlue;
+        }
+    }
+    .tiny-form {
+        width: 100% !important;
+        padding: 20px;
+    }
+    .input-container3 {
+        @include formContent();
+        height: 70px !important;
+        margin: 0px !important;
+    }
+    .input-container3 .input3 {
+        @include formInput();
+    }
+    .tiny-form .label-content3 {
+        @include formLabel();
+    }
+    .tiny-form .label-content3::after {
+        @include labelAfter();
+    }
+    .content-name3 {
+        @include contentOnly();
+    }
+    .input-container3 .input3:focus+label .content-name3,
+    .input-container3 .input3:valid+label .content-name3 {
+        transform: translateY(-150%);
+    }
+    .input-container3 .input3:focus+label::after,
+    .input-container3 .input3:valid+label::after {
+        transform: translateX(0%);
+    }
+    //toggle class
+    .eye-toggle2 {
+        @include toggle();
+        display: none;
+        background-image: url('/images/show.png');
+    }
+    .hide {
+        background-image: url('/images/hide.png');
+    }
+    .confirmButton button {
+        @include buttonStyle();
+        font-size: 20px;
+        font-weight: 700;
+        &:disabled {
+            background-color: rgb(255, 228, 202);
+            box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+            cursor: default;
+        }
+    }
+}

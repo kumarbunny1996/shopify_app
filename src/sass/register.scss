@@ -1,6 +1,12 @@
     @import "common";
     @import "mixin";
     @import "variables";
+    #registerArea {
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+    }
+    
     .logo3 {
         @include logo();
     }
@@ -15,8 +21,6 @@
     
     .form-wrapper {
         @include formStyle();
-        margin: 0 auto;
-        margin-top: -240px !important;
         @include mq(430px) {
             width: 350px;
         }
@@ -78,6 +82,7 @@
     .lead {
         font-size: 14px;
         padding: 15px 0px;
+        text-align: left;
     }
     
     .lead a {
@@ -135,28 +140,6 @@
     
     .invalid {
         color: rgb(255, 95, 95);
-    }
-    
-    .loadOverlay {
-        @include overlay;
-        visibility: visible !important;
-        background-color: rgb(0, 0, 0) !important;
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4) !important;
-        /* Black w/ opacity */
-    }
-    
-    .loader {
-        @include loader();
-    }
-    
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
     }
     
     .redirect-login {

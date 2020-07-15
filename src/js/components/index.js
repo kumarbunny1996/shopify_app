@@ -1,8 +1,10 @@
 const { events, showNav, closeNav } = require('../app/uiHandler');
+
 require('../../css/index.css');
 
 function indexPage() {
     const indexContent = document.getElementById('content');
+    document.title = "@Shopify_app";
     indexContent.innerHTML = `
             <section id="index-content">
                 <header>
@@ -88,7 +90,7 @@ function indexPage() {
                                     <li><a href="#">Your orders</a></li>
                                     <li class="border-item"></li>
                                     <li><a href="#">Your account</a></li>
-                                    <li><a href="#">Sell on shopify</a></li>
+                                    <li><a href="#sell-on-shopify">Sell on shopify</a></li>
                                     <li class="border-item"></li>
                                     <li><a href="#">Customer service</a></li>
                                     <li id="link3"><a href="#login">Sign in</a></li>
@@ -109,7 +111,7 @@ function indexPage() {
                             <ul>
                                 <li><a href="#">About us</a></li>
                                 <li><a href="#">your orders</a></li>
-                                <li><a href="#">sell on shopify</a></li>
+                                <li><a href="#sell-on-shopify">sell on shopify</a></li>
                                 <li><a href="#">facebook</a></li>
                             </ul>
                                 <ul class="right-div">

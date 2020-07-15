@@ -68,8 +68,8 @@ const registerForm = () => {
                 </div>
                 <p class="lead">Already a customer?<a href="#login"> Login</a></p>
                 <div class="login-footer2">
-                <span class="copyrights"><i class="fa fa-copyright" aria-hidden="true"></i>2020, @shopify.com, Inc. or its affiliates</span>
-            </div>
+                    <span class="copyrights"><i class="fa fa-copyright" aria-hidden="true"></i>2020, @shopify.com, Inc. or its affiliates</span>
+                </div>
             </div>
         </section>
     `;

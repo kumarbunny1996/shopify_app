@@ -1,6 +1,12 @@
 @import "common";
 @import "mixin";
 @import "variables";
+.loginArea {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
 .logo2 {
     @include logo();
 }
@@ -82,6 +88,7 @@
     color: $deepBlue;
     font-size: 14px;
     margin-top: 10px;
+    text-align: left;
 }
 
 #toggle {
