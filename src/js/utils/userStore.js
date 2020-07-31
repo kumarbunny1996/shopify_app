@@ -4,7 +4,35 @@ let userStore = (() => {
     let dataValue = ""; //navigation purpose user click the btn from data-id attribute
     let dataObj; //data from seller details
     let productObj; //data from product details
-    let sellerEmail = "";
+    let storage = [];
+    let itemStorage = {
+        setItem: (key = "", value) => {
+            let a = key;
+            let obj = {
+                [a]: value
+            }
+            storage.push(obj);
+            //console.log(storage);
+        },
+        getItem: (key = "") => {
+            let item = storage.find((obj) => {
+                let value = obj[key];
+                return value;
+            });
+            return item;
+        },
+        removeItem: (key = "") => {
+            let index = storage.findIndex(obj => {
+                return obj[key];
+            });
+            storage.splice(index, 1);
+            //console.log(storage);
+        },
+        clear: () => {
+            storage = [];
+            console.log(storage);
+        }
+    };
 
     function setUsername(user_name) {
         username = user_name;
@@ -48,6 +76,7 @@ let userStore = (() => {
         return token;
     }
 
+
     return {
         setUsername,
         getUsername,
@@ -58,7 +87,8 @@ let userStore = (() => {
         setSellerDataObj,
         getSellerDataObj,
         setProductDataObj,
-        getProductDataObj
+        getProductDataObj,
+        itemStorage
     }
 })();
 

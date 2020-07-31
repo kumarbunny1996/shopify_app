@@ -24,8 +24,15 @@ const getProfile = (query = {}, requirements = {}) => {
         .catch(err => Promise.reject(err));
 }
 
+const updateDb = (query = {}, update = {}) => {
+    return UserDb.updateData(query, update)
+        .then(updateData => updateData)
+        .catch(err => Promise.reject(err));
+}
+
 module.exports = Object.freeze({
     saveUser,
     findUserByKeys,
-    getProfile
+    getProfile,
+    updateDb
 });

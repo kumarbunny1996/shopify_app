@@ -2,7 +2,9 @@ const { generateAuthToken } = require("../Dependencies/authToken");
 const { getProfile } = require('../Utils/dbUtils.js');
 const { getSellerProfile, saveSeller } = require('../Utils/sellerDButils.js');
 const { saveProduct } = require('../Utils/productDbUtils');
-
+const fs = require("fs");
+//const atob = require("atob");
+const path = require("path");
 
 
 const verifyTheSeller = async(data, userId) => {
@@ -100,6 +102,23 @@ const saveInterActor = async(data, sellerId) => {
         description,
         image
     } = data;
+    /*let imageValue = data.image;
+    let buffer = Buffer.from(imageValue, 'base64');
+    let imageName = `${Date.now()}.png`;
+    let filePath = path.join(__dirname, '../../public/images/uploads/', imageName);
+    let imagePath = path.relative(path.join(__dirname, '../../public'), `../../public/images/uploads/${imageName}`);
+    console.log(imagePath);
+    fs.appendFile(filePath, buffer, (err) => {
+        if (err) throw err;
+        console.log("saved");
+        console.log(filePath);
+    });
+    fs.readFile(imageValue, (err, data) => {
+        console.log(data);
+    })
+
+    let image = imagePath;
+    console.log(image);*/
     let item = {
         seller_email,
         item_name,

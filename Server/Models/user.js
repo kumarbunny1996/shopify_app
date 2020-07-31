@@ -22,6 +22,15 @@ const userSchema = new mongoose.Schema({
         min: 8,
         max: 1024
     },
+    cart: {
+        type: Array,
+    },
+    saved_items: {
+        type: Array,
+    },
+    orders: {
+        type: Array,
+    },
     created_At: {
         type: Number,
         default: Date.now()

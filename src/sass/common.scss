@@ -48,6 +48,14 @@ button {
     @include loader();
 }
 
+.loader2 {
+    @include loader();
+}
+
+.blurLoader {
+    @include blur();
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);

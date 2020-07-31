@@ -63,6 +63,32 @@ button {
   animation: spin 1s linear infinite;
 }
 
+.loader2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  border: 10px solid #595f6e;
+  border-radius: 50%;
+  border-top: 10px solid #ecac08;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+.blurLoader {
+  background-color: whitesmoke;
+  opacity: 0.8;
+  filter: blur(3px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  transition: 0.1s linear;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -264,7 +290,7 @@ button {
 
 .seller-img {
   padding-top: 20px;
-  background-image: url("/images/loading-truck-warehouse_190619-9.jpg");
+  background-image: url("/public/images/commonStore/loading-truck-warehouse_190619-9-min.png");
   width: 100%;
   height: 150px;
   background-size: contain;
@@ -388,10 +414,10 @@ button {
   right: 20px;
   transform: translateY(-20%);
   display: none;
-  background-image: url("/images/show.png");
+  background-image: url("/images/commonStore/show.png");
 }
 .model-content .hide {
-  background-image: url("/images/hide.png");
+  background-image: url("/images/commonStore/hide.png");
 }
 .model-content .confirmButton button {
   border: none;

@@ -3,14 +3,19 @@ const loginForm = require("../components/login");
 const registerForm = require("../components/register");
 const { passwordEvents, registerEvents } = require('../app/registerLogic');
 const { loginEvents } = require("../app/loginLogic");
-const { loginAreaAfterSuccess } = require("../utils/utils");
+const { loginAreaAfterSuccess, uiHomeAfterLogin } = require("../utils/utils");
 const userStore = require("../utils/userStore");
 const { init } = require('../app/userslogic');
 const { sellerDom, sellerEvents } = require("../components/seller");
 const { homePage, slider, sliderRun } = require("../components/home");
 const { sellerCentralDom, prodFormHtml, sellerFormHtml, imagePreview } = require("../components/seller_central");
-const { sellerCentralEvents, keepDataOnInput, setsProductData, validateProductForm, productModalShow, removeModal, productPageEvents } = require("../app/sellerLogic");
-const { events } = require("../app/uiHandler");
+const { sellerCentralEvents, keepDataOnInput, setsProductData, productModalShow, removeModal, productPageEvents } = require("../app/sellerLogic");
+const { mobileCategory, speakerCategory, laptopCategory, electronicsCategory, homeCategory, womenCategory, menCategory, allCategories } = require("../components/category");
+const { getsCategoryDataList, eventForShowingProduct } = require("../app/categoryLogic");
+const { productDom, productEvents, reloadProductData, reloadCartItems, cartValues, toCart, productPage } = require("../components/product");
+const { itemStorage } = require("../utils/userStore");
+const { itemsDom, cartDom } = require("../components/cart");
+const { setCartValues, checksCartItems, totalCartValues, cartLogicEvents } = require("../app/cartLogic");
 
 
 //sets the home page as default
@@ -48,8 +53,10 @@ const navigation = () => {
         UI_handlerEvents();
         homePage();
         slider();
+        uiHomeAfterLogin();
         if (token) {
             init();
+            cartValues();
         }
     }
     if (fragmentId === "sell-on-shopify") {
@@ -61,6 +68,7 @@ const navigation = () => {
         sellerEvents();
         if (token) {
             init();
+            cartValues();
         }
 
     }
@@ -92,7 +100,83 @@ const navigation = () => {
         }
 
     }
+    if (fragmentId === "categories") {
+        sliderRun(fragmentId);
+        allCategories();
+    }
 
+    if (fragmentId === "mobiles") {
+        sliderRun(fragmentId);
+        mobileCategory();
+        getsCategoryDataList("Mobiles", "mobileData");
+        eventForShowingProduct("#mobileData");
+    }
 
+    if (fragmentId === "speakers") {
+        sliderRun(fragmentId);
+        speakerCategory();
+        getsCategoryDataList("Speakers", "speakerData");
+        eventForShowingProduct("#speakerData");
+    }
+    if (fragmentId === "laptops") {
+        sliderRun(fragmentId);
+        laptopCategory();
+        getsCategoryDataList("Laptops", "laptopData");
+        eventForShowingProduct("#laptopData");
+    }
+    if (fragmentId === "electronics") {
+        sliderRun(fragmentId);
+        electronicsCategory();
+        getsCategoryDataList("Electronics", "electronicsData");
+        eventForShowingProduct("#electronicsData");
+    }
+    if (fragmentId === "home-appliances") {
+        sliderRun(fragmentId);
+        homeCategory();
+        getsCategoryDataList("Home-appliances", "homeData");
+        eventForShowingProduct("#homeData");
+    }
+    if (fragmentId === "women") {
+        sliderRun(fragmentId);
+        womenCategory();
+        getsCategoryDataList("Women", "womenData");
+        eventForShowingProduct("#womenData");
+    }
+    if (fragmentId === "men") {
+        sliderRun(fragmentId);
+        menCategory();
+        getsCategoryDataList("Men", "menData");
+        eventForShowingProduct("#menData");
+    }
+    if (itemStorage.getItem('product')) {
+        let product = itemStorage.getItem("product");
+        let item = product["product"];
+        let category = item.product.category;
+        let id = item.product._id;
+        if (fragmentId === `${category}_${id}`) {
+            sliderRun(fragmentId);
+            productDom(item);
+            productEvents();
+            if (token) {
+                checksCartItems(id);
+            }
+        }
+
+    }
+    if (fragmentId === "shopify-cart") {
+        if (!token) {
+            location.hash = "#login";
+        }
+        if (token) {
+            indexPage();
+            UI_handlerEvents();
+            init();
+            sliderRun(fragmentId);
+            toCart();
+            //cartLogicEvents();
+        }
+    }
+    //sets the product data 
+    productPage();
 }
 window.addEventListener('hashchange', navigation);

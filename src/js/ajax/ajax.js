@@ -17,4 +17,4 @@ module.exports = function makeRequestToServer(requestObject = {}) {
         xhr.setRequestHeader(requestObject.name, requestObject.value);
         xhr.send(JSON.stringify(requestObject.data));
     });
-}
+};

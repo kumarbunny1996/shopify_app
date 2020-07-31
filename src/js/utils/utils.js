@@ -15,8 +15,38 @@ const loaderDiv = () => {
     document.body.appendChild(loader);
 }
 
+const loader = () => {
+    let loader = document.createElement('div');
+    loader.className = 'loader2';
+    loader.id = 'loader2';
+    if (document.getElementById('loader2')) {
+        document.body.removeChild(document.getElementById('loader2'));
+    }
+    document.body.appendChild(loader);
+}
 
-//creating model for messages
+const removeLoader = () => {
+    if (document.getElementById('loader2')) {
+        document.body.removeChild(document.getElementById('loader2'));
+    }
+}
+
+const blurLoader = (el) => {
+    let blurLoader = document.createElement('div');
+    blurLoader.className = 'blurLoader';
+    blurLoader.id = 'blurLoader';
+    if (document.getElementById('blurLoader')) {
+        el.removeChild(document.getElementById('blurLoader'));
+    }
+    el.appendChild(blurLoader);
+}
+
+const removeBlurLoader = (el) => {
+        if (document.getElementById('blurLoader')) {
+            el.removeChild(document.getElementById('blurLoader'));
+        }
+    }
+    //creating model for messages
 
 const msgDoc = (message, code, term) => {
     const msgModel = document.getElementById('info');
@@ -67,6 +97,19 @@ const displayUserProfile = () => {
     link3.style.display = 'none';
     link.innerText = `hello, ${username}`;
     link2.innerText = `hello, ${username}`;
+}
+
+//ui after login for home page
+
+const uiHomeAfterLogin = () => {
+    const accountCard = document.getElementById('sp-account-card');
+    const signCard = document.getElementById('signIn-card');
+    const cardName = document.getElementById('card-username');
+    let username = userStore.getUsername();
+
+    accountCard.style.display = 'block';
+    signCard.style.display = 'none';
+    cardName.innerText = `Hi ${username}`;
 }
 
 // user after logout
@@ -141,5 +184,10 @@ module.exports = Object.freeze({
     uiAfterLogout,
     toolTipBox,
     loginAreaAfterSuccess,
-    debouncing
+    debouncing,
+    uiHomeAfterLogin,
+    loader,
+    removeLoader,
+    blurLoader,
+    removeBlurLoader
 });

@@ -135,28 +135,28 @@ const checkBeforeContinue = () => {
 //check the seller form data
 const checkCompanyName = () => {
     let el = document.getElementById('company-name').value;
-    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,]{1,256}$/;
+    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,\s]{1,256}$/;
     let value = el.match(inputPattern);
     return value;
 }
 
 const checkBusiness = () => {
     let el = document.getElementById('business-type').value;
-    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,]{1,256}$/;
+    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,\s]{1,256}$/;
     let value = el.match(inputPattern);
     return value;
 }
 
 const checkAccount = () => {
     let el = document.getElementById('account-type').value;
-    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,]{1,256}$/;
+    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,\s]{1,256}$/;
     let value = el.match(inputPattern);
     return value;
 }
 
 const checkContact = () => {
     let el = document.getElementById('contact').value;
-    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,]{1,256}$/;
+    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,\s]{1,256}$/;
     let value = el.match(inputPattern);
     return value;
 }
@@ -219,6 +219,9 @@ const apiRequestOfSeller = () => {
     loaderDiv();
     makeRequestToServer(requestObject)
         .then((msgObj) => {
+            if (JSON.parse(localStorage.getItem("sellerAccessToken"))) {
+                localStorage.removeItem("sellerAccessToken");
+            }
             location.hash = "#seller-product";
             if (msgObj) {
                 let msgObject = {
@@ -341,7 +344,7 @@ const inputElementsOfProduct = () => {
 }
 
 const checkProdData = () => {
-    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,]{1,256}$/;
+    let inputPattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\,\s]{1,256}$/;
     let numPattern = /^[0-9\,\.]{1,9}$/;
     let inputObj = inputElementsOfProduct();
     let { item, brand, category, price, quantity, maximum, shipping, features, description, product_img } = inputObj;
@@ -395,7 +398,7 @@ const apiRequestForProducts = () => {
 
     makeRequestToServer(requestObj)
         .then(() => {
-            location.hash = "#sell-on-shopify";
+            //location.hash = "#sell-on-shopify";
             alert("Your product is successfully saved");
         })
         .catch(errObj => {

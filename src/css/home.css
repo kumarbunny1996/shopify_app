@@ -64,6 +64,32 @@ button {
   animation: spin 1s linear infinite;
 }
 
+.loader2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  border: 10px solid #595f6e;
+  border-radius: 50%;
+  border-top: 10px solid #ecac08;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+.blurLoader {
+  background-color: whitesmoke;
+  opacity: 0.8;
+  filter: blur(3px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  transition: 0.1s linear;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -182,21 +208,21 @@ button {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 400px;
+  height: 740px;
 }
 .slider .slide {
   position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 400px;
+  height: 740px;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 .slider .slide .slide-content {
   color: #f8f9fb;
   position: absolute;
-  top: 25%;
+  top: 5%;
   left: 18%;
   opacity: 0;
 }
@@ -212,40 +238,40 @@ button {
 .slider .slide .prod-img {
   position: absolute;
   right: 0px;
-  top: 15%;
-  background-image: url("/public/images/—Pngtree—vector music headphones_556101.png");
+  top: 5%;
+  background-image: url("/public/images/commonStore/—Pngtree—vector music headphones_556101-min.png");
   width: 50%;
-  height: 100%;
+  height: 50%;
   background-repeat: no-repeat;
   background-size: 80% 80%;
 }
 .slider .slide .prod-img2 {
   position: absolute;
   right: 0px;
-  top: 15%;
-  background-image: url("/public/images/Running-Shoes-Free-Download-PNG.png");
+  top: 5%;
+  background-image: url("/public/images/commonStore//Running-Shoes-Free-Download-PNG-min.png");
   width: 50%;
-  height: 100%;
+  height: 50%;
   background-repeat: no-repeat;
   background-size: 80% 80%;
 }
 .slider .slide .prod-img3 {
   position: absolute;
   right: 0px;
-  top: 15%;
-  background-image: url("/public/images/kisspng-website-e-commerce-world-wide-web-digital-marketin-mobile-online-shopping-5aa34511625da9.4854262815206494894029.png");
+  top: 5%;
+  background-image: url("/public/images/commonStore/kisspng-website-e-commerce-world-wide-web-digital-marketin-mobile-online-shopping-5aa34511625da9.4854262815206494894029-min.png");
   width: 50%;
-  height: 100%;
+  height: 50%;
   background-repeat: no-repeat;
   background-size: 80% 80%;
 }
 .slider .slide .prod-img4 {
   position: absolute;
   right: 0px;
-  top: 15%;
-  background-image: url("/public/images/Mobile-PNG-Transparent-HD-Photo.png");
+  top: 5%;
+  background-image: url("/public/images/commonStore/Mobile-PNG-Transparent-HD-Photo-min.png");
   width: 50%;
-  height: 100%;
+  height: 50%;
   background-repeat: no-repeat;
   background-size: 80% 80%;
 }
@@ -256,19 +282,19 @@ button {
   opacity: 1;
 }
 .slider .slide:first-child {
-  background: linear-gradient(rgba(26, 99, 65, 0.959), rgba(154, 247, 216, 0.95));
+  background: linear-gradient(#55b688, #dcfff3);
   background-size: 100% 100%;
 }
 .slider .slide:nth-child(2) {
-  background: linear-gradient(rgba(90, 138, 146, 0.959), rgba(187, 232, 238, 0.95));
+  background: linear-gradient(#039cb8, #e4fcff);
   background-size: 100% 100%;
 }
 .slider .slide:nth-child(3) {
-  background: linear-gradient(rgba(145, 3, 102, 0.959), rgba(255, 164, 225, 0.95));
+  background: linear-gradient(#f103aa, #ffebf8);
   background-size: 100% 100%;
 }
 .slider .slide:nth-child(4) {
-  background: linear-gradient(rgba(124, 82, 3, 0.959), rgba(255, 236, 173, 0.95));
+  background: linear-gradient(#f39f04, #fff7dd);
   background-size: 100% 100%;
 }
 
@@ -295,4 +321,166 @@ button {
   top: 45%;
   right: 15px;
   cursor: pointer;
+}
+
+#sp-home-layout {
+  position: relative;
+  padding: 0px 15px;
+  background-color: #eee;
+  width: 100%;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  transform: translateY(-430px);
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container {
+  background-color: #f8f9fb;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 290px;
+  width: 370px;
+  height: 410px;
+  margin-bottom: 20px;
+  flex: 1 0 290px;
+  margin-right: 10px;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-body {
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-body .grid-row {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-body .grid-row .grid-container {
+  width: 48%;
+  height: 48%;
+  margin-top: 20px;
+  cursor: pointer;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-body .grid-row .card-img {
+  width: 100%;
+  height: 60%;
+  overflow: hidden;
+  align-self: center;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-body .grid-row .card-img img {
+  max-width: none;
+  max-height: 118px;
+  height: 118px;
+  width: 142.5px;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-body .grid-row .card-link {
+  align-self: center;
+  text-align: center;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-body .grid-row .card-link span {
+  font-size: 14px;
+  color: #032f3e;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-footer {
+  padding: 10px 0px 0px 20px;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-footer span a {
+  font-size: 12px;
+  color: blue;
+}
+#sp-home-layout .sp-card-layout[data-flow=h] .sp-card-container .card .card-footer span a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.sp-sign-card {
+  width: 370px;
+  height: 410px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 290px;
+  flex: 1 0 290px;
+  padding: 0px;
+  margin-right: 10px;
+}
+.sp-sign-card .sign-card {
+  background-color: #f8f9fb;
+  padding: 20px 20px 20px 20px;
+  width: 100%;
+  height: 40%;
+  position: relative;
+}
+.sp-sign-card .sign-card .sign-card-header {
+  font-size: 22px;
+  text-align: center;
+}
+.sp-sign-card .sign-card .sign-card-body button {
+  border: none;
+  text-decoration: none;
+  background-color: #f8bf2e;
+  text-align: center;
+  width: 100%;
+  color: #032f3e;
+  padding: 15px 0px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 1px 1px 0.5px 1px #ecac08, 1px 1px 0.5px 1px #ecac08;
+  outline: none;
+  transition: all 0.1s ease;
+  margin-top: 20px;
+}
+.sp-sign-card .sm-banner {
+  position: relative;
+  width: 80%;
+  margin: 20px 0px 20px 35px;
+  height: 50%;
+  align-self: center;
+  background: linear-gradient(#4ba078, #a5fadc);
+  cursor: pointer;
+}
+.sp-sign-card .sm-banner img {
+  width: 80%;
+  height: 60%;
+  position: absolute;
+  bottom: 0px;
+  left: 15px;
+}
+.sp-sign-card .sm-banner::before {
+  content: "Top laptops brands from store";
+  font-weight: 700;
+  font-size: 24px;
+  position: absolute;
+  left: 10px;
+  top: 20px;
+}
+
+.sp-card-layout[data-flow=h]:nth-child(4) {
+  margin-right: 0px;
+}
+
+.account-card-header {
+  text-align: center;
+}
+.account-card-header i {
+  font-size: 32px;
+  font-weight: 700;
+}
+.account-card-header h3 {
+  font-size: 26px;
+  font-weight: 700;
+  display: inline;
 }

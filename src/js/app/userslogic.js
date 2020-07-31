@@ -1,8 +1,12 @@
 const makeRequestToServer = require('../ajax/ajax');
 const userStore = require('../utils/userStore');
-const { displayUserProfile, toolTipBox } = require('../utils/utils');
+const { displayUserProfile, toolTipBox, uiHomeAfterLogin } = require('../utils/utils');
 const { events, logOut, showMsg } = require('./uiHandler');
 const { productModalShow, removeModal } = require("../app/sellerLogic");
+const { itemStorage } = require('../utils/userStore');
+const { reloadCartItems, saveProductToCart, cartValues, toCart, checkTheCartIfItemExists } = require("../components/product");
+const { totalCartValues } = require("./cartLogic");
+const { indexPage, UI_handlerEvents } = require('../components');
 
 
 
@@ -14,6 +18,7 @@ let init = () => {
     events('#link4', 'click', logOut);
 }
 
+
 let loginUserData = (requestObj = {}) => {
     makeRequestToServer(requestObj)
         .then(userObj => {
@@ -24,6 +29,22 @@ let loginUserData = (requestObj = {}) => {
                 seller = "";
                 userStore.setDataValue(seller);
                 return location.hash = "#seller-central";
+            }
+            if (itemStorage.getItem("value")) {
+                let cart = itemStorage.getItem("value");
+                let value = cart["value"];
+                console.log(value);
+                itemStorage.removeItem("value");
+                location.hash = "#shopify-cart";
+                return;
+            }
+            if (itemStorage.getItem("id")) {
+                let id = itemStorage.getItem("id");
+                let item_id = id["id"];
+                console.log(item_id);
+                itemStorage.removeItem("id");
+                checkTheCartIfItemExists(item_id);
+                return;
             }
             location.hash = "#home";
             window.scrollTo(0, 0);
@@ -52,6 +73,9 @@ let getUserProfileReload = (requestObj = {}) => {
                 }
                 productModalShow();
             };
+            if (document.getElementById("sp-home-layout")) {
+                uiHomeAfterLogin();
+            }
 
             if (document.getElementById('index-content')) {
                 return init();

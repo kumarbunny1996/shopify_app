@@ -1,4 +1,5 @@
 const { events, showNav, closeNav } = require('../app/uiHandler');
+const { itemStorage } = require("../utils/userStore");
 
 require('../../css/index.css');
 
@@ -21,10 +22,13 @@ function indexPage() {
                                 <option selected="selected" value="search-alias=all">
                                             All 
                                 </option>
-                                <option value="search-alias=shopify-pantry">Pantry</option>
+                                <option value="search-alias=shopify-Speakers">Speakers</option>
                                 <option value="search-alias=mobiles">Mobiles</option>
-                                <option value="search-alias=books">Books</option>
+                                <option value="search-alias=Men">Men</option>
                                 <option value="search-alias=laptops">Laptops</option>
+                                <option value="search-alias=Electronics">Electronics</option>
+                                <option value="search-alias=Home-appliances">Home-appliances</option>
+                                <option value="search-alias=Women">Women</option>
                             </select>
                             <div class="nav-sort-icon">
                                 <i class="fa fa-sort-desc" aria-hidden="true"></i>
@@ -53,20 +57,23 @@ function indexPage() {
                     </div>
 
                     <div class="nav-order-details" id="nav-order" user-id="">
-                        <a href="#">Return & orders</a>
+                        <a href="#your_orders">Return & orders</a>
                     </div>
                     <div class="nav-cart" id="nav-cart">
-                        <a href="#" class="nav-icon"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
-                        <div class="cart-item">0</div>
+                        <a href="#shopify-cart" class="nav-icon"><i data-value="cart" id="cart-icon" class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        <div class="cart-total" id="cart-total">0</div>
                     </div>
 
                     <div class="nav-items">
                         <ul>
-                            <li><a href="#">All categories</a></li>
-                            <li><a href="#">Watch</a></li>
-                            <li><a href="#">Pantry</a></li>
-                            <li><a href="#">Mobiles</a></li>
-                            <li><a href="#">Laptops</a></li>
+                            <li><a href="#categories">All categories</a></li>
+                            <li><a href="#speakers">Speakers</a></li>
+                            <li><a href="#women">Women</a></li>
+                            <li><a href="#mobiles">Mobiles</a></li>
+                            <li><a href="#laptops">Laptops</a></li>
+                            <li><a href="#men">Men</a></li>
+                            <li><a href="#electronics">Electronics</a></li>
+                            <li><a href="#home-appliances">Home-appliances</a></li>
                         </ul>
                     </div>
                 </header>
@@ -79,17 +86,17 @@ function indexPage() {
                                 <h2>hello, sign in</h2>
                             </div>
                             <div class="user-div" id="user-div2" user-id="" style="display:none">
-                                <a href="#" class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                                <a href="#your_account" class="user-name"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
                                 <h2 id=user-name></h2>
                             </div>
                         </div>
                         <div class="menu-items">
                                 <ul class="items">
                                     <li><a href="#home">Home</a></li>
-                                    <li><a href="#">Shop by categories</a></li>
-                                    <li><a href="#">Your orders</a></li>
+                                    <li><a href="#categories">Shop by categories</a></li>
+                                    <li><a href="#your_orders">Your orders</a></li>
                                     <li class="border-item"></li>
-                                    <li><a href="#">Your account</a></li>
+                                    <li><a href="#your_account">Your account</a></li>
                                     <li><a href="#sell-on-shopify">Sell on shopify</a></li>
                                     <li class="border-item"></li>
                                     <li><a href="#">Customer service</a></li>
@@ -110,7 +117,7 @@ function indexPage() {
                         <div class="foot-list">
                             <ul>
                                 <li><a href="#">About us</a></li>
-                                <li><a href="#">your orders</a></li>
+                                <li><a href="#your_orders">your orders</a></li>
                                 <li><a href="#sell-on-shopify">sell on shopify</a></li>
                                 <li><a href="#">facebook</a></li>
                             </ul>
@@ -141,7 +148,7 @@ function indexPage() {
                             <div class="content">
                                 <div class="footer-col-head">Make money with us</div>
                                 <ul class="content-1-list">
-                                    <li><a href="#">Sell on shopify</a></li>
+                                    <li><a href="#sell-on-shopify">Sell on shopify</a></li>
                                 </ul>
                             </div>
                             <div class="content">
@@ -178,6 +185,10 @@ function UI_handlerEvents() {
     events('#nav-overlay', 'click', closeNav);
     events('#user-div', 'click', () => location.hash = '#login');
     events('#log-btn', 'click', () => location.hash = '#login');
+    events("#cart-icon", 'click', (e) => {
+        let value = e.target.dataset.value;
+        itemStorage.setItem("value", value);
+    })
 }
 
 module.exports = {

@@ -1,3 +1,5 @@
+const { itemStorage } = require('../utils/userStore');
+const userStore = require('../utils/userStore');
 const { modelDoc, msgDoc, uiAfterLogout } = require('../utils/utils');
 
 //gets event elements
@@ -144,6 +146,11 @@ const showUserNameMsg = (object = {}) => {
 //sign out 
 const logOut = () => {
     localStorage.clear();
+    itemStorage.clear();
+    let token = userStore.authToken();
+    token = "";
+    // itemStorage.removeItem("cart");
+    // itemStorage.removeItem("savedItems");
     //uiAfterLogout();
     location.hash = "#login";
 }

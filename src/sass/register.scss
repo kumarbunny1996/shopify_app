@@ -115,11 +115,11 @@
     .eye-toggle {
         @include toggle();
         display: none;
-        background-image: url('/images/show.png');
+        background-image: url('/images/commonStore/show.png');
     }
     
     .hide {
-        background-image: url('/images/hide.png');
+        background-image: url('/images/commonStore/hide.png');
     }
     
     .error-content {

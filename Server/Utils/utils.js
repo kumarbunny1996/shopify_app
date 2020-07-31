@@ -12,50 +12,50 @@ const Db = (db) => {
             $or: query
         };
         return db.findOne(query, requirements)
-            .then(user => user)
+            .then(obj => obj)
             .catch(err => Promise.reject(err));
 
     }
 
     let findOne = (query = {}, requirements = {}) => {
         return db.findOne(query, requirements)
-            .then(user => user)
+            .then(obj => obj)
+            .catch(err => Promise.reject(err));
+    }
+    let findData = (query = {}, requirements = {}) => {
+        return db.find(query, requirements)
+            .then(dataList => dataList)
             .catch(err => Promise.reject(err));
     }
 
-    let aggregateDbs = (config = {}) => {
-        let { from, local, foreign, as, } = config;
-        return db.aggregate([{
-                $lookup: {
-                    from: from,
-                    localField: local,
-                    foreignField: foreign,
-                    as: as
-                }
-            },
-            {
-                $replaceRoot: {
-                    newRoot: {
-                        $mergeObjects: [{
-                            $arrayElement: [`$${as}`, 0]
-                        }, "$$ROOT"]
-                    }
-                }
-            },
-
-            {
-                $project: {
-                    fromItems: 0
-                }
-            }
-        ]);
+    let updateData = (query = {}, update = {}) => {
+        return db.findOneAndUpdate(query, update, {
+                new: true,
+                useFindAndModify: false
+            })
+            .then(updateObj => updateObj)
+            .catch(err => Promise.reject(err));
     }
+
+    /* let aggregateDbs = (config = {}) => {
+         let { from, local, foreign, as, } = config;
+         return db.aggregate([{
+             $lookup: {
+                 from: from,
+                 localField: local,
+                 foreignField: foreign,
+                 as: as
+             }
+         }]);
+     }*/
 
     return Object.freeze({
         insertOne,
         findByKeys,
         findOne,
-        aggregateDbs
+        //aggregateDbs,
+        findData,
+        updateData
     });
 };
 

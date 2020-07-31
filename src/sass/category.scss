@@ -1,0 +1,446 @@
+@import "common";
+@import "variables";
+@import "mixin";
+//mobile-category
+.sp-category-layout {
+    .ad-banner {
+        @include banner();
+        background-image: linear-gradient(to right, rgb(2, 163, 168), rgb(162, 253, 253));
+        p {
+            @include banner-text();
+        }
+        .ad-image {
+            @include banner-img();
+            img {
+                height: 90%;
+            }
+        }
+    }
+}
+
+.product-category {
+    @include category();
+    .product-container {
+        @include container();
+        .product {
+            @include item();
+            background-image: linear-gradient(rgb(2, 163, 168), rgb(168, 208, 209), rgb(210, 239, 240));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+                h5 {
+                    @include price();
+                }
+                h5 span {
+                    @include symbol();
+                }
+            }
+        }
+    }
+}
+
+//speaker category
+.sp-category-layout2 {
+    .ad-banner {
+        @include banner();
+        background-image: linear-gradient(to right, rgb(67, 111, 124), rgb(148, 190, 201), rgb(187, 217, 224));
+        p {
+            @include banner-text();
+        }
+        .ad-image {
+            @include banner-img();
+            img {
+                height: 90%;
+            }
+        }
+    }
+}
+
+.product-category2 {
+    @include category();
+    .product-container2 {
+        @include container();
+        .product {
+            @include item();
+            background-image: linear-gradient(rgb(154, 184, 204), rgb(210, 236, 252), rgb(242, 251, 252));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+                h5 {
+                    @include price();
+                }
+                h5 span {
+                    @include symbol();
+                }
+            }
+        }
+    }
+}
+
+//laptop category
+.sp-category-layout3 {
+    .ad-banner {
+        @include banner();
+        background-image: linear-gradient(to right, rgb(72, 128, 101), rgb(146, 196, 172), rgb(195, 240, 218));
+        p {
+            @include banner-text();
+        }
+        .ad-image {
+            @include banner-img();
+            img {
+                height: 90%;
+            }
+        }
+    }
+}
+
+.product-category3 {
+    @include category();
+    .product-container3 {
+        @include container();
+        .product {
+            @include item();
+            background-image: linear-gradient(rgb(143, 188, 255), rgb(195, 211, 226), rgb(242, 252, 253));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+                h5 {
+                    @include price();
+                }
+                h5 span {
+                    @include symbol();
+                }
+            }
+        }
+    }
+}
+
+//home category
+.sp-category-layout4 {
+    .ad-banner {
+        @include banner();
+        background-image: linear-gradient(to right, rgb(247, 235, 204), rgb(243, 199, 86), rgb(226, 163, 5));
+        p {
+            @include banner-text();
+        }
+        .ad-image {
+            @include banner-img();
+            img {
+                height: 90%;
+            }
+        }
+    }
+}
+
+.product-category4 {
+    @include category();
+    .product-container4 {
+        @include container();
+        .product {
+            @include item();
+            background-image: linear-gradient(rgb(248, 225, 148), rgb(247, 238, 199), rgb(248, 255, 255));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+                h5 {
+                    @include price();
+                }
+                h5 span {
+                    @include symbol();
+                }
+            }
+        }
+    }
+}
+
+//electronics category
+.sp-category-layout5 {
+    .ad-banner {
+        @include banner();
+        background-image: linear-gradient(to right, rgb(156, 82, 104), rgb(212, 138, 160), rgb(255, 198, 215));
+        p {
+            @include banner-text();
+        }
+        .ad-image {
+            @include banner-img();
+            img {
+                height: 90%;
+            }
+        }
+    }
+}
+
+.product-category5 {
+    @include category();
+    .product-container5 {
+        @include container();
+        .product {
+            @include item();
+            background-image: linear-gradient(rgb(250, 159, 242), rgb(231, 193, 248), rgb(245, 250, 250));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+                h5 {
+                    @include price();
+                }
+                h5 span {
+                    @include symbol();
+                }
+            }
+        }
+    }
+}
+
+//women category
+.sp-category-layout6 {
+    .ad-banner {
+        @include banner();
+        background-image: linear-gradient(to right, rgb(87, 146, 112), rgb(152, 197, 171), rgb(174, 238, 201));
+        p {
+            @include banner-text();
+        }
+        .ad-image {
+            @include banner-img();
+            img {
+                height: 90%;
+            }
+        }
+    }
+}
+
+.product-category6 {
+    @include category();
+    .product-container6 {
+        @include container();
+        .product {
+            @include item();
+            background-image: linear-gradient(rgb(170, 204, 193), rgb(204, 250, 241), rgb(243, 254, 255));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+                h5 {
+                    @include price();
+                }
+                h5 span {
+                    @include symbol();
+                }
+            }
+        }
+    }
+}
+
+//men category
+.sp-category-layout7 {
+    .ad-banner {
+        @include banner();
+        background-image: linear-gradient(to right, rgb(87, 120, 146), rgb(139, 182, 216), rgb(181, 218, 247));
+        p {
+            @include banner-text();
+        }
+        .ad-image {
+            @include banner-img();
+            img {
+                height: 90%;
+            }
+        }
+    }
+}
+
+.product-category7 {
+    @include category();
+    .product-container7 {
+        @include container();
+        .product {
+            @include item();
+            background-image: linear-gradient(rgb(172, 208, 236), rgb(200, 213, 230), rgb(235, 241, 241));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+                h5 {
+                    @include price();
+                }
+                h5 span {
+                    @include symbol();
+                }
+            }
+        }
+    }
+}
+
+//all categories
+.sp-all-categories {
+    .ad-banner {
+        @include banner();
+        background-image: linear-gradient(to right, rgb(161, 185, 204), rgb(206, 230, 248), rgb(234, 242, 248));
+        p {
+            @include banner-text();
+        }
+        .ad-image {
+            @include banner-img();
+            img {
+                height: 90%;
+            }
+        }
+    }
+}
+
+.all-categories {
+    @include category();
+    .category-container {
+        @include container();
+        .mobile-section {
+            @include item();
+            background-image: linear-gradient(rgb(173, 248, 223), rgb(204, 253, 244), rgb(244, 254, 255));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+            }
+        }
+        .speaker-section {
+            @include item();
+            background-image: linear-gradient(rgb(174, 250, 224), rgb(191, 233, 225), rgb(244, 253, 253));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+            }
+        }
+        .laptop-section {
+            @include item();
+            background-image: linear-gradient(rgb(174, 255, 228), rgb(197, 243, 235), rgb(239, 254, 255));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+            }
+        }
+        .electronics-section {
+            @include item();
+            background-image: linear-gradient(rgb(159, 255, 223), rgb(205, 248, 240), rgb(253, 253, 253));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+            }
+        }
+        .home-section {
+            @include item();
+            background-image: linear-gradient(rgb(153, 247, 215), rgb(203, 250, 241), rgb(243, 254, 255));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+            }
+        }
+        .women-section {
+            @include item();
+            background-image: linear-gradient(rgb(161, 241, 215), rgb(200, 245, 237), rgb(228, 244, 245));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+            }
+        }
+        .men-section {
+            @include item();
+            background-image: linear-gradient(rgb(165, 248, 220), rgb(200, 235, 228), rgb(240, 246, 247));
+            .img-container {
+                @include image_contain();
+                img {
+                    @include image();
+                }
+            }
+            .product-details {
+                h4 {
+                    @include title();
+                }
+            }
+        }
+    }
+}

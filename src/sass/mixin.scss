@@ -253,3 +253,99 @@
     visibility: hidden;
     opacity: 0;
 }
+
+@mixin banner() {
+    position: relative;
+    height: 200px;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    top: 20px;
+}
+
+@mixin banner-text() {
+    position: absolute;
+    left: 5%;
+    top: 80px;
+    font-size: 36px;
+    font-weight: 800;
+}
+
+@mixin banner-img() {
+    position: absolute;
+    right: 10%;
+    height: 100%;
+    top: 20px;
+}
+
+@mixin category() {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+@mixin container() {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    justify-content: center;
+    align-items: center;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+@mixin item() {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin image_contain() {
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+@mixin image() {
+    display: block;
+    max-height: 290px;
+    max-width: 290px;
+    width: 290px;
+    height: 260px;
+}
+
+@mixin title() {
+    margin: 10px 0px;
+    font-size: 18px;
+    color: $deepBlue;
+    cursor: pointer;
+}
+
+@mixin price() {
+    margin-bottom: 10px;
+    color: $deepBlue;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@mixin symbol() {
+    font-weight: 700;
+    color: $borderColour;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@mixin blur() {
+    background-color: whitesmoke;
+    opacity: 0.8;
+    filter: blur(3px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    transition: $transition;
+}

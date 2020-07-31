@@ -16,7 +16,19 @@ const getProduct = (query = {}, requirements = {}) => {
         .catch(err => Promise.reject(err));
 }
 
+const getDataList = (query = {}, requirements = {}) => {
+    return ProductDb.findData(query, requirements)
+        .then(dataList => dataList)
+        .catch(err => Promise.reject(err));
+}
+
+/*const aggregate = (config = {}) => {
+    return ProductDb.aggregateDbs(config);
+}*/
+
 module.exports = Object.freeze({
     saveProduct,
-    getProduct
+    getProduct,
+    getDataList,
+    //aggregate
 });

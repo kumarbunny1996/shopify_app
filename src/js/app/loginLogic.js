@@ -64,6 +64,9 @@ const getToken = () => {
         .then(successObj => {
             //console.log(successObj);
             if (successObj.logged_in) {
+                if (localStorage.getItem('AccessToken')) {
+                    localStorage.removeItem('AccessToken');
+                }
                 localStorage.setItem('AccessToken', JSON.stringify(successObj.token));
                 showUserData();
             }

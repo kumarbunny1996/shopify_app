@@ -28,7 +28,7 @@ const checkButtonStatus = () => {
     }
 }
 const checkName = () => {
-    let namePattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\']{5,256}$/;
+    let namePattern = /^[a-zA-Z0-9_@\!\#\~\$\.\*\-\`\'\s]{5,256}$/;
     let nameInput = document.getElementById('username');
     let name = nameInput.value.match(namePattern);
     if (!name) {
