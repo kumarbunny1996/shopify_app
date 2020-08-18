@@ -60,10 +60,28 @@ const msgDoc = (message, code, term) => {
 
 const modelDoc = (value) => {
     const model = document.getElementById('modal');
+    model.setAttribute('data-id', 'modal');
     model.innerHTML = `
         <div class="model-content" id="model-content">
             <div class="model-close" id="model-close">
                 <span class="close" id="close2">
+                    &times
+                </span>
+            </div
+            <div>
+                ${value}
+            </div>
+        </div>
+    `;
+}
+
+const popupDoc = (value) => {
+    const popup = document.getElementById('popup');
+    popup.setAttribute('data-id', 'popup');
+    popup.innerHTML = `
+        <div class="popup-content" id="popup-content">
+            <div class="popup-close" id="popup-close">
+                <span class="close" id="close-pop">
                     &times
                 </span>
             </div
@@ -136,8 +154,8 @@ const toolTipBox = () => {
     toolTip.id = "tool-tip-content";
     toolTip.innerHTML = `
         <ul class="tool-tip-list">
-            <li><a href="#">Your Account</a></li>
-            <li><a href="#">Your Orders</a></li>
+            <li><a href="#your-account">Your Account</a></li>
+            <li><a href="#your-orders">Your Orders</a></li>
             <li><a href="#sell-on-shopify">Sell On Shopify</a></li>
             <li class=button id="logOut"><button class="btn">Sign out</button></li>
         </ul>
@@ -189,5 +207,6 @@ module.exports = Object.freeze({
     loader,
     removeLoader,
     blurLoader,
-    removeBlurLoader
+    removeBlurLoader,
+    popupDoc,
 });

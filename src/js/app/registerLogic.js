@@ -209,7 +209,7 @@ const formValidation = () => {
     let emailInput = document.getElementById('email').value;
     let passwordInput = document.getElementById("password").value;
 
-    if (usernameInput = "" || mobileInput === "" || emailInput === "" || passwordInput === "") return;
+    if (usernameInput === "" || mobileInput === "" || emailInput === "" || passwordInput === "") return;
 
     if (name === null || mobile === null || email === null || password === null || confirmPass === true) {
         document.getElementById('register-btn').disabled = true;

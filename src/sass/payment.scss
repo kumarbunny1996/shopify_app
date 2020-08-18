@@ -1,0 +1,83 @@
+@import "variables";
+@import "mixin";
+@import 'common';
+.payment {
+    padding: 10px;
+    h3 {
+        margin-top: 10px;
+        text-align: start;
+    }
+    .summary {
+        font-weight: 500;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        justify-content: center;
+        .title-cont {
+            align-self: center;
+            padding: 10px;
+            h4 {
+                margin-bottom: 10px;
+            }
+        }
+        .values {
+            align-self: center;
+            padding: 10px;
+            em {
+                display: block;
+                margin-bottom: 10px;
+                span {
+                    color: $borderColour;
+                }
+            }
+        }
+    }
+    .input-order {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        justify-content: center;
+        padding: 10px 0px;
+        label {
+            align-self: center;
+            justify-self: center;
+        }
+        .input {
+            font-size: 16px;
+            font-weight: 300;
+        }
+    }
+    .btn {
+        .razorpay-payment-button {
+            @include buttonStyle();
+            width: 90% !important;
+            padding: 10px 0px !important;
+            &:disabled {
+                background-color: rgb(255, 228, 202);
+                box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+                cursor: default;
+            }
+        }
+    }
+    p {
+        margin: 10px 0px;
+        margin-bottom: 0px;
+        font-weight: 400;
+        font-size: 14px;
+        font-style: italic;
+    }
+    .btn {
+        #cash-on {
+            @include buttonStyle();
+            width: 90% !important;
+            padding: 10px 0px !important;
+            &:disabled {
+                background-color: rgb(255, 228, 202);
+                box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+                cursor: default;
+            }
+        }
+    }
+}

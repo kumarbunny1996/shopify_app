@@ -31,6 +31,42 @@ const userSchema = new mongoose.Schema({
     orders: {
         type: Array,
     },
+    cancelledOrders: {
+        type: Array,
+    },
+    delivery_address: {
+        type: Array,
+    },
+    single_item: {
+        type: Array,
+    },
+    address: {
+        name: {
+            type: String,
+            max: 256,
+        },
+        street: {
+            type: String,
+            max: 1024,
+        },
+        township: {
+            type: String,
+            max: 256,
+        },
+        state: {
+            type: String,
+        },
+        country: {
+            type: String,
+        },
+        pin_code: {
+            type: String,
+            max: 8,
+        },
+        shipping_cost: {
+            type: String,
+        }
+    },
     created_At: {
         type: Number,
         default: Date.now()

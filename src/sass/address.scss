@@ -1,0 +1,301 @@
+@import "variables";
+@import "mixin";
+@import "common";
+#delivery-section {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    color: $deepBlue;
+    h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        span {
+            color: $borderColour;
+            font-size: 24px;
+            font-weight: 600;
+        }
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .saved-delivery-block {
+        position: relative;
+        width: 100%;
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        justify-content: center;
+        align-items: center;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        #no-address {
+            text-align: center;
+        }
+        .address-block {
+            align-self: center;
+            justify-self: center;
+            text-align: center;
+            border: $border;
+            padding: 20px;
+            font-size: 17px;
+            .btn button {
+                @include buttonStyle();
+                padding: 8px 0px!important;
+            }
+            .btns {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-column-gap: 10px;
+                grid-row-gap: 10px;
+                button {
+                    @include buttonStyle();
+                    padding: 6px 0px !important;
+                    width: 100% !important;
+                    background-color: rgb(230, 230, 230)!important;
+                    box-shadow: 1px 1px 0.5px 1px rgb(216, 212, 212), 1px 1px 0.5px 1px rgb(216, 212, 212)!important;
+                }
+            }
+        }
+    }
+    .delivery-form {
+        width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+        border: $border;
+        .input-block {
+            width: 100%;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+        }
+        #qwerty {
+            color: $formBorder;
+            font-style: italic;
+            font-weight: 300;
+            text-align: end;
+            margin-top: 8px;
+        }
+        .btn {
+            text-align: end;
+            button {
+                @include buttonStyle();
+                width: 50% !important;
+                &:disabled {
+                    background-color: rgb(255, 228, 202);
+                    box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+
+label {
+    //width: 50%;
+    text-align: center;
+    font-weight: 600;
+    color: $deepBlue;
+    justify-self: center;
+    align-self: center;
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border: $border;
+    font-size: 16px;
+    color: $deepBlue;
+    background-color: $inputBgColor;
+    &:focus {
+        border: 3px solid $borderColour;
+    }
+}
+
+.err-content-add {
+    text-align: center;
+    display: none;
+}
+
+.err-style {
+    text-align: end;
+    //display: block;
+    font-weight: 600;
+    margin-right: 30px;
+    color: rgb(255, 130, 130);
+    //border: 3px solid rgb(255, 39, 39);
+}
+
+//select element
+.crs {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: $deepBlue;
+    font-size: 16px;
+    border: $border;
+    background-color: $inputBgColor;
+    &:focus {
+        border: 3px solid $borderColour;
+    }
+    option {
+        width: 100%;
+        height: 40px;
+    }
+}
+
+//edit address
+#delivery-edit-section {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    color: $deepBlue;
+    h3 {
+        text-align: center;
+        margin-bottom: 10px;
+        span {
+            color: $borderColour;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+    h3 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .delivery-edit-form {
+        width: 100%;
+        //margin: 20px auto;
+        //padding: 10px;
+        //border: $border;
+        .input-block {
+            width: 100%;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
+        #qwerty2 {
+            color: $formBorder;
+            font-style: italic;
+            font-weight: 300;
+            text-align: end;
+            margin-top: 8px;
+        }
+        .btn {
+            text-align: end;
+            button {
+                @include buttonStyle();
+                width: 30% !important;
+                padding: 8px 0px !important;
+                &:disabled {
+                    background-color: rgb(255, 228, 202);
+                    box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+
+.model-content {
+    @include modelCont();
+    background-color: $inputBgColor;
+    box-shadow: $boxShadow;
+    width: 40%!important;
+    margin: 20px auto !important;
+    border: $border !important;
+}
+
+.popup {
+    @include overlay();
+    background-color: rgb(0, 0, 0) !important;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    visibility: hidden;
+    /* Black w/ opacity */
+}
+
+.popup-content {
+    @include modelCont();
+    background-color: $inputBgColor;
+    box-shadow: $boxShadow;
+    width: 30% !important;
+    margin: 60px auto !important;
+    border: $border !important;
+}
+
+.popup-close {
+    @include close();
+}
+
+//delivery options
+.delivery-options {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    color: $deepBlue;
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+        span {
+            color: $borderColour;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .btn {
+        text-align: center;
+        button {
+            @include buttonStyle();
+            width: 100% !important;
+            padding: 10px 0px !important;
+            &:disabled {
+                background-color: rgb(255, 228, 202);
+                box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
+                cursor: default;
+            }
+        }
+    }
+}
+
+.delivery {
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    input {
+        height: 16px;
+        width: 16px;
+        align-self: center;
+    }
+    label {
+        color: rgb(143, 186, 197);
+        font-weight: 600;
+        font-size: 18px;
+        margin-left: -80px;
+    }
+    p {
+        color: $deepBlue;
+        font-weight: 400;
+        font-size: 16px;
+        font-style: italic;
+        i {
+            color: $borderColour;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+}

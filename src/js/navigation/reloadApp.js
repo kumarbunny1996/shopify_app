@@ -1,4 +1,4 @@
-const { indexPage, UI_handlerEvents } = require("../components/index");
+const { indexPage, UI_handlerEvents, selectedAll } = require("../components/index");
 const loginForm = require("../components/login");
 const { loginEvents } = require('../app/loginLogic');
 const registerForm = require("../components/register");
@@ -7,7 +7,7 @@ const { showReloadData } = require("../app/userslogic");
 const { loginAreaAfterSuccess } = require('../utils/utils');
 const userStore = require('../utils/userStore');
 const { sellerDom, sellerEvents } = require('../components/seller');
-const { homePage, slider, sliderRun } = require("../components/home");
+const { homePage, slider, sliderRun, homeCategoryEvents, homeLogicEvents } = require("../components/home");
 const { sellerCentralDom, prodFormHtml, sellerFormHtml, imagePreview } = require("../components/seller_central");
 const { sellerCentralEvents, keepDataOnInput, setsProductData, removeModal, productPageEvents } = require("../app/sellerLogic");
 const { mobileCategory, speakerCategory, laptopCategory, electronicsCategory, homeCategory, womenCategory, menCategory, allCategories } = require("../components/category");
@@ -22,6 +22,7 @@ let token = userStore.authToken();
 
 const reloadPages = () => {
     indexPage();
+    selectedAll();
     removeModal();
     UI_handlerEvents();
     if (token) {
@@ -33,6 +34,8 @@ const reloadPages = () => {
         removeModal();
         homePage();
         slider();
+        homeCategoryEvents();
+        homeLogicEvents();
     }
 
     //sets the login page
@@ -135,8 +138,23 @@ const reloadPages = () => {
         sliderRun();
         //console.log(location.hash);
     }
-    //sets the product page data
-    productPage();
+
+    if (location.hash === "#delivery-address") {
+        sliderRun();
+    }
+
+    if (location.hash === "#payment-gateway") {
+        sliderRun();
+    }
+    if (location.hash === "#your-orders") {
+        sliderRun();
+    }
+    if (location.hash === "#your-account") {
+        sliderRun();
+    }
+    if (location.hash === "#edit-account") {
+        sliderRun();
+    }
 
 }
 

@@ -5,6 +5,7 @@ const usersRoutes = require('./usersRoutes');
 const sellersRoutes = require('./sellersRoutes');
 const categoriesRoutes = require('./categoriesRoutes');
 const productRoutes = require('./productRoutes');
+const paymentRoute = require('./paymentRoutes');
 
 const init = (app) => {
     app.use(bodyParser.json({ limit: "50mb" }));
@@ -19,6 +20,8 @@ const init = (app) => {
     app.use('/api/shopify', categoriesRoutes);
     //product apis
     app.use('/api/shopify', productRoutes);
+    //payment verification
+    app.use('/api/payments', paymentRoute);
 }
 
 module.exports = init;

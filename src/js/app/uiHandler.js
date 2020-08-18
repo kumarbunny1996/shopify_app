@@ -1,6 +1,6 @@
 const { itemStorage } = require('../utils/userStore');
 const userStore = require('../utils/userStore');
-const { modelDoc, msgDoc, uiAfterLogout } = require('../utils/utils');
+const { modelDoc, popupDoc, msgDoc, uiAfterLogout } = require('../utils/utils');
 
 //gets event elements
 
@@ -89,20 +89,59 @@ const hideValidateMsg = () => {
 
 //close the model 
 
-const closeModel = () => {
+const closeModel = (e) => {
     document.body.style.overflowY = "scroll";
     const modal = document.getElementById('modal');
-    modal.removeChild(document.getElementById('model-content'));
-    document.getElementById('modal').style.visibility = 'hidden'
+    const cont = document.getElementById('model-content');
+    modal.removeChild(cont);
+    modal.style.visibility = 'hidden'
 }
 
+
+
 const showModel = (domValue) => {
-    modelDoc(domValue);
+        modelDoc(domValue);
+        document.body.style.overflowY = "hidden";
+        //document.getElementById('modal').classList.add();
+        document.getElementById('modal').style.visibility = 'visible'
+        events('#close2', 'click', (e) => {
+            closeModel(e);
+
+        });
+        events('#modal', 'click', (e) => {
+            e.stopPropagation();
+            let el = e.target.dataset.id;
+            if (el === 'modal') {
+                closeModel(e);
+            }
+        });
+
+    }
+    //popup model
+
+const closePopup = (e) => {
+    document.body.style.overflowY = "scroll";
+    const popup = document.getElementById('popup');
+    const cont = document.getElementById('popup-content');
+    popup.removeChild(cont);
+    popup.style.visibility = 'hidden'
+}
+const showPopup = (domValue) => {
+    popupDoc(domValue);
     document.body.style.overflowY = "hidden";
     //document.getElementById('modal').classList.add();
-    document.getElementById('modal').style.visibility = 'visible'
-    events('#close2', 'click', closeModel);
-    //events('#modal', 'click', closeModel);
+    document.getElementById('popup').style.visibility = 'visible'
+    events('#close-pop', 'click', (e) => {
+        closePopup(e);
+
+    });
+    events('#popup', 'click', (e) => {
+        e.stopPropagation();
+        let el = e.target.dataset.id;
+        if (el === 'popup') {
+            closePopup(e);
+        }
+    });
 
 }
 
@@ -142,16 +181,23 @@ const showUserNameMsg = (object = {}) => {
 
 }
 
+//remove Overlay nav
+const removeOverlayNav = () => {
+    let navMenu = document.getElementById('navigationMenu');
+    let overlay = document.getElementById('nav-overlay');
+    if (navMenu.classList.contains('show-nav')) {
+        navMenu.classList.remove('show-nav');
+    }
+    if (overlay.classList.contains('transparentbcg')) {
+        overlay.classList.remove('transparentbcg');
+    }
+}
+
 
 //sign out 
 const logOut = () => {
     localStorage.clear();
     itemStorage.clear();
-    let token = userStore.authToken();
-    token = "";
-    // itemStorage.removeItem("cart");
-    // itemStorage.removeItem("savedItems");
-    //uiAfterLogout();
     location.hash = "#login";
 }
 module.exports = Object.freeze({
@@ -169,5 +215,8 @@ module.exports = Object.freeze({
     showMsg,
     removeOverlayLoader,
     logOut,
-    showUserNameMsg
+    showUserNameMsg,
+    showPopup,
+    closePopup,
+    removeOverlayNav,
 });

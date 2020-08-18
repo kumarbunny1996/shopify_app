@@ -1,0 +1,456 @@
+@import "variables";
+@import "mixin";
+@import "common";
+.your-account {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    color: $deepBlue;
+    h2 {
+        width: 60%;
+        margin: 30px auto;
+    }
+    .account-main-block {
+        width: 70%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        //border: $border;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.account-block {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    border: $border;
+    border-radius: 5px;
+    align-self: center;
+    justify-self: center;
+    padding: 15px;
+    cursor: pointer;
+    img {
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+    }
+    .details-block {
+        h3 {
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 12px;
+            font-style: italic;
+        }
+    }
+}
+
+//edit account styles
+.edit-account-section {
+    width: 60%;
+    margin: 30px auto;
+    color: $deepBlue;
+    .links-edit {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 12px;
+        #style-account {
+            cursor: pointer;
+            color: rgb(43, 128, 255);
+            &:hover {
+                color: rgb(43, 128, 255);
+                text-decoration: solid;
+            }
+        }
+        #icon-style {
+            color: $deepBlue;
+            margin-left: 10px;
+        }
+        #style-login {
+            color: rgb(255, 101, 101);
+            margin-left: 10px;
+        }
+    }
+    h2 {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .edit-account-block {
+        width: 60%;
+        margin: 0 auto;
+        border: $border;
+        .edit-input {
+            display: grid;
+            grid-template-columns: 1fr 100px;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: $deepBlue;
+            .head-block {
+                justify-self: start;
+                align-self: center;
+                h4 {
+                    margin-bottom: 10px;
+                }
+            }
+            .edit-btn {
+                button {
+                    @include buttonStyle();
+                    width: 80px !important;
+                    padding: 5px 0px !important;
+                    background-color: rgb(230, 230, 230) !important;
+                    box-shadow: 1px 1px 0.5px 1px rgb(216, 212, 212), 1px 1px 0.5px 1px rgb(216, 212, 212) !important;
+                }
+            }
+        }
+        .line {
+            height: 2px;
+            width: 95%;
+            margin: 10px auto;
+            margin-bottom: 0px;
+            border: $border;
+        }
+        .done-btn {
+            text-align: start;
+            margin: 15px 0px;
+            padding: 0px 20px;
+            #done-btn {
+                @include buttonStyle();
+                width: 100px !important;
+                padding: 10px 0px !important;
+            }
+        }
+    }
+}
+
+//edit name input
+.edit-name-section {
+    width: 60%;
+    margin: 30px auto;
+    color: $deepBlue;
+    .links-name {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 12px;
+        #style-account {
+            cursor: pointer;
+            color: rgb(43, 128, 255);
+            &:hover {
+                color: rgb(43, 128, 255);
+                text-decoration: solid;
+            }
+        }
+        #icon-style {
+            color: $deepBlue;
+            margin-left: 10px;
+        }
+        #style-login {
+            cursor: pointer;
+            color: rgb(43, 128, 255);
+            &:hover {
+                color: rgb(43, 128, 255);
+                text-decoration: solid;
+            }
+        }
+        #icon-style {
+            color: $deepBlue;
+            margin-left: 10px;
+        }
+        #style-name {
+            color: rgb(255, 101, 101);
+            margin-left: 10px;
+        }
+    }
+    h2 {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .edit-name-block {
+        width: 360px;
+        margin: 0 auto;
+        padding: 20px;
+        border: $border;
+        h4 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        #name {
+            display: block;
+            margin: 10px 0px;
+            height: 40px;
+            width: 250px;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            border: 2px solid rgb(179, 176, 176);
+            background-color: $inputBgColor;
+            &:focus {
+                border: 2px solid rgb(255, 164, 80);
+            }
+        }
+        .btn-name {
+            margin: 15px 0px;
+            text-align: end !important;
+            button {
+                @include buttonStyle();
+                width: 50% !important;
+            }
+        }
+    }
+}
+
+//edit email
+.edit-email-section {
+    width: 60%;
+    margin: 30px auto;
+    color: $deepBlue;
+    .links-email {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 12px;
+        #style-account {
+            cursor: pointer;
+            color: rgb(43, 128, 255);
+            &:hover {
+                color: rgb(43, 128, 255);
+                text-decoration: solid;
+            }
+        }
+        #icon-style {
+            color: $deepBlue;
+            margin-left: 10px;
+        }
+        #style-login {
+            cursor: pointer;
+            color: rgb(43, 128, 255);
+            &:hover {
+                color: rgb(43, 128, 255);
+                text-decoration: solid;
+            }
+        }
+        #icon-style {
+            color: $deepBlue;
+            margin-left: 10px;
+        }
+        #style-email {
+            color: rgb(255, 101, 101);
+            margin-left: 10px;
+        }
+    }
+    h2 {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .edit-email-block {
+        width: 360px;
+        margin: 0 auto;
+        padding: 20px;
+        border: $border;
+        h4 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        #email {
+            display: block;
+            margin: 10px 0px;
+            height: 40px;
+            width: 250px;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            border: 2px solid rgb(179, 176, 176);
+            background-color: $inputBgColor;
+            &:focus {
+                border: 2px solid rgb(255, 164, 80);
+            }
+        }
+        .btn-email {
+            margin: 15px 0px;
+            text-align: end !important;
+            button {
+                @include buttonStyle();
+                width: 50% !important;
+            }
+        }
+    }
+}
+
+//edit mobile
+.edit-mobile-section {
+    width: 60%;
+    margin: 30px auto;
+    color: $deepBlue;
+    .links-mobile {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 12px;
+        #style-account {
+            cursor: pointer;
+            color: rgb(43, 128, 255);
+            &:hover {
+                color: rgb(43, 128, 255);
+                text-decoration: solid;
+            }
+        }
+        #icon-style {
+            color: $deepBlue;
+            margin-left: 10px;
+        }
+        #style-login {
+            cursor: pointer;
+            color: rgb(43, 128, 255);
+            &:hover {
+                color: rgb(43, 128, 255);
+                text-decoration: solid;
+            }
+        }
+        #icon-style {
+            color: $deepBlue;
+            margin-left: 10px;
+        }
+        #style-mobile {
+            color: rgb(255, 101, 101);
+            margin-left: 10px;
+        }
+    }
+    h2 {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .edit-mobile-block {
+        width: 360px;
+        margin: 0 auto;
+        padding: 20px;
+        border: $border;
+        h4 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        #mobile {
+            display: block;
+            margin: 10px 0px;
+            height: 40px;
+            width: 250px;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            border: 2px solid rgb(179, 176, 176);
+            background-color: $inputBgColor;
+            &:focus {
+                border: 2px solid rgb(255, 164, 80);
+            }
+        }
+        .btn-mobile {
+            margin: 15px 0px;
+            text-align: end !important;
+            button {
+                @include buttonStyle();
+                width: 50% !important;
+            }
+        }
+    }
+}
+
+//edit pswd
+.edit-password-section {
+    width: 60%;
+    margin: 30px auto;
+    color: $deepBlue;
+    .links-pswd {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 12px;
+        #style-account {
+            cursor: pointer;
+            color: rgb(43, 128, 255);
+            &:hover {
+                color: rgb(43, 128, 255);
+                text-decoration: solid;
+            }
+        }
+        #icon-style {
+            color: $deepBlue;
+            margin-left: 10px;
+        }
+        #style-login {
+            cursor: pointer;
+            color: rgb(43, 128, 255);
+            &:hover {
+                color: rgb(43, 128, 255);
+                text-decoration: solid;
+            }
+        }
+        #icon-style {
+            color: $deepBlue;
+            margin-left: 10px;
+        }
+        #style-pswd {
+            color: rgb(255, 101, 101);
+            margin-left: 10px;
+        }
+    }
+    h2 {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .edit-password-block {
+        width: 360px;
+        margin: 0 auto;
+        padding: 20px;
+        border: $border;
+        p {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            display: block;
+            margin: 10px 0px;
+            height: 40px;
+            width: 250px;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            border: 2px solid rgb(179, 176, 176);
+            background-color: $inputBgColor;
+            &:focus {
+                border: 2px solid rgb(255, 164, 80);
+            }
+        }
+        .btn-pswd {
+            margin: 15px 0px;
+            text-align: end !important;
+            button {
+                @include buttonStyle();
+                width: 50% !important;
+            }
+        }
+    }
+}

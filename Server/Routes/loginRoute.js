@@ -5,14 +5,17 @@ const { getUserLogin } = require('../InterActors/loginInterActors');
 const handleUsersLogin = async(req, res) => {
     let data = req.body;
     getUserLogin(data)
-        .then(token => {
+        .then(resObj => {
+            let token = resObj.token;
+            let user = resObj.userData;
             if (!token) {
                 res.status(400).send({ message: 'Invalid Token' });
             } else {
                 res.status(200).send({
                     logged_in: true,
                     message: 'token is valid',
-                    token
+                    token,
+                    user,
                 });
             }
         })

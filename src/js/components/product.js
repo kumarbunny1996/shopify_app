@@ -1,13 +1,21 @@
-const { removeLoader, loader } = require("../utils/utils");
+const { removeLoader, loader, loaderDiv } = require("../utils/utils");
 const makeRequestToServer = require("../ajax/ajax");
 const { itemStorage } = require("../utils/userStore");
 const { banner } = require("./category");
 const userStore = require("../utils/userStore");
-const { events } = require("../app/uiHandler");
+const { events, removeOverlayLoader } = require("../app/uiHandler");
 const { checksCartItems, totalCartValues, setCartValues, cartLogicEvents, setSavedItemsValues, saveCartLogicEvents } = require("../app/cartLogic");
 const { itemsDom, cartDom, cartDomIfEmpty, savedItemsIsEmpty, savedItemsDom, saveForLaterDom } = require("./cart");
 require('../../css/product.css');
 const { sliderRun } = require("../components/home");
+const {
+    addressUI
+} = require("../components/address");
+const { orderPage } = require("./buy_comp");
+const { orderPageUI, cancelOrdersPageUI } = require("./orders");
+const { accountUI, editAccountUI } = require("./account");
+//const { usersDataObj } = require("../app/userslogic");
+
 
 const productDom = (config = {}) => {
     let prodBanner = banner({ para: "Discount", img: "/public/images/commonStore/amazon-dhamaka-1-min.png" })
@@ -38,7 +46,7 @@ const productDom = (config = {}) => {
                             <div class="icons"><i></i></div>
                             <div class="icons"><i></i></div>
                         </div>
-                        <button class="btn" data-value="cart" id="cart-btn" data-id="${config.product._id}">Add to Cart</button>
+                        <button class="btn" data-cart="cart" id="cart-btn" data-id="${config.product._id}">Add to Cart</button>
                         <button class="btn" data-buy="buy" id="buy-btn" data-id="${config.product._id}">Buy now</button>
                     </div>
                 </div>
@@ -109,10 +117,9 @@ const reloadProductData = (id) => {
         .finally(() => removeLoader());
 }
 
-const saveProductToCart = (e, id) => {
+const saveProductToCart = (id) => {
     let token = userStore.authToken();
-    if (!token) return location.hash = "#login";
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
     let requestObj = {
         method: 'GET',
         url: `/api/users/cart/${id}`,
@@ -120,7 +127,7 @@ const saveProductToCart = (e, id) => {
         value: token,
         data: null
     }
-    loader();
+    loaderDiv();
     makeRequestToServer(requestObj)
         .then(item => {
             let product = item.item;
@@ -147,7 +154,55 @@ const saveProductToCart = (e, id) => {
             location.hash = "#shopify-cart";
         })
         .catch(err => console.log(err))
-        .finally(() => removeLoader());
+        .finally(() => removeOverlayLoader());
+}
+
+// action done when buy now btn is clicked
+const saveProductToUser = (id) => {
+    let token = userStore.authToken();
+    //window.scrollTo(0, 0);
+    let requestObj = {
+        method: 'GET',
+        url: `/api/users/buy_cart/${id}`,
+        name: 'Authorization',
+        value: token,
+        data: null
+    }
+    loaderDiv();
+    makeRequestToServer(requestObj)
+        .then(item => {
+            let product = item.item;
+            let isItem = item.isNotThere;
+            if (itemStorage.getItem("cart")) {
+                let cartItems = itemStorage.getItem("cart");
+                let cart = cartItems["cart"];
+                cart.forEach(item => {
+                    item.status = "unchecked";
+                });
+                let index = cart.findIndex(item => item._id == id);
+                if (index == -1) {
+                    cart.unshift(product);
+                } else {
+                    let buyItem = cart.find(item => item._id == id);
+                    buyItem.status = "checked";
+                    cart.splice(index, 1, buyItem);
+                }
+            }
+            if (isItem) {
+                if (itemStorage.getItem("savedItems")) {
+                    let savedCart = itemStorage.getItem("savedItems");
+                    let saveLater = savedCart["savedItems"];
+                    let index = saveLater.findIndex(item => item._id == id);
+                    if (index != -1) {
+                        saveLater.splice(index, 1);
+                    }
+                    console.log(saveLater);
+                }
+            }
+            location.hash = "#delivery-address";
+        })
+        .catch(err => console.log(err))
+        .finally(() => removeOverlayLoader());
 }
 
 const reloadCartItems = () => {
@@ -161,42 +216,104 @@ const reloadCartItems = () => {
             value: token,
             data: null
         }
-        loader();
+        loaderDiv();
         makeRequestToServer(requestObj)
             .then(cartObj => {
-                //let cartItems = cart.cart;
-                //let itemsObj = cart
                 console.log(cartObj);
                 resolve(cartObj);
             })
             .catch(err => console.log(err))
-            .finally(() => removeLoader());
+            .finally(() => removeOverlayLoader());
     });
 }
 const productEvents = () => {
-        events("#cart-btn", 'click', (e) => {
-            e.stopPropagation();
-            let id = e.target.dataset.id;
-            console.log(id);
-            if (id === undefined) return;
+    events("#cart-btn", 'click', (e) => {
+        e.stopPropagation();
+        let token = userStore.authToken();
+        let id = e.target.dataset.id;
+        console.log(id);
+        if (id === undefined) return;
+        if (!token) {
+            let cart = e.target.dataset.cart;
             itemStorage.setItem("id", id);
-            saveProductToCart(e, id);
-        });
+            itemStorage.setItem('cart-btn', cart);
+            location.hash = "#login";
+            return;
+        }
+        saveProductToCart(id);
+    });
+    events("#buy-btn", 'click', (e) => {
+        e.stopPropagation();
+        let id = e.target.dataset.id;
+        console.log(id);
+        if (id === undefined) return;
+        let token = userStore.authToken();
+        if (!token) {
+            let buy = e.target.dataset.buy;
+            itemStorage.setItem("id", id);
+            itemStorage.setItem('buy-btn', buy);
+            location.hash = "#login";
+            return;
+        }
+        saveProductToUser(id);
+    });
+}
+
+const usersDataObj = (cartObj) => {
+    let cartItems = cartObj.cart;
+    let savedItems = cartObj.savedItems;
+    let address = cartObj.address;
+    let singleAddressObj = cartObj.addressObj;
+    let orders = cartObj.orders;
+    let cancelledOrders = cartObj.cancelledOrders;
+    let user = cartObj.userObj;
+    itemStorage.setItem("user", user);
+    itemStorage.setItem("cart", cartItems);
+    itemStorage.setItem("savedItems", savedItems);
+    itemStorage.setItem("address", address);
+    itemStorage.setItem("orders", orders);
+    itemStorage.setItem("cancel_orders", cancelledOrders);
+    if (itemStorage.getItem("addressObject")) {
+        itemStorage.removeItem("addressObject");
+        itemStorage.setItem("addressObject", singleAddressObj);
+    } else {
+        itemStorage.setItem("addressObject", singleAddressObj);
     }
-    //reload the cart page data
+
+}
+
+//reload the cart page data
 const reloadCart = () => {
+        //loaderDiv();
         reloadCartItems()
             .then(cartObj => {
                 console.log(cartObj);
+                usersDataObj(cartObj);
                 let cartItems = cartObj.cart;
-                let savedItems = cartObj.savedItems;
-                itemStorage.setItem("cart", cartItems);
-                itemStorage.setItem("savedItems", savedItems);
                 totalCartValues(cartItems);
+                //sets the product page data
+                productPage();
                 if (location.hash === "#shopify-cart") {
                     setsCartPageDom();
                 }
-            });
+                if (location.hash === "#delivery-address") {
+                    addressUI();
+                }
+                if (location.hash === "#payment-gateway") {
+                    orderPage();
+                }
+                if (location.hash === "#your-orders") {
+                    orderPageUI();
+                    cancelOrdersPageUI();
+                }
+                if (location.hash === "#your-account") {
+                    accountUI();
+                }
+                if (location.hash === "#edit-account") {
+                    editAccountUI();
+                }
+            })
+            //.finally(() => removeOverlayLoader());
     }
     //sets the cart values for other pages as if
 const cartValues = () => {
@@ -205,14 +322,15 @@ const cartValues = () => {
             let cartItems = cart["cart"];
             totalCartValues(cartItems);
         } else {
+            //loaderDiv();
             reloadCartItems()
                 .then(cartObj => {
+                    console.log(cartObj);
                     let cartItems = cartObj.cart;
-                    let savedItems = cartObj.savedItems;
-                    itemStorage.setItem("cart", cartItems);
-                    itemStorage.setItem("savedItems", savedItems);
+                    usersDataObj(cartObj);
                     totalCartValues(cartItems);
-                });
+                })
+                //.finally(() => removeOverlayLoader());
         }
     }
     //sets the cart page
@@ -221,34 +339,41 @@ const toCart = () => {
             setsCartPageDom();
 
         } else {
+            //loaderDiv();
             reloadCartItems()
                 .then(cartObj => {
-                    let cartItems = cartObj.cart;
-                    let savedItems = cartObj.savedItems;
-                    itemStorage.setItem("cart", cartItems);
-                    itemStorage.setItem("savedItems", savedItems);
+                    usersDataObj(cartObj);
                     setsCartPageDom();
                 });
+            //.finally(() => removeOverlayLoader());
         }
     }
     //sets the cart when cartBtn is clicked
 const checkTheCartIfItemExists = (id) => {
-    reloadCartItems()
-        .then(cartObj => {
-            let cartItems = cartObj.cart;
-            let savedItems = cartObj.savedItems;
-            itemStorage.setItem("cart", cartItems);
-            itemStorage.setItem("savedItems", savedItems);
-            let item = cartItems.find(item => {
-                return item._id == id;
-            });
-            if (item) {
-                location.hash = "#shopify-cart";
-            } else {
-                saveProductToCart(id);
-            }
-
+        let cartItems = itemStorage.getItem("cart");
+        let cart = cartItems["cart"];
+        let item = cart.find(item => {
+            return item._id == id;
         });
+        if (item) {
+            location.hash = "#shopify-cart";
+        } else {
+            saveProductToCart(id);
+        }
+
+    }
+    //when buy button is clicked
+const checkTheCartIfItemExistsBuyBtn = (id) => {
+    let cartItems = itemStorage.getItem("cart");
+    let cart = cartItems["cart"];
+    let item = cart.find(item => {
+        return item._id == id;
+    });
+    if (item) {
+        location.hash = "#delivery-address";
+    } else {
+        saveProductToUser(id);
+    }
 }
 
 //sets the cart page dom function
@@ -281,6 +406,7 @@ const setsCartPageDom = () => {
 const productPage = () => {
     if (itemStorage.getItem("product") === null || itemStorage.getItem("product") === undefined) {
         let id = location.hash.split("_")[1];
+        //let token = userStore.authToken();
         if (id === undefined) return;
         console.log(id);
         if (id) {
@@ -302,5 +428,7 @@ module.exports = {
     saveProductToCart,
     checkTheCartIfItemExists,
     reloadCart,
-    productPage
+    productPage,
+    saveProductToUser,
+    checkTheCartIfItemExistsBuyBtn,
 };

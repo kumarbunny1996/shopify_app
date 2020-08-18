@@ -24,14 +24,36 @@ let userLogin = (userData) => {
     return getTokenOfUser(userData);
 }
 
-let getTokenOfUser = ({ _id, username, mobile, email }) => {
-    let userPayload = {
+let getTokenOfUser = (user) => {
+    let {
+        _id,
+        username,
+        mobile,
+        email
+    } = user;
+    let userObj = {
         _id,
         username,
         mobile,
         email
     };
-    return generateAuthToken(userPayload);
+    let cart = user.cart;
+    let savedItems = user.saved_items;
+    let address = user.delivery_address;
+    let addressObj = user.address;
+    let orders = user.orders;
+    let cancelledOrders = user.cancelledOrders
+    let token = generateAuthToken(userObj);
+    return {
+        token,
+        cart,
+        savedItems,
+        address,
+        addressObj,
+        orders,
+        cancelledOrders,
+        userObj,
+    }
 
 }
 

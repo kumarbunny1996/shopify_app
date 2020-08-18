@@ -55,7 +55,7 @@ const cartDom = () => {
             <div class="buy-block">
                 <h4 id="start"></h4>
                 <div class="btn">
-                    <button data-id="cart">Proceed to buy</button>
+                    <button data-id="cart" id="cart-to-buy">Proceed to buy</button>
                 </div>
                 <div class="buy-cont">
                     <i>&#128737;</i>

@@ -1,5 +1,5 @@
 const Products = require("../Models/productModel");
-const { getProduct } = require("../Utils/productDbUtils");
+const { getProduct, getDataList } = require("../Utils/productDbUtils");
 const { getSellerProfile } = require("../Utils/sellerDButils");
 
 const getProductObj = async(id) => {
@@ -26,6 +26,31 @@ const getProductObj = async(id) => {
     }
 }
 
+//gets the search values based on categories
+const getSearchQuery = async(value) => {
+    let productList = [];
+    if (value === "All") {
+        productList = await getDataList();
+    } else {
+        let query = {
+            category: value
+        };
+        productList = await getDataList(query);
+    }
+    let values = productList.map(product => {
+        return {
+            _id: product._id,
+            item_name: product.item_name,
+            brand_name: product.brand_name,
+            category: product.category,
+        };
+    });
+    return {
+        values,
+    };
+
+}
+
 const mergedCollection = () => {
     return Products.aggregate([{
             $lookup: {
@@ -47,4 +72,4 @@ const mergedCollection = () => {
     });
 }
 
-module.exports = { getProductObj };
+module.exports = { getProductObj, getSearchQuery };

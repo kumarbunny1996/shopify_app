@@ -249,7 +249,7 @@ const updateQuantity = (id, e) => {
     let input = e.target.parentElement.previousElementSibling.value;
     let inputEl = e.target.parentElement.previousElementSibling;
     console.log(input);
-    if (input === "" || input === undefined) return;
+    if (input === "" || input === undefined || input === "0") return;
     if (input) {
         inputEl.nextElementSibling.firstElementChild.disabled = false;
         let qty = input;
@@ -742,6 +742,36 @@ const selectRequest = (e) => {
         .catch(err => console.log(err))
         .finally(() => removeBlurLoader(itemsBlock));
 }
+
+//buy cart logic
+const buyCartItems = (e) => {
+    let token = userStore.authToken();
+    let itemsBlock = document.getElementById("main-content");
+    let data = e.target.dataset.id;
+    if (!data) return;
+    let requestObj = {
+        method: 'GET',
+        url: `/api/users/check_user`,
+        name: 'Authorization',
+        value: token,
+        data: null
+    }
+    blurLoader(itemsBlock);
+    makeRequestToServer(requestObj)
+        .then(obj => {
+            console.log(obj);
+            let address = obj.address;
+            if (itemStorage.getItem("address")) {
+                location.hash = "#delivery-address";
+            } else {
+                itemStorage.setItem("address", address);
+                location.hash = "#delivery-address";
+            }
+        })
+        .catch(err => console.log(err))
+        .finally(() => removeBlurLoader(itemsBlock));
+
+}
 const cartLogicEvents = () => {
     events("#items-block", 'change', (e) => {
         e.stopPropagation();
@@ -806,6 +836,9 @@ const cartLogicEvents = () => {
     });
     events("#select", 'click', (e) => {
         selectRequest(e);
+    });
+    events("#cart-to-buy", 'click', (e) => {
+        buyCartItems(e);
     });
 }
 

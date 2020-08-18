@@ -1,4 +1,4 @@
-const { indexPage, UI_handlerEvents } = require("../components/index");
+const { indexPage, UI_handlerEvents, selectedAll } = require("../components/index");
 const loginForm = require("../components/login");
 const registerForm = require("../components/register");
 const { passwordEvents, registerEvents } = require('../app/registerLogic');
@@ -7,15 +7,19 @@ const { loginAreaAfterSuccess, uiHomeAfterLogin } = require("../utils/utils");
 const userStore = require("../utils/userStore");
 const { init } = require('../app/userslogic');
 const { sellerDom, sellerEvents } = require("../components/seller");
-const { homePage, slider, sliderRun } = require("../components/home");
+const { homePage, slider, sliderRun, homeCategoryEvents, homeLogicEvents } = require("../components/home");
 const { sellerCentralDom, prodFormHtml, sellerFormHtml, imagePreview } = require("../components/seller_central");
 const { sellerCentralEvents, keepDataOnInput, setsProductData, productModalShow, removeModal, productPageEvents } = require("../app/sellerLogic");
 const { mobileCategory, speakerCategory, laptopCategory, electronicsCategory, homeCategory, womenCategory, menCategory, allCategories } = require("../components/category");
 const { getsCategoryDataList, eventForShowingProduct } = require("../app/categoryLogic");
-const { productDom, productEvents, reloadProductData, reloadCartItems, cartValues, toCart, productPage } = require("../components/product");
+const { productDom, productEvents, cartValues, toCart, productPage } = require("../components/product");
 const { itemStorage } = require("../utils/userStore");
-const { itemsDom, cartDom } = require("../components/cart");
-const { setCartValues, checksCartItems, totalCartValues, cartLogicEvents } = require("../app/cartLogic");
+const { checksCartItems } = require("../app/cartLogic");
+const { addressUI } = require("../components/address");
+const { orderPage } = require("../components/buy_comp");
+const { orderPageUI, cancelOrdersPageUI } = require("../components/orders");
+const { accountUI, editAccountUI } = require("../components/account");
+const { removeOverlayNav } = require("../app/uiHandler");
 
 
 //sets the home page as default
@@ -41,7 +45,7 @@ const navigation = () => {
         loginEvents();
     }
     if (fragmentId === "register") {
-        sliderRun(fragmentId)
+        sliderRun(fragmentId);
         removeModal();
         registerForm();
         passwordEvents();
@@ -50,12 +54,15 @@ const navigation = () => {
     if (fragmentId === "home") {
         removeModal();
         indexPage();
+        selectedAll();
         UI_handlerEvents();
         homePage();
         slider();
-        uiHomeAfterLogin();
+        homeCategoryEvents();
+        homeLogicEvents();
         if (token) {
             init();
+            uiHomeAfterLogin();
             cartValues();
         }
     }
@@ -63,6 +70,7 @@ const navigation = () => {
         sliderRun(fragmentId)
         removeModal();
         indexPage();
+        selectedAll();
         UI_handlerEvents();
         sellerDom();
         sellerEvents();
@@ -102,6 +110,8 @@ const navigation = () => {
     }
     if (fragmentId === "categories") {
         sliderRun(fragmentId);
+        removeModal();
+        removeOverlayNav();
         allCategories();
     }
 
@@ -169,12 +179,73 @@ const navigation = () => {
         }
         if (token) {
             indexPage();
+            selectedAll();
             UI_handlerEvents();
             init();
             sliderRun(fragmentId);
             toCart();
             //cartLogicEvents();
         }
+    }
+    if (fragmentId === "delivery-address") {
+        sliderRun(fragmentId)
+        if (!token) {
+            location.hash = "#login";
+        }
+        if (token) {
+            addressUI();
+        }
+
+    }
+
+    //sets payment page
+    if (fragmentId === "payment-gateway") {
+        sliderRun(fragmentId)
+        if (!token) {
+            location.hash = "#login";
+        }
+        if (token) {
+            orderPage();
+        }
+    }
+
+    //sets the order items page
+    if (fragmentId === "your-orders") {
+        sliderRun(fragmentId);
+        if (!token) {
+            location.hash = "#login";
+            return;
+        }
+        if (token) {
+            removeModal();
+            indexPage();
+            selectedAll();
+            UI_handlerEvents();
+            init();
+            cartValues();
+            orderPageUI();
+            cancelOrdersPageUI();
+        }
+    }
+
+    if (fragmentId === "your-account") {
+        sliderRun(fragmentId);
+        if (!token) {
+            location.hash = "#login";
+            return;
+        }
+        removeModal();
+        removeOverlayNav();
+        accountUI();
+    }
+
+    if (fragmentId === "edit-account") {
+        sliderRun(fragmentId);
+        if (!token) {
+            location.hash = "#login";
+            return;
+        }
+        editAccountUI();
     }
     //sets the product data 
     productPage();

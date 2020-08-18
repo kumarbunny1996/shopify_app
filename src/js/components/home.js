@@ -10,7 +10,7 @@ const itemsCollectionDom = (config = {}) => {
                 <div class="card-header">
                     <h2>${config.title}</h2>
                 </div>
-                <div class="card-body">
+                <div class="card-body" data-id=${config.value}>
                     <div class="grid-row row-1">
                         <div class="grid-container contain-1">  
                             <div class="card-img">
@@ -50,7 +50,7 @@ const itemsCollectionDom = (config = {}) => {
                     </div>                                
                 </div>
                 <div class="card-footer">
-                    <span><a href="#">See more</a></span>
+                    <span><a href="#${config.value}">See more</a></span>
                 </div>
             </div>
         </div>
@@ -64,12 +64,12 @@ const signInDom = () => {
                 <div class="sign-card-header">
                     <h4>Sign in for you best experience</h4>
                 </div>
-                <div class="sign-card-body">
+                <div class="sign-card-body" id="sign-card-body">
                     <button>Sign in</button>
                 </div>
             </div>
             <div class="sm-banner">
-                <img src="/public/images/laptopStore/Macbook-Transparent-Background-min.png">
+                <img id="sm-banner" data-id="laptops-cate" src="/public/images/laptopStore/Macbook-Transparent-Background-min.png">
             </div>
         </div>
     `;
@@ -83,9 +83,9 @@ const yourAccount = () => {
                     <i class="fa fa-user-circle-o"></i>
                     <h3 id="card-username"></h3>
                 </div>
-                <div class="card-body account-card-body">
+                <div class="card-body account-card-body" id="card-body">
                     <div class="grid-row row-1">
-                        <div class="grid-container contain-1">  
+                        <div class="grid-container contain-1" data-id="your-orders-home">  
                             <div class="card-img">
                                 <img alt="your-orders" src="/public/images/commonStore/6660132.png" data-hires="/public/images/commonStore/6660132.png">
                             </div>
@@ -93,7 +93,7 @@ const yourAccount = () => {
                                 <span>your orders</span>
                             </div>                                  
                         </div>
-                        <div class="grid-container contain-2">
+                        <div class="grid-container contain-2" data-id="mobiles-cate">
                             <div class="card-img">
                                 <img alt="mobiles" src="/public/images/mobilesStore/Mobile-Phone-Download-PNG-Image-min.png" data-hires="/public/images/mobilesStore/Mobile-Phone-Download-PNG-Image-min.png">
                             </div>
@@ -103,7 +103,7 @@ const yourAccount = () => {
                         </div> 
                     </div>
                     <div class="grid-row row-2">
-                        <div class="grid-container contain-3">                        
+                        <div class="grid-container contain-3" data-id="laptops-cate">                        
                             <div class="card-img">
                                 <img alt="laptops" src="/public/images/laptopStore/pngkey.com-computadoras-png-4085839-min.png"
                                 data-hires="/public/images/laptopStore/pngkey.com-computadoras-png-4085839-min.png">
@@ -112,7 +112,7 @@ const yourAccount = () => {
                                 <span>laptops</span>
                             </div>                          
                         </div>
-                        <div class="grid-container contain-4">
+                        <div class="grid-container contain-4" data-id="dress-cate">
                             <div class="card-img">
                                 <img alt="fashion" src="/public/images/mens/pngkey.com-snoop-png-10087600-min.png" data-hires="/public/images/mens/pngkey.com-snoop-png-10087600-min.png">
                             </div>
@@ -132,6 +132,7 @@ const homePage = () => {
     let homeAppliances = itemsCollectionDom({
         number: 0,
         title: "Top picks for your home",
+        value: "home-appliances",
         container1: {
             alt: "Foggs",
             src: "/public/images/homeStore/pngkey.com-fogg-png-2700196-min.png",
@@ -162,6 +163,7 @@ const homePage = () => {
     let womenWear = itemsCollectionDom({
         number: 1,
         title: "Women's wear basics",
+        value: "women",
         container1: {
             alt: "T-shirts",
             src: "/public/images/womens/pngkey.com-white-shirt-png-4460853-min.png",
@@ -192,6 +194,7 @@ const homePage = () => {
     let menWear = itemsCollectionDom({
         number: 2,
         title: "Men's wear basics",
+        value: "men",
         container1: {
             alt: "T-shirts",
             src: "/public/images/mens/Black-T-Shirt-PNG.png",
@@ -221,6 +224,7 @@ const homePage = () => {
     let mobiles = itemsCollectionDom({
         number: 3,
         title: "Top mobile brands for you",
+        value: "mobiles",
         container1: {
             alt: "Samsung",
             src: "/public/images/mobilesStore/Smartphone-Transparent-Background.png",
@@ -251,6 +255,7 @@ const homePage = () => {
     let speakers = itemsCollectionDom({
         number: 4,
         title: "Top picks for you",
+        value: "speakers",
         container1: {
             alt: "speakers",
             src: "/public/images/speakers/Red-Bluetooth-Speaker-PNG-File-min.png",
@@ -281,6 +286,7 @@ const homePage = () => {
     let laptops = itemsCollectionDom({
         number: 5,
         title: "Top brands of laptops",
+        value: "laptops",
         container1: {
             alt: "hp laptops",
             src: "/public/images/laptopStore/laptop-hd-png-laptop-png-free-download-485-min.png",
@@ -311,6 +317,7 @@ const homePage = () => {
     let electronics = itemsCollectionDom({
         number: 6,
         title: "Top picks for you",
+        value: "electronics",
         container1: {
             alt: "videocon",
             src: "/public/images/electronics/pngkey.com-digital-camera-png-3402090-min.png",
@@ -379,7 +386,7 @@ const homePage = () => {
             <button class="arrows"id="next"><i class="fas fa-arrow-right"></i></button>
         </div>
         <section id="sp-home-layout">
-            <div class="sp-card-layout" data-flow="h">
+            <div class="sp-card-layout" data-flow="h" id="sp-card-layout">
                 ${accountCard}
                 ${homeAppliances}
                 ${womenWear}
@@ -456,4 +463,47 @@ const slider = () => {
         }
     });
 }
-module.exports = { homePage, slider, sliderRun };
+const homeCategoryEvents = () => {
+    events("#sp-card-layout", 'click', (e) => {
+        let women = e.target.parentElement.parentElement.parentElement.parentElement.dataset.id;
+        let mobiles = e.target.parentElement.parentElement.parentElement.parentElement.dataset.id;
+        let laptops = e.target.parentElement.parentElement.parentElement.parentElement.dataset.id;
+        let men = e.target.parentElement.parentElement.parentElement.parentElement.dataset.id;
+        let electronics = e.target.parentElement.parentElement.parentElement.parentElement.dataset.id;
+        let speakers = e.target.parentElement.parentElement.parentElement.parentElement.dataset.id;
+        let home_app = e.target.parentElement.parentElement.parentElement.parentElement.dataset.id;
+        if (women === "women") return location.hash = "#women";
+        if (men === "men") return location.hash = "#men";
+        if (mobiles === "mobiles") return location.hash = "#mobiles";
+        if (laptops === "laptops") return location.hash = "#laptops";
+        if (electronics === "electronics") return location.hash = "#electronics";
+        if (home_app === "home-appliances") return location.hash = "#home-appliances";
+        if (speakers === "speakers") return location.hash = "#speakers";
+    });
+}
+const homeLogicEvents = () => {
+    let token = userStore.authToken();
+    if (token) {
+        events("#card-body", 'click', (e) => {
+            let account = e.target.parentElement.parentElement.dataset.id;
+            let mobile = e.target.parentElement.parentElement.dataset.id;
+            let laptop = e.target.parentElement.parentElement.dataset.id;
+            let dress = e.target.parentElement.parentElement.dataset.id;
+            if (account === "your-orders-home") return location.hash = "#your-orders";
+            if (mobile === "mobiles-cate") return location.hash = "#mobiles";
+            if (laptop === "laptops-cate") return location.hash = "#laptops";
+            if (dress === "dress-cate") return location.hash = "#men";
+
+        });
+    } else {
+        events("#sign-card-body", 'click', (e) => {
+            location.hash = "#login";
+        });
+        events("#sm-banner", 'click', (e) => {
+            let value = e.target.dataset.id;
+            if (value === "laptops-cate") return location.hash = "#laptops";
+        });
+    }
+
+}
+module.exports = { homePage, slider, sliderRun, homeCategoryEvents, homeLogicEvents };

@@ -203,117 +203,56 @@ button {
   color: #e9b148;
 }
 
-.loginArea {
-  padding: 20px;
-  text-align: center;
-  width: 100%;
+.payment {
+  padding: 10px;
 }
-
-.logo2 {
-  width: 100%;
-  text-transform: capitalize;
-  padding-bottom: 20px;
+.payment h3 {
+  margin-top: 10px;
+  text-align: start;
 }
-
-.logo-title {
+.payment .summary {
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-content: center;
+}
+.payment .summary .title-cont {
+  align-self: center;
+  padding: 10px;
+}
+.payment .summary .title-cont h4 {
+  margin-bottom: 10px;
+}
+.payment .summary .values {
+  align-self: center;
+  padding: 10px;
+}
+.payment .summary .values em {
+  display: block;
+  margin-bottom: 10px;
+}
+.payment .summary .values em span {
   color: #ecac08;
-  font-weight: 900;
 }
-
-.logo2 a {
-  font-size: 28px;
-  font-weight: 700;
-  color: #032f3e;
+.payment .input-order {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-content: center;
+  padding: 10px 0px;
 }
-
-.form {
-  width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 0.5px solid #d8d4d4;
-  box-shadow: inset 1px 1px 0.5px 0.5px #a8a7a7, inset -1px -1px 0.5px 0.5px #a8a7a7;
-  color: #032f3e;
+.payment .input-order label {
+  align-self: center;
+  justify-self: center;
 }
-@media screen and (max-width: 430px) {
-  .form {
-    width: 350px;
-  }
+.payment .input-order .input {
+  font-size: 16px;
+  font-weight: 300;
 }
-@media screen and (max-width: 370px) {
-  .form {
-    width: 300px;
-  }
-}
-
-.form-content {
-  width: 360px;
-  position: relative;
-  height: 50px;
-  margin: 20px 0px;
-  overflow: hidden;
-}
-@media screen and (max-width: 430px) {
-  .form-content {
-    width: 310px;
-  }
-}
-@media screen and (max-width: 370px) {
-  .form-content {
-    width: 260px;
-  }
-}
-
-.form-content .user-input {
-  width: 100%;
-  height: 100%;
-  padding-top: 20px;
-  color: #595f6e;
-  border: none;
-  font-size: 18px;
-  outline: none;
-  background-color: #f3ecec;
-}
-
-.form .label-content {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  border-bottom: 1px solid #032f3e;
-}
-
-.form .label-content::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-bottom: 3px solid #ecac08;
-  left: 0px;
-  bottom: -1px;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-}
-
-.content2 {
-  position: absolute;
-  left: 0px;
-  bottom: 5px;
-  transition: all 0.1s ease;
-}
-
-.form-content .user-input:focus + label .content2,
-.form-content .user-input:valid + label .content2 {
-  transform: translateY(-150%);
-}
-
-.form-content .user-input:focus + label::after,
-.form-content .user-input:valid + label::after {
-  transform: translateX(0%);
-}
-
-.button .btn {
+.payment .btn .razorpay-payment-button {
   border: none;
   text-decoration: none;
   background-color: #f8bf2e;
@@ -328,136 +267,40 @@ button {
   outline: none;
   transition: all 0.1s ease;
   margin-top: 20px;
+  width: 90% !important;
+  padding: 10px 0px !important;
 }
-
-.button .btn {
-  font-size: 16px;
-  font-weight: 700;
-  color: #032f3e;
+.payment .btn .razorpay-payment-button:disabled {
+  background-color: #ffe4ca;
+  box-shadow: 1px 1px 0.5px 1px #a8a7a7, 1px 1px 0.5px 1px #a8a7a7;
+  cursor: default;
 }
-
-.button .btn:hover {
-  background-color: #e2a508;
-}
-
-.login-footer {
-  width: 100%;
-  position: relative;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 12px;
-  color: #595f6e;
-  margin: 20px 0px 0px 0px;
-}
-
-.check {
-  color: #032f3e;
+.payment p {
+  margin: 10px 0px;
+  margin-bottom: 0px;
+  font-weight: 400;
   font-size: 14px;
-  margin-top: 10px;
-  text-align: left;
+  font-style: italic;
 }
-
-#toggle {
-  height: 15px;
-  width: 15px;
-  cursor: pointer;
-}
-
-.option-login {
-  margin: 10px 0px;
-  text-align: center;
-}
-
-.google-sign {
-  position: relative;
-  width: 100%;
-  margin: 10px 0px;
-}
-
-.google-sign .google-btn {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 700;
+.payment .btn #cash-on {
   border: none;
-  outline: none;
-  position: relative;
+  text-decoration: none;
+  background-color: #f8bf2e;
+  text-align: center;
   width: 100%;
-  padding: 15px 0px;
-  transition: all 0.1s ease;
   color: #032f3e;
-  box-shadow: -4px -4px 10px white, inset 4px 4px 10px rgba(0, 0, 0, 0.05), inset -4px -4px 10px white, 4px 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 15px 0px;
+  font-size: 16px;
   cursor: pointer;
+  font-weight: 700;
+  box-shadow: 1px 1px 0.5px 1px #ecac08, 1px 1px 0.5px 1px #ecac08;
+  outline: none;
+  transition: all 0.1s ease;
+  margin-top: 20px;
+  width: 90% !important;
+  padding: 10px 0px !important;
 }
-.google-sign .google-btn:hover {
-  background-color: #90a4db;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05), -4px -4px 10px white;
-}
-
-.google-logo {
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  left: 20%;
-  z-index: 1;
-  top: 9px;
-  background-image: url("/public/images/commonStore/google-logo.png");
-  background-size: cover;
-  cursor: pointer;
-}
-@media screen and (max-width: 430px) {
-  .google-logo {
-    left: 15%;
-  }
-}
-@media screen and (max-width: 370px) {
-  .google-logo {
-    left: 10%;
-  }
-}
-
-.loadOverlay {
-  background-color: #032f3e;
-  opacity: 0.95;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 2;
-  transition: 0.1s linear;
-  visibility: visible !important;
-  background-color: black !important;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4) !important;
-  /* Black w/ opacity */
-}
-
-.loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 10;
-  border: 10px solid #595f6e;
-  border-radius: 50%;
-  border-top: 10px solid #ecac08;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.errorMsg {
-  color: #ff4c4c;
-}
-
-#login-btn:disabled {
+.payment .btn #cash-on:disabled {
   background-color: #ffe4ca;
   box-shadow: 1px 1px 0.5px 1px #a8a7a7, 1px 1px 0.5px 1px #a8a7a7;
   cursor: default;

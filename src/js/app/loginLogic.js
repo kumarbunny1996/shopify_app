@@ -2,7 +2,15 @@
 const { events, showHide, showMsg, removeOverlayLoader } = require("./uiHandler");
 const makeRequestToServer = require('../ajax/ajax');
 const { loaderDiv } = require("../utils/utils");
-const { showUserData } = require("./userslogic");
+const {
+    usersDataObj,
+    loginToCart,
+    loginToCartWithItemId,
+    loginToBuyWithBuyBtn,
+    loginToOrders,
+    loginToAccount,
+} = require("./userslogic");
+//const { showUserData } = require("./userslogic");
 
 const checkPassword = () => {
     let passwordPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,256}/;
@@ -60,7 +68,7 @@ const getToken = () => {
         value: undefined,
         data: data
     };
-    makeRequestToServer(requestObject)
+    return makeRequestToServer(requestObject)
         .then(successObj => {
             //console.log(successObj);
             if (successObj.logged_in) {
@@ -68,7 +76,8 @@ const getToken = () => {
                     localStorage.removeItem('AccessToken');
                 }
                 localStorage.setItem('AccessToken', JSON.stringify(successObj.token));
-                showUserData();
+                //showUserData();
+                return successObj.user;
             }
         })
         .catch(errObj => {
@@ -101,20 +110,57 @@ const loginValidation = () => {
     } else {
         document.getElementById("login-btn").disabled = false;
         loaderDiv();
-        getToken();
+        return getToken()
+            .then(user => {
+                return user;
+            });
+
     }
 }
 
 const redirectToRegister = () => {
     location.hash = "#register";
 }
+const userData = () => {
+    loginValidation()
+        .then(user => {
+            console.log(user);
+            usersDataObj(user);
+            userStore.setUsername(user.userObj.username);
+            let seller = userStore.getDataValue();
+            if (seller) {
+                seller = "";
+                userStore.setDataValue(seller);
+                return location.hash = "#seller-central";
+            }
+            if (itemStorage.getItem("value")) {
+                return loginToCart();
+            }
+            if (itemStorage.getItem("cart-btn")) {
+                return loginToCartWithItemId();
+            }
+            if (itemStorage.getItem("buy-btn")) {
+                return loginToBuyWithBuyBtn();
+            }
+            if (itemStorage.getItem("orders") || itemStorage.getItem("orders_2")) {
+                return loginToOrders();
+            }
+            if (itemStorage.getItem("account") || itemStorage.getItem("account_2")) {
+                return loginToAccount();
+            }
+            location.hash = "#home";
+            window.scrollTo(0, 0);
+        });
+}
 
 const loginEvents = () => {
     events('#password', 'keyup', checkPassword);
     events('#user-input', 'keyup', checkMobileOrEmail);
     events('#toggle', 'click', showHide);
-    events('#login-btn', 'click', loginValidation)
+    events('#login-btn', 'click', (e) => {
+        userData();
+    });
     events('#create-btn', 'click', redirectToRegister)
 }
 
-module.exports = Object.freeze({ loginEvents });
+module.exports = Object.freeze({ loginEvents, loginValidation });

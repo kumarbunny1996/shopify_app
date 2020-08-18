@@ -31,13 +31,13 @@ const getSelectElement = (id) => {
         <i class="info-mark" data-info="Product category is required">?</i>
         <label class="category-name">Choose category *</label>
         <select class="product-category" id="${id}">
-            <option value="search-alias=shopify-Speakers">Speakers</option>
-            <option value="search-alias=mobiles">Mobiles</option>
-            <option value="search-alias=Men">Men</option>
-            <option value="search-alias=laptops">Laptops</option>
-            <option value="search-alias=Electronics">Electronics</option>
-            <option value="search-alias=Home-appliances">Home-appliances</option>
-            <option value="search-alias=Women">Women</option>
+            <option value="Speakers">Speakers</option>
+            <option value="Mobiles">Mobiles</option>
+            <option value="Men">Men</option>
+            <option value="Laptops">Laptops</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Home-appliances">Home-appliances</option>
+            <option value="Women">Women</option>
         </select>
         <div class="sort-icon">
             <i class="fa fa-sort-desc" aria-hidden="true"></i>
