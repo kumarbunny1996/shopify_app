@@ -148,7 +148,7 @@ const saveProductToCart = (id) => {
                     if (index != -1) {
                         saveLater.splice(index, 1);
                     }
-                    console.log(saveLater);
+                    // console.log(saveLater);
                 }
             }
             location.hash = "#shopify-cart";
@@ -196,7 +196,7 @@ const saveProductToUser = (id) => {
                     if (index != -1) {
                         saveLater.splice(index, 1);
                     }
-                    console.log(saveLater);
+                    //console.log(saveLater);
                 }
             }
             location.hash = "#delivery-address";
@@ -219,7 +219,7 @@ const reloadCartItems = () => {
         loaderDiv();
         makeRequestToServer(requestObj)
             .then(cartObj => {
-                console.log(cartObj);
+                //console.log(cartObj);
                 resolve(cartObj);
             })
             .catch(err => console.log(err))
@@ -231,7 +231,7 @@ const productEvents = () => {
         e.stopPropagation();
         let token = userStore.authToken();
         let id = e.target.dataset.id;
-        console.log(id);
+        // console.log(id);
         if (id === undefined) return;
         if (!token) {
             let cart = e.target.dataset.cart;
@@ -245,7 +245,7 @@ const productEvents = () => {
     events("#buy-btn", 'click', (e) => {
         e.stopPropagation();
         let id = e.target.dataset.id;
-        console.log(id);
+        //console.log(id);
         if (id === undefined) return;
         let token = userStore.authToken();
         if (!token) {
@@ -259,14 +259,18 @@ const productEvents = () => {
     });
 }
 
-const usersDataObj = (cartObj) => {
-    let cartItems = cartObj.cart;
-    let savedItems = cartObj.savedItems;
-    let address = cartObj.address;
-    let singleAddressObj = cartObj.addressObj;
-    let orders = cartObj.orders;
-    let cancelledOrders = cartObj.cancelledOrders;
-    let user = cartObj.userObj;
+const usersDataObj2 = (userObj) => {
+    let cartItems = userObj.cart;
+    let savedItems = userObj.saved_items;
+    let address = userObj.delivery_address;
+    let singleAddressObj = userObj.address;
+    let orders = userObj.orders;
+    let cancelledOrders = userObj.cancelledOrders;
+    let user = {
+        username: userObj.username,
+        mobile: userObj.mobile,
+        email: userObj.email,
+    };
     itemStorage.setItem("user", user);
     itemStorage.setItem("cart", cartItems);
     itemStorage.setItem("savedItems", savedItems);
@@ -287,9 +291,10 @@ const reloadCart = () => {
         //loaderDiv();
         reloadCartItems()
             .then(cartObj => {
-                console.log(cartObj);
-                usersDataObj(cartObj);
-                let cartItems = cartObj.cart;
+                //console.log(cartObj);
+                let userObj = cartObj.user;
+                usersDataObj2(userObj);
+                let cartItems = userObj.cart;
                 totalCartValues(cartItems);
                 //sets the product page data
                 productPage();
@@ -325,7 +330,7 @@ const cartValues = () => {
             //loaderDiv();
             reloadCartItems()
                 .then(cartObj => {
-                    console.log(cartObj);
+                    //console.log(cartObj);
                     let cartItems = cartObj.cart;
                     usersDataObj(cartObj);
                     totalCartValues(cartItems);
@@ -382,7 +387,7 @@ const setsCartPageDom = () => {
     let cart = itemStorage.getItem("cart");
     let savedCart = itemStorage.getItem("savedItems");
     let saveLater = savedCart["savedItems"];
-    console.log(saveLater);
+    //console.log(saveLater);
     let cartItem = cart["cart"];
     if (cartItem.length === 0) {
         cartDomIfEmpty();
@@ -408,7 +413,7 @@ const productPage = () => {
         let id = location.hash.split("_")[1];
         //let token = userStore.authToken();
         if (id === undefined) return;
-        console.log(id);
+        //console.log(id);
         if (id) {
             sliderRun();
             reloadProductData(id);

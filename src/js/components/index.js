@@ -201,7 +201,7 @@ const selectedValueReq = (value) => {
         };
         makeRequestToServer(requestObject)
             .then(resObj => {
-                console.log(resObj);
+                //console.log(resObj);
                 let array = resObj.search_query;
                 if (array.length === 0) return;
                 if (itemStorage.getItem("search_query")) {
@@ -251,7 +251,7 @@ const autocompleteDivisions = (e, searchValues, currentFocus) => {
                     matchingDiv.addEventListener("click", function(e) {
                         input.value = this.getElementsByTagName('input')[0].value;
                         input.dataset.id = this.getElementsByTagName('input')[0].dataset.id;
-                        console.log(input.dataset.id);
+                        //console.log(input.dataset.id);
                         //close the lists of autocomplete values
                         closeAllLists();
                     });
@@ -298,7 +298,7 @@ const addInputValueToField = (e, elem, currentFocus) => {
             let inputHidden = elem[i].lastElementChild;
             input.value = inputHidden.value;
             input.dataset.id = inputHidden.dataset.id;
-            console.log(input.dataset.id);
+            //console.log(input.dataset.id);
         }
     }
 }
@@ -341,7 +341,7 @@ function UI_handlerEvents() {
     events('#close-btn', 'click', closeNav);
     events("#search-dropdownBox", 'change', (e) => {
         let selectValue = e.target.value;
-        console.log(selectValue)
+        // console.log(selectValue)
         if (!selectValue) return;
         selectedValueReq(selectValue);
     });

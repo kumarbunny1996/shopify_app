@@ -7,7 +7,7 @@ const handleUsersLogin = async(req, res) => {
     getUserLogin(data)
         .then(resObj => {
             let token = resObj.token;
-            let user = resObj.userData;
+            let user = resObj.user;
             if (!token) {
                 res.status(400).send({ message: 'Invalid Token' });
             } else {

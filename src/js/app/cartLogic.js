@@ -122,12 +122,12 @@ const setsTheStatusOfCheckBox = (cart = []) => {
     let deselect = document.getElementById("deselect");
     let select = document.getElementById("select");
     let span = document.getElementById("select-span");
-    console.log(checkbox);
+    //console.log(checkbox);
     //sets the status of checkBox in page
     let checkedItems = cart.filter(item => item.status === "checked");
-    console.log({ checked: checkedItems });
+    //console.log({ checked: checkedItems });
     let unCheckedItems = cart.filter(item => item.status === "unchecked");
-    console.log({ unchecked: unCheckedItems });
+    //console.log({ unchecked: unCheckedItems });
     if (checkedItems.length === 0 && unCheckedItems.length === 0) {
         deselect.style.display = 'block';
         deselect.style.left = '0px';
@@ -176,7 +176,7 @@ const setsTheStatusOfCheckBox = (cart = []) => {
 
 const setQtyValues = (cart = []) => {
     let selectElement = document.querySelectorAll("select[data-opts='options']");
-    console.log(selectElement);
+    //console.log(selectElement);
     for (let i = 0; i < selectElement.length; i++) {
         let id = selectElement[i].dataset.id;
         let item = cart.find(item => item._id == id);
@@ -248,7 +248,7 @@ const updateQuantity = (id, e) => {
     let token = userStore.authToken();
     let input = e.target.parentElement.previousElementSibling.value;
     let inputEl = e.target.parentElement.previousElementSibling;
-    console.log(input);
+    //console.log(input);
     if (input === "" || input === undefined || input === "0") return;
     if (input) {
         inputEl.nextElementSibling.firstElementChild.disabled = false;
@@ -264,12 +264,12 @@ const updateQuantity = (id, e) => {
             data: data
         }
         let parentDiv = e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
-        console.log(parentDiv);
+        //console.log(parentDiv);
         blurLoader(parentDiv)
         makeRequestToServer(requestObj)
             .then(item => {
                 let product = item.item;
-                console.log(item);
+                //console.log(item);
                 if (itemStorage.getItem("cart")) {
                     let cartItems = itemStorage.getItem("cart");
                     let cart = cartItems["cart"];
@@ -292,13 +292,13 @@ const selectQuantity = (e, id) => {
     let token = userStore.authToken();
     let selectEl = e.target;
     let value = selectEl.dataset.opts;
-    console.log(selectEl);
-    console.log(value);
+    //console.log(selectEl);
+    //console.log(value);
     if (selectEl === null || selectEl === undefined) return;
     if (value === undefined) return;
     if (value === selectEl.dataset.opts) {
         let qty = selectEl.options[selectEl.selectedIndex].text;
-        console.log(qty);
+        //console.log(qty);
         if (!qty) return;
         if (qty === "10+") return qty10(selectEl, qty, id);
         if (qty) {
@@ -313,12 +313,12 @@ const selectQuantity = (e, id) => {
                 data: data
             }
             let parentDiv = selectEl.parentElement.parentElement.parentElement;
-            console.log(parentDiv);
+            //console.log(parentDiv);
             blurLoader(parentDiv)
             makeRequestToServer(requestObj)
                 .then(item => {
                     let product = item.item;
-                    console.log(item);
+                    // console.log(item);
                     if (itemStorage.getItem("cart")) {
                         let cartItems = itemStorage.getItem("cart");
                         let cart = cartItems["cart"];
@@ -346,7 +346,7 @@ const deleteCartItem = (e, id) => {
     //let saveBlock = document.querySelector(".saved-items-section");
     let itemDiv = e.target.parentElement.parentElement;
     let line = itemDiv.nextElementSibling;
-    console.log(itemDiv);
+    //console.log(itemDiv);
     let requestObj = {
         method: 'DELETE',
         url: `/api/users/delete/${id}`,
@@ -388,7 +388,7 @@ const saveForLater = (e, id) => {
     let itemDiv = e.target.parentElement.parentElement;
     let line = itemDiv.nextElementSibling;
     let saveSection = document.querySelector(".saved-items-section");
-    console.log(itemDiv);
+    //console.log(itemDiv);
     let requestObj = {
         method: 'GET',
         url: `/api/users/saved_items/${id}`,
@@ -445,7 +445,7 @@ const saveForLater = (e, id) => {
 
 const seeMoreLikeItems = (e, id) => {
     let category = e.target.dataset.category;
-    console.log(category);
+    //console.log(category);
     if (category === undefined) return;
     window.scrollTo(0, 0);
     if (category) return location.hash = `#${category.toLowerCase()}`;
@@ -503,7 +503,7 @@ const deleteSavedCartItem = (e, id) => {
     return new Promise(resolve => {
         let token = userStore.authToken();
         let itemDiv = e.target.parentElement.parentElement;
-        console.log(itemDiv);
+        //console.log(itemDiv);
         let requestObj = {
             method: 'DELETE',
             url: `/api/users/delete/saved_item/${id}`,
@@ -552,7 +552,7 @@ const addToCartFromSaved = (e, id) => {
     let itemDiv = e.target.parentElement.parentElement;
     let line = itemDiv.nextElementSibling;
 
-    console.log(itemDiv);
+    //console.log(itemDiv);
     let requestObj = {
         method: 'GET',
         url: `/api/users/item_to_cart/${id}`,
@@ -593,7 +593,7 @@ const addToCartFromSaved = (e, id) => {
                         savedItemsIsEmpty();
                     }
                 }
-                console.log(savedItems);
+                // console.log(savedItems);
             }
         })
         .catch(err => console.log(err))
@@ -610,7 +610,7 @@ const checkedCartItems = (e, id) => {
     let token = userStore.authToken();
     let checkElement = e.target;
     let isChecked = checkElement.checked;
-    console.log(isChecked);
+    //console.log(isChecked);
     let parent = checkElement.parentElement;
     if (isChecked === true) {
         let data = {
@@ -626,7 +626,7 @@ const checkedCartItems = (e, id) => {
         blurLoader(parent);
         makeRequestToServer(requestObj)
             .then(obj => {
-                console.log(obj);
+                // console.log(obj);
                 if (itemStorage.getItem("cart")) {
                     let cartItem = itemStorage.getItem("cart");
                     let cart = cartItem["cart"];
@@ -636,7 +636,7 @@ const checkedCartItems = (e, id) => {
                     let index = cart.findIndex(item => item._id == id);
                     cart.splice(index, 1, checkedItem);
                     setCartValues(cart);
-                    console.log(cart);
+                    //console.log(cart);
                 }
             })
             .catch(err => console.log(err))
@@ -655,7 +655,7 @@ const checkedCartItems = (e, id) => {
         blurLoader(parent);
         makeRequestToServer(requestObj)
             .then(obj => {
-                console.log(obj);
+                //console.log(obj);
                 let cartItem = itemStorage.getItem("cart");
                 let cart = cartItem["cart"];
                 let checkedItem = cart.find(item => item._id == id);
@@ -664,7 +664,7 @@ const checkedCartItems = (e, id) => {
                 let index = cart.findIndex(item => item._id == id);
                 cart.splice(index, 1, checkedItem);
                 setCartValues(cart);
-                console.log(cart);
+                //console.log(cart);
             })
             .catch(err => console.log(err))
             .finally(() => removeBlurLoader(parent));
@@ -680,7 +680,7 @@ const deselectRequest = (e) => {
     let deselect = document.getElementById("deselect");
     let select = document.getElementById("select");
     let span = document.getElementById("select-span");
-    console.log(checkbox);
+    //console.log(checkbox);
     let data = {
         status: "unchecked",
     };
@@ -694,7 +694,7 @@ const deselectRequest = (e) => {
     blurLoader(itemsBlock);
     makeRequestToServer(requestObj)
         .then(obj => {
-            console.log(obj);
+            //console.log(obj);
             for (let i = 0; i < checkbox.length; i++) {
                 checkbox[i].checked = false;
             }
@@ -715,7 +715,7 @@ const selectRequest = (e) => {
     let deselect = document.getElementById("deselect");
     let select = document.getElementById("select");
     let span = document.getElementById("select-span");
-    console.log(checkbox);
+    //console.log(checkbox);
     let data = {
         status: "checked",
     };
@@ -729,7 +729,7 @@ const selectRequest = (e) => {
     blurLoader(itemsBlock);
     makeRequestToServer(requestObj)
         .then(obj => {
-            console.log(obj);
+            //console.log(obj);
             for (let i = 0; i < checkbox.length; i++) {
                 checkbox[i].checked = true;
             }
@@ -759,7 +759,7 @@ const buyCartItems = (e) => {
     blurLoader(itemsBlock);
     makeRequestToServer(requestObj)
         .then(obj => {
-            console.log(obj);
+            //console.log(obj);
             let address = obj.address;
             if (itemStorage.getItem("address")) {
                 location.hash = "#delivery-address";
@@ -777,12 +777,12 @@ const cartLogicEvents = () => {
         e.stopPropagation();
         let id = e.target.dataset.id;
         if (id === undefined) return;
-        console.log(e.target);
-        console.log(id);
+        // console.log(e.target);
+        // console.log(id);
         if (id) {
             let selectEl = e.target.dataset.opts;
             let checkBox = e.target.dataset.pointer;
-            console.log(checkBox);
+            //console.log(checkBox);
             if (selectEl === "options") return selectQuantity(e, id);
             if (checkBox === "checkbox") return checkedCartItems(e, id);
         }
@@ -790,11 +790,11 @@ const cartLogicEvents = () => {
     events("#items-block", "keyup", (e) => {
         e.stopPropagation();
         let value = e.target.dataset.input;
-        console.log(value);
+        //console.log(value);
         if (value === undefined) return;
         if (value) {
             let inputEl = e.target;
-            console.log(inputEl);
+            //console.log(inputEl);
             let input = e.target.value;
             let inputRe = /^[1-9]{1,3}$/;
             if (!inputRe.exec(input)) {
@@ -811,8 +811,8 @@ const cartLogicEvents = () => {
         e.stopPropagation();
         let id = e.target.dataset.id;
         if (id === undefined) return;
-        console.log(e.target);
-        console.log(id);
+        //console.log(e.target);
+        //console.log(id);
         if (id) {
             let update = e.target.dataset.update;
             let del = e.target.dataset.del;
@@ -847,8 +847,8 @@ const saveCartLogicEvents = () => {
         e.stopPropagation();
         let id = e.target.dataset.id;
         if (id === undefined) return;
-        console.log(e.target);
-        console.log(id);
+        //console.log(e.target);
+        //console.log(id);
         if (id) {
             let del = e.target.dataset.del;
             let more = e.target.dataset.more;

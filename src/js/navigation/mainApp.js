@@ -11,7 +11,7 @@ const { homePage, slider, sliderRun, homeCategoryEvents, homeLogicEvents } = req
 const { sellerCentralDom, prodFormHtml, sellerFormHtml, imagePreview } = require("../components/seller_central");
 const { sellerCentralEvents, keepDataOnInput, setsProductData, productModalShow, removeModal, productPageEvents } = require("../app/sellerLogic");
 const { mobileCategory, speakerCategory, laptopCategory, electronicsCategory, homeCategory, womenCategory, menCategory, allCategories } = require("../components/category");
-const { getsCategoryDataList, eventForShowingProduct } = require("../app/categoryLogic");
+const { getsCategoryDataList, eventForShowingProduct, eventsForSingleCategory } = require("../app/categoryLogic");
 const { productDom, productEvents, cartValues, toCart, productPage } = require("../components/product");
 const { itemStorage } = require("../utils/userStore");
 const { checksCartItems } = require("../app/cartLogic");
@@ -113,6 +113,7 @@ const navigation = () => {
         removeModal();
         removeOverlayNav();
         allCategories();
+        eventsForSingleCategory();
     }
 
     if (fragmentId === "mobiles") {
@@ -193,6 +194,11 @@ const navigation = () => {
             location.hash = "#login";
         }
         if (token) {
+            indexPage();
+            selectedAll();
+            UI_handlerEvents();
+            init();
+            cartValues();
             addressUI();
         }
 
@@ -236,6 +242,7 @@ const navigation = () => {
         }
         removeModal();
         removeOverlayNav();
+        cartValues();
         accountUI();
     }
 
@@ -245,6 +252,7 @@ const navigation = () => {
             location.hash = "#login";
             return;
         }
+        cartValues();
         editAccountUI();
     }
     //sets the product data 

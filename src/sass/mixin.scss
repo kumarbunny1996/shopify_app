@@ -261,6 +261,13 @@
     margin: 0 auto;
     text-align: center;
     top: 20px;
+    @include mq(850px) {
+        width: 98% !important;
+        margin: 0px 10px !important;
+    }
+    @include mq(450px) {
+        display: none !important;
+    }
 }
 
 @mixin banner-text() {
@@ -269,13 +276,28 @@
     top: 80px;
     font-size: 36px;
     font-weight: 800;
+    @include mq(1050px) {
+        font-size: 22px !important;
+    }
+    @include mq(850px) {
+        font-size: 28px !important;
+    }
+    @include mq(650px) {
+        font-size: 22px !important;
+    }
 }
 
 @mixin banner-img() {
     position: absolute;
     right: 10%;
-    height: 100%;
+    padding: 10px;
+    height: 180px;
+    width: 230px;
     top: 20px;
+    @include mq(650px) {
+        height: 170px;
+        width: 170px;
+    }
 }
 
 @mixin category() {

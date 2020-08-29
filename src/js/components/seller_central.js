@@ -213,7 +213,7 @@ const imagePreview = () => {
             imageLabel.style.opacity = "0";
             reader.addEventListener('load', function() {
                 imagePreview.setAttribute("src", this.result);
-                console.log(this.result);
+                //console.log(this.result);
             });
             reader.readAsDataURL(file);
         }

@@ -119,13 +119,13 @@ const getCart = async(req, res) => {
             })
             .catch(err => console.log(err));
     }
-    //gets users objects[cart,orders,savedItems,address,addObj,single-item]
+    //gets users objects[cart,orders,savedItems,address,addObj,single-item] user object
 const getCartItems = async(req, res) => {
     let { userId } = req;
     getCartObj(userId)
-        .then(cartObj => {
-            if (!cartObj) return;
-            res.status(200).send(cartObj);
+        .then(userObj => {
+            if (!userObj) return;
+            res.status(200).send(userObj);
             //console.log(cart);
         })
         .catch(err => console.log(err));

@@ -2,6 +2,8 @@
 const { events, showHide, showMsg, removeOverlayLoader } = require("./uiHandler");
 const makeRequestToServer = require('../ajax/ajax');
 const { loaderDiv } = require("../utils/utils");
+const userStore = require("../utils/userStore.js");
+const { itemStorage } = require("../utils/userStore.js");
 const {
     usersDataObj,
     loginToCart,
@@ -124,9 +126,9 @@ const redirectToRegister = () => {
 const userData = () => {
     loginValidation()
         .then(user => {
-            console.log(user);
+            //console.log(user);
             usersDataObj(user);
-            userStore.setUsername(user.userObj.username);
+            userStore.setUsername(user.username);
             let seller = userStore.getDataValue();
             if (seller) {
                 seller = "";

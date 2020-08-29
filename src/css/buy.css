@@ -216,6 +216,21 @@ button {
   width: 30%;
   padding: 20px;
 }
+@media screen and (max-width: 1050px) {
+  .buy-section .abs-block {
+    right: 20px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .abs-block {
+    position: relative;
+    right: 0px;
+    top: 10px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
 .buy-section .abs-block .order-delivery {
   width: 100%;
   padding: 10px;
@@ -228,9 +243,29 @@ button {
   font-weight: 600;
   font-size: 18px;
 }
+@media screen and (max-width: 950px) {
+  .buy-section .abs-block .order-delivery h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .abs-block .order-delivery h3 {
+    font-size: 18px;
+  }
+}
 .buy-section .abs-block .order-delivery p {
   font-size: 16px;
   font-weight: 400;
+}
+@media screen and (max-width: 950px) {
+  .buy-section .abs-block .order-delivery p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .abs-block .order-delivery p {
+    font-size: 16px;
+  }
 }
 .buy-section .abs-block .buy-head {
   width: 100%;
@@ -245,6 +280,16 @@ button {
   margin-bottom: 10px;
   font-style: italic;
 }
+@media screen and (max-width: 950px) {
+  .buy-section .abs-block .buy-head #total {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .abs-block .buy-head #total {
+    font-size: 20px;
+  }
+}
 .buy-section .abs-block .buy-head #total span {
   color: #ecac08;
 }
@@ -253,6 +298,16 @@ button {
   font-weight: 500;
   font-size: 18px;
   margin-bottom: 10px;
+}
+@media screen and (max-width: 950px) {
+  .buy-section .abs-block .buy-head .share-it h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .abs-block .buy-head .share-it h3 {
+    font-size: 18px;
+  }
 }
 .buy-section .abs-block .buy-head .share-it .icons {
   display: inline-block;
@@ -271,10 +326,30 @@ button {
   font-size: 18px;
   margin-bottom: 10px;
 }
+@media screen and (max-width: 950px) {
+  .buy-section .abs-block .buy-head .contact-us h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .abs-block .buy-head .contact-us h3 {
+    font-size: 18px;
+  }
+}
 .buy-section .abs-block .buy-head .contact-us h4 {
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 8px;
+}
+@media screen and (max-width: 950px) {
+  .buy-section .abs-block .buy-head .contact-us h4 {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .abs-block .buy-head .contact-us h4 {
+    font-size: 16px;
+  }
 }
 .buy-section .abs-block .buy-head .contact-us h4 i {
   font-weight: 600;
@@ -284,6 +359,16 @@ button {
 .buy-section .abs-block .buy-head .contact-us h5 {
   font-size: 16px;
   font-weight: 400;
+}
+@media screen and (max-width: 950px) {
+  .buy-section .abs-block .buy-head .contact-us h5 {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .abs-block .buy-head .contact-us h5 {
+    font-size: 16px;
+  }
 }
 .buy-section .abs-block .buy-head .contact-us h5 i {
   font-weight: 600;
@@ -296,6 +381,16 @@ button {
   font-weight: 500;
   text-align: start;
   margin-bottom: 10px;
+}
+@media screen and (max-width: 950px) {
+  .buy-section .abs-block .buy-head .terms h3 {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .abs-block .buy-head .terms h3 {
+    font-size: 16px;
+  }
 }
 .buy-section .abs-block .buy-head .terms label {
   font-size: 13px;
@@ -334,6 +429,15 @@ button {
   font-size: 24px;
   color: #ecac08;
 }
+@media screen and (max-width: 730px) {
+  .buy-section h2 {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
 .buy-section .order-top {
   position: relative;
   display: flex;
@@ -344,6 +448,18 @@ button {
   margin-left: 100px;
   margin-top: 20px;
 }
+@media screen and (max-width: 1050px) {
+  .buy-section .order-top {
+    margin-left: 20px;
+    width: 65%;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .order-top {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
 .buy-section .order-items {
   width: 50%;
   padding: 10px;
@@ -351,6 +467,18 @@ button {
   border: 0.5px solid #d8d4d4;
   margin-right: 20px;
   margin-left: 100px;
+}
+@media screen and (max-width: 1050px) {
+  .buy-section .order-items {
+    margin-left: 20px;
+    width: 65%;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .order-items {
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 .buy-section .order-items .order-items-block {
   position: relative;
@@ -361,10 +489,38 @@ button {
   justify-content: center;
   align-items: center;
 }
+@media screen and (max-width: 450px) {
+  .buy-section .order-items .order-items-block {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+}
 .buy-section .order-items .order-items-block img {
   height: 200px;
   width: 250px;
   padding: 20px;
+}
+@media screen and (max-width: 1050px) {
+  .buy-section .order-items .order-items-block img {
+    height: 150px;
+    width: 200px;
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .order-items .order-items-block img {
+    height: 250px;
+    width: 250px;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .buy-section .order-items .order-items-block img {
+    height: 150px;
+    width: 150px;
+    padding: 20px;
+  }
 }
 .buy-section .order-items .order-items-block .order-details {
   align-self: center;
@@ -376,9 +532,39 @@ button {
   margin-bottom: 8px;
   text-align: start;
 }
+@media screen and (max-width: 950px) {
+  .buy-section .order-items .order-items-block .order-details h2 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .order-items .order-items-block .order-details h2 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .buy-section .order-items .order-items-block .order-details h2 {
+    font-size: 14px;
+  }
+}
 .buy-section .order-items .order-items-block .order-details h3 {
   margin-left: 10px;
   margin-bottom: 8px;
+}
+@media screen and (max-width: 950px) {
+  .buy-section .order-items .order-items-block .order-details h3 {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .order-items .order-items-block .order-details h3 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .buy-section .order-items .order-items-block .order-details h3 {
+    font-size: 14px;
+  }
 }
 .buy-section .order-items .order-items-block .order-details h4 {
   font-size: 16px;
@@ -386,6 +572,21 @@ button {
   margin-left: 10px;
   font-weight: 100;
   font-style: italic;
+}
+@media screen and (max-width: 950px) {
+  .buy-section .order-items .order-items-block .order-details h4 {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .order-items .order-items-block .order-details h4 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .buy-section .order-items .order-items-block .order-details h4 {
+    font-size: 12px;
+  }
 }
 .buy-section .order-items .order-items-block .order-details h4 i {
   color: orange;
@@ -395,9 +596,24 @@ button {
   top: 5px;
   right: 5px;
 }
+@media screen and (max-width: 450px) {
+  .buy-section .order-items .order-items-block .price {
+    display: none;
+  }
+}
 .buy-section .order-items .order-items-block .price h6 {
   font-size: 22px;
   font-style: italic;
+}
+@media screen and (max-width: 950px) {
+  .buy-section .order-items .order-items-block .price h6 {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .order-items .order-items-block .price h6 {
+    font-size: 16px;
+  }
 }
 .buy-section .order-items .order-items-block .price h6 i {
   color: orange;
@@ -419,6 +635,18 @@ button {
   font-style: italic;
   text-align: end;
   margin-left: 100px;
+}
+@media screen and (max-width: 1050px) {
+  .buy-section .end-order {
+    margin-left: 20px;
+    width: 65%;
+  }
+}
+@media screen and (max-width: 730px) {
+  .buy-section .end-order {
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 .buy-section .end-order span {
   position: absolute;

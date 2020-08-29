@@ -1,11 +1,12 @@
 const Razorpay = require("razorpay");
 const shortId = require("shortid");
+require('dotenv').config();
 
 
 //create new razorpay account with keys
 const razorpay = new Razorpay({
-    key_id: 'rzp_test_ITCqf9A3ntRB2N',
-    key_secret: 'g1D69PjcGuKkKHvO9FqQ7DTi',
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_SECRET_KEY,
 });
 
 //create orders from razorpay

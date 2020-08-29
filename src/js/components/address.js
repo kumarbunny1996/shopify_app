@@ -535,7 +535,7 @@ const addressInputEvents = () => {
     events("#saved-delivery-block", 'click', (e) => {
         e.stopPropagation();
         let id = e.target.dataset.id;
-        console.log(id);
+        //console.log(id);
         if (id === undefined) return;
         if (id) {
             let edit = e.target.dataset.edit;

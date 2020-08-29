@@ -154,7 +154,7 @@ const orderRequest = () => {
     let el = document.getElementById('ship');
     let start = document.getElementById('total');
     let price = start.dataset.price;
-    console.log(price);
+    //console.log(price);
     let total_items = start.dataset.items;
     let shipping_cost = el.dataset.value;
     let data = {
@@ -173,7 +173,7 @@ const orderRequest = () => {
     loaderDiv();
     makeRequestToServer(requestObject)
         .then(resObj => {
-            console.log(resObj);
+            //console.log(resObj);
             paymentDetails(resObj);
         })
         .catch(err => console.log(err))

@@ -92,6 +92,9 @@
 
 #seller-cont {
     padding: 30px;
+    @include mq(430px) {
+        padding: 30px 0px;
+    }
     text-align: center;
     width: 100%;
     //height: 750px;
@@ -190,6 +193,15 @@
     .info-mark2::before {
         content: attr(data-seller);
         @include toolTipContent2();
+        @include mq(500px) {
+            width: 150px !important;
+            margin-left: -75px!important;
+        }
+        @include mq(400px) {
+            width: 120px!important;
+            margin-left: -60px!important;
+            left: 80% !important;
+        }
     }
     .info-mark2:hover::before {
         visibility: visible;
@@ -244,12 +256,36 @@
         @include formContent();
         height: 70px !important;
         margin: 0px !important;
+        @include mq(375px) {
+            width: 270px !important;
+        }
+        @include mq(320px) {
+            width: 220px !important;
+        }
     }
     .input-container4 .input4 {
         @include formInput();
+        @include mq(450px) {
+            width: 350px !important;
+        }
+        @include mq(375px) {
+            width: 270px !important;
+        }
+        @include mq(320px) {
+            width: 220px !important;
+        }
     }
     .tiny-form2 .label-content4 {
         @include formLabel();
+        @include mq(450px) {
+            width: 350px !important;
+        }
+        @include mq(375px) {
+            width: 270px !important;
+        }
+        @include mq(320px) {
+            width: 220px !important;
+        }
     }
     .tiny-form2 .label-content4::after {
         @include labelAfter();
@@ -278,6 +314,9 @@
     padding: 30px;
     text-align: center;
     width: 100%;
+    @include mq(430px) {
+        padding: 30px 0px;
+    }
     //height: 750px;
     .logo-seller3 {
         padding-bottom: 25px;
@@ -480,6 +519,14 @@
     .info-mark::before {
         content: attr(data-info);
         @include toolTipContent2();
+        @include mq(500px) {
+            width: 150px !important;
+            margin-left: -75px !important;
+        }
+        @include mq(400px) {
+            width: 120px !important;
+            margin-left: -60px !important;
+        }
     }
     .info-mark:hover::before {
         visibility: visible;

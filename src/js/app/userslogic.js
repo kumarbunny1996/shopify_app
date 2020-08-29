@@ -19,7 +19,7 @@ let init = () => {
 const loginToCart = () => {
     let cart = itemStorage.getItem("value");
     let value = cart["value"];
-    console.log(value);
+    //console.log(value);
     itemStorage.removeItem("value");
     location.hash = "#shopify-cart";
     return;
@@ -29,7 +29,7 @@ const loginToOrders = () => {
     if (itemStorage.getItem("orders")) {
         let cart = itemStorage.getItem("orders");
         let value = cart["orders"];
-        console.log(value);
+        //console.log(value);
         itemStorage.removeItem("orders");
         location.hash = "#your-orders";
         return;
@@ -37,7 +37,7 @@ const loginToOrders = () => {
     if (itemStorage.getItem("orders_2")) {
         let cart = itemStorage.getItem("orders_2");
         let value = cart["orders_2"];
-        console.log(value);
+        //console.log(value);
         itemStorage.removeItem("orders_2");
         location.hash = "#your-orders";
         return;
@@ -47,7 +47,7 @@ const loginToAccount = () => {
     if (itemStorage.getItem("account")) {
         let cart = itemStorage.getItem("account");
         let value = cart["account"];
-        console.log(value);
+        //console.log(value);
         itemStorage.removeItem("account");
         location.hash = "#your-account";
         return;
@@ -55,7 +55,7 @@ const loginToAccount = () => {
     if (itemStorage.getItem("account_2")) {
         let cart = itemStorage.getItem("account_2");
         let value = cart["account_2"];
-        console.log(value);
+        //console.log(value);
         itemStorage.removeItem("account_2");
         location.hash = "#your-account";
         return;
@@ -65,7 +65,7 @@ const loginToAccount = () => {
 const loginToCartWithItemId = () => {
     let id = itemStorage.getItem("id");
     let item_id = id["id"];
-    console.log(item_id);
+    //console.log(item_id);
     itemStorage.removeItem("id");
     itemStorage.removeItem("cart-btn");
     checkTheCartIfItemExists(item_id);
@@ -74,7 +74,7 @@ const loginToCartWithItemId = () => {
 const loginToBuyWithBuyBtn = () => {
     let id = itemStorage.getItem("id");
     let item_id = id["id"];
-    console.log(item_id);
+    //console.log(item_id);
     itemStorage.removeItem("id");
     itemStorage.removeItem("buy-btn");
     checkTheCartIfItemExistsBuyBtn(item_id);
@@ -187,12 +187,16 @@ const showReloadData = () => {
 //gets the users data after login
 const usersDataObj = (cartObj) => {
     let cartItems = cartObj.cart;
-    let savedItems = cartObj.savedItems;
-    let address = cartObj.address;
-    let singleAddressObj = cartObj.addressObj;
+    let savedItems = cartObj.saved_items;
+    let address = cartObj.delivery_address;
+    let singleAddressObj = cartObj.address;
     let orders = cartObj.orders;
     let cancelledOrders = cartObj.cancelledOrders;
-    let user = cartObj.userObj;
+    let user = {
+        username: cartObj.username,
+        mobile: cartObj.mobile,
+        email: cartObj.email,
+    };
     itemStorage.setItem("user", user);
     itemStorage.setItem("cart", cartItems);
     itemStorage.setItem("savedItems", savedItems);

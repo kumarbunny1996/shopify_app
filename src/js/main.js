@@ -9,7 +9,7 @@ if ("serviceWorker" in navigator) {
         navigator.serviceWorker
             .register("../../sw_cached_pages.js")
             .then(reg => {
-                console.log(`Service worker registered: ${reg}`);
+                // console.log(`Service worker registered: ${reg}`);
             })
             .catch(err => {
                 //console.log(`ServiceWorker not registered: ${err}`);

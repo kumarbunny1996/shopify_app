@@ -49,7 +49,7 @@ const orderDetailsDom = (orderObj = []) => {
                             <p class="para2">TOTAL</p>
                             <p class="para"><em><i>&#8377;</i> ${item.amount / 100}</em></p>
                         </div>
-                        <div class="oty-in">
+                        <div class="qty-in">
                             <p class="para2">QTY: ${item.oty}</p>
                             <p class="para2" id="para2">SHIPPING:<em id="emm"><i>&#8377;</i> ${item.shippingCost/100}</em></p>
                         </div>
@@ -83,8 +83,8 @@ const orderedItemsDom = (orders = []) => {
                     <h5>PRICE: <em><i>&#8377;</i> ${item.price}</em></h5>
                 </div>
                 <div class="btns">
-                    <button id="archieve" data-archieve="archieve" data-id="${order_item.order_id}">Archieve Your Order</button>
-                    <button id="cancel-btn" data-cancel="cancel" data-id="${order_item.order_id}">Cancel Your Order</button>
+                    <button id="archieve" data-archieve="archieve" data-id="${order_item.order_id}">Archieve Order</button>
+                    <button id="cancel-btn" data-cancel="cancel" data-id="${order_item.order_id}">Cancel Order</button>
                 </div>
             </div>
             <div class="line"></div>
@@ -194,7 +194,7 @@ const buyAgainAction = (id) => {
                     if (index != -1) {
                         saveLater.splice(index, 1);
                     }
-                    console.log(saveLater);
+                    //console.log(saveLater);
                 }
             }
             location.hash = "#delivery-address";
@@ -219,7 +219,7 @@ const cancelOrderRequest = (e, id) => {
         loaderDiv();
         makeRequestToServer(requestObj)
             .then(obj => {
-                console.log(obj);
+                //console.log(obj);
 
                 //delete the block in orders
                 if (itemStorage.getItem("orders")) {
@@ -332,7 +332,7 @@ const orderEvents = () => {
     events("#order-main-block", 'click', (e) => {
         e.stopPropagation();
         let id = e.target.dataset.id;
-        console.log(id);
+        //console.log(id);
         if (id === undefined) return;
         let value = e.target.dataset.cancel;
         if (value === "cancel") {
@@ -342,7 +342,7 @@ const orderEvents = () => {
     events("#order-main-block", 'click', (e) => {
         e.stopPropagation();
         let id = e.target.dataset.id;
-        console.log(id);
+        //console.log(id);
         if (id === undefined) return;
         let value = e.target.dataset.archieve;
         if (value === "archieve") {
@@ -355,7 +355,7 @@ const cancelOrderEvents = () => {
     events("#cancel-orders-block", 'click', (e) => {
         e.stopPropagation();
         let id = e.target.dataset.id;
-        console.log(id);
+        //console.log(id);
         if (id === undefined) return;
         let value = e.target.dataset.del;
         if (value === "del") {
@@ -365,7 +365,7 @@ const cancelOrderEvents = () => {
     events("#cancel-orders-block", 'click', (e) => {
         e.stopPropagation();
         let id = e.target.dataset.id;
-        console.log(id);
+        //console.log(id);
         if (id === undefined) return;
         let value = e.target.dataset.buy;
         if (value === "buy-again") {

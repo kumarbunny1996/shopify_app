@@ -212,6 +212,17 @@ button {
   top: 20px;
   background-image: linear-gradient(to right, #02a3a8, #a2fdfd);
 }
+@media screen and (max-width: 850px) {
+  .sp-category-layout .ad-banner {
+    width: 98% !important;
+    margin: 0px 10px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sp-category-layout .ad-banner {
+    display: none !important;
+  }
+}
 .sp-category-layout .ad-banner p {
   position: absolute;
   left: 5%;
@@ -219,11 +230,34 @@ button {
   font-size: 36px;
   font-weight: 800;
 }
+@media screen and (max-width: 1050px) {
+  .sp-category-layout .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .sp-category-layout .ad-banner p {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout .ad-banner p {
+    font-size: 22px !important;
+  }
+}
 .sp-category-layout .ad-banner .ad-image {
   position: absolute;
   right: 10%;
-  height: 100%;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
   top: 20px;
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout .ad-banner .ad-image {
+    height: 170px;
+    width: 170px;
+  }
 }
 .sp-category-layout .ad-banner .ad-image img {
   height: 90%;
@@ -291,6 +325,17 @@ button {
   top: 20px;
   background-image: linear-gradient(to right, #436f7c, #94bec9, #bbd9e0);
 }
+@media screen and (max-width: 850px) {
+  .sp-category-layout2 .ad-banner {
+    width: 98% !important;
+    margin: 0px 10px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sp-category-layout2 .ad-banner {
+    display: none !important;
+  }
+}
 .sp-category-layout2 .ad-banner p {
   position: absolute;
   left: 5%;
@@ -298,11 +343,34 @@ button {
   font-size: 36px;
   font-weight: 800;
 }
+@media screen and (max-width: 1050px) {
+  .sp-category-layout2 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .sp-category-layout2 .ad-banner p {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout2 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
 .sp-category-layout2 .ad-banner .ad-image {
   position: absolute;
   right: 10%;
-  height: 100%;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
   top: 20px;
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout2 .ad-banner .ad-image {
+    height: 170px;
+    width: 170px;
+  }
 }
 .sp-category-layout2 .ad-banner .ad-image img {
   height: 90%;
@@ -370,6 +438,17 @@ button {
   top: 20px;
   background-image: linear-gradient(to right, #488065, #92c4ac, #c3f0da);
 }
+@media screen and (max-width: 850px) {
+  .sp-category-layout3 .ad-banner {
+    width: 98% !important;
+    margin: 0px 10px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sp-category-layout3 .ad-banner {
+    display: none !important;
+  }
+}
 .sp-category-layout3 .ad-banner p {
   position: absolute;
   left: 5%;
@@ -377,11 +456,34 @@ button {
   font-size: 36px;
   font-weight: 800;
 }
+@media screen and (max-width: 1050px) {
+  .sp-category-layout3 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .sp-category-layout3 .ad-banner p {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout3 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
 .sp-category-layout3 .ad-banner .ad-image {
   position: absolute;
   right: 10%;
-  height: 100%;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
   top: 20px;
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout3 .ad-banner .ad-image {
+    height: 170px;
+    width: 170px;
+  }
 }
 .sp-category-layout3 .ad-banner .ad-image img {
   height: 90%;
@@ -449,6 +551,17 @@ button {
   top: 20px;
   background-image: linear-gradient(to right, #f7ebcc, #f3c756, #e2a305);
 }
+@media screen and (max-width: 850px) {
+  .sp-category-layout4 .ad-banner {
+    width: 98% !important;
+    margin: 0px 10px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sp-category-layout4 .ad-banner {
+    display: none !important;
+  }
+}
 .sp-category-layout4 .ad-banner p {
   position: absolute;
   left: 5%;
@@ -456,14 +569,51 @@ button {
   font-size: 36px;
   font-weight: 800;
 }
+@media screen and (max-width: 1050px) {
+  .sp-category-layout4 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .sp-category-layout4 .ad-banner p {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout4 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .sp-category-layout4 .ad-banner p {
+    font-size: 25px !important;
+  }
+}
 .sp-category-layout4 .ad-banner .ad-image {
   position: absolute;
   right: 10%;
-  height: 100%;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
   top: 20px;
+  width: 230px !important;
+  height: 180px !important;
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout4 .ad-banner .ad-image {
+    height: 170px;
+    width: 170px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout4 .ad-banner .ad-image {
+    width: 170px !important;
+    height: 170px !important;
+  }
 }
 .sp-category-layout4 .ad-banner .ad-image img {
-  height: 90%;
+  height: 100%;
+  width: 100%;
 }
 
 .product-category4 {
@@ -528,6 +678,17 @@ button {
   top: 20px;
   background-image: linear-gradient(to right, #9c5268, #d48aa0, #ffc6d7);
 }
+@media screen and (max-width: 850px) {
+  .sp-category-layout5 .ad-banner {
+    width: 98% !important;
+    margin: 0px 10px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sp-category-layout5 .ad-banner {
+    display: none !important;
+  }
+}
 .sp-category-layout5 .ad-banner p {
   position: absolute;
   left: 5%;
@@ -535,11 +696,34 @@ button {
   font-size: 36px;
   font-weight: 800;
 }
+@media screen and (max-width: 1050px) {
+  .sp-category-layout5 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .sp-category-layout5 .ad-banner p {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout5 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
 .sp-category-layout5 .ad-banner .ad-image {
   position: absolute;
   right: 10%;
-  height: 100%;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
   top: 20px;
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout5 .ad-banner .ad-image {
+    height: 170px;
+    width: 170px;
+  }
 }
 .sp-category-layout5 .ad-banner .ad-image img {
   height: 90%;
@@ -607,6 +791,17 @@ button {
   top: 20px;
   background-image: linear-gradient(to right, #579270, #98c5ab, #aeeec9);
 }
+@media screen and (max-width: 850px) {
+  .sp-category-layout6 .ad-banner {
+    width: 98% !important;
+    margin: 0px 10px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sp-category-layout6 .ad-banner {
+    display: none !important;
+  }
+}
 .sp-category-layout6 .ad-banner p {
   position: absolute;
   left: 5%;
@@ -614,11 +809,34 @@ button {
   font-size: 36px;
   font-weight: 800;
 }
+@media screen and (max-width: 1050px) {
+  .sp-category-layout6 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .sp-category-layout6 .ad-banner p {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout6 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
 .sp-category-layout6 .ad-banner .ad-image {
   position: absolute;
   right: 10%;
-  height: 100%;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
   top: 20px;
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout6 .ad-banner .ad-image {
+    height: 170px;
+    width: 170px;
+  }
 }
 .sp-category-layout6 .ad-banner .ad-image img {
   height: 90%;
@@ -686,6 +904,17 @@ button {
   top: 20px;
   background-image: linear-gradient(to right, #577892, #8bb6d8, #b5daf7);
 }
+@media screen and (max-width: 850px) {
+  .sp-category-layout7 .ad-banner {
+    width: 98% !important;
+    margin: 0px 10px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sp-category-layout7 .ad-banner {
+    display: none !important;
+  }
+}
 .sp-category-layout7 .ad-banner p {
   position: absolute;
   left: 5%;
@@ -693,11 +922,34 @@ button {
   font-size: 36px;
   font-weight: 800;
 }
+@media screen and (max-width: 1050px) {
+  .sp-category-layout7 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .sp-category-layout7 .ad-banner p {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout7 .ad-banner p {
+    font-size: 22px !important;
+  }
+}
 .sp-category-layout7 .ad-banner .ad-image {
   position: absolute;
   right: 10%;
-  height: 100%;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
   top: 20px;
+}
+@media screen and (max-width: 650px) {
+  .sp-category-layout7 .ad-banner .ad-image {
+    height: 170px;
+    width: 170px;
+  }
 }
 .sp-category-layout7 .ad-banner .ad-image img {
   height: 90%;
@@ -765,6 +1017,17 @@ button {
   top: 20px;
   background-image: linear-gradient(to right, #a1b9cc, #cee6f8, #eaf2f8);
 }
+@media screen and (max-width: 850px) {
+  .sp-all-categories .ad-banner {
+    width: 98% !important;
+    margin: 0px 10px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sp-all-categories .ad-banner {
+    display: none !important;
+  }
+}
 .sp-all-categories .ad-banner p {
   position: absolute;
   left: 5%;
@@ -772,11 +1035,34 @@ button {
   font-size: 36px;
   font-weight: 800;
 }
+@media screen and (max-width: 1050px) {
+  .sp-all-categories .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .sp-all-categories .ad-banner p {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .sp-all-categories .ad-banner p {
+    font-size: 22px !important;
+  }
+}
 .sp-all-categories .ad-banner .ad-image {
   position: absolute;
   right: 10%;
-  height: 100%;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
   top: 20px;
+}
+@media screen and (max-width: 650px) {
+  .sp-all-categories .ad-banner .ad-image {
+    height: 170px;
+    width: 170px;
+  }
 }
 .sp-all-categories .ad-banner .ad-image img {
   height: 90%;

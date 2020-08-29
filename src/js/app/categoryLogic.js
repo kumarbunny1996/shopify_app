@@ -66,5 +66,14 @@ const eventForShowingProduct = (value = "") => {
     });
 }
 
+const eventsForSingleCategory = () => {
+    events("#all-categories", 'click', (e) => {
+        e.stopPropagation();
+        let value = e.target.dataset.value;
+        if (value === undefined || value === "") return;
+        location.hash = value;
+    });
+}
 
-module.exports = { getsCategoryDataList, eventForShowingProduct };
+
+module.exports = { getsCategoryDataList, eventForShowingProduct, eventsForSingleCategory, };

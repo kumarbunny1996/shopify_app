@@ -211,6 +211,17 @@ button {
   text-align: center;
   top: 20px;
 }
+@media screen and (max-width: 850px) {
+  .single-product-container .ad-banner {
+    width: 98% !important;
+    margin: 0px 10px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .single-product-container .ad-banner {
+    display: none !important;
+  }
+}
 .single-product-container .ad-banner p {
   position: absolute;
   left: 5%;
@@ -218,11 +229,34 @@ button {
   font-size: 36px;
   font-weight: 800;
 }
+@media screen and (max-width: 1050px) {
+  .single-product-container .ad-banner p {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .single-product-container .ad-banner p {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .single-product-container .ad-banner p {
+    font-size: 22px !important;
+  }
+}
 .single-product-container .ad-banner .ad-image {
   position: absolute;
   right: 10%;
-  height: 100%;
+  padding: 10px;
+  height: 180px;
+  width: 230px;
   top: 20px;
+}
+@media screen and (max-width: 650px) {
+  .single-product-container .ad-banner .ad-image {
+    height: 170px;
+    width: 170px;
+  }
 }
 .single-product-container .ad-banner .ad-image img {
   height: 90%;

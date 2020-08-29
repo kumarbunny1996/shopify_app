@@ -5,9 +5,18 @@
 .sp-category-layout {
     .ad-banner {
         @include banner();
+        // @include mq(900px) {
+        //     width: 100% !important;
+        // }
         background-image: linear-gradient(to right, rgb(2, 163, 168), rgb(162, 253, 253));
         p {
             @include banner-text();
+            // @include mq(1050px) {
+            //     font-size: 22px !important;
+            // }
+            // @include mq(900px) {
+            //     font-size: 28px !important;
+            // }
         }
         .ad-image {
             @include banner-img();
@@ -143,11 +152,21 @@
         background-image: linear-gradient(to right, rgb(247, 235, 204), rgb(243, 199, 86), rgb(226, 163, 5));
         p {
             @include banner-text();
+            @include mq(1220px) {
+                font-size: 25px !important;
+            }
         }
         .ad-image {
             @include banner-img();
+            width: 230px!important;
+            height: 180px !important;
+            @include mq(650px) {
+                width: 170px !important;
+                height: 170px !important;
+            }
             img {
-                height: 90%;
+                height: 100%;
+                width: 100%;
             }
         }
     }

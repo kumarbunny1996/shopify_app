@@ -11,7 +11,7 @@ const { homePage, slider, sliderRun, homeCategoryEvents, homeLogicEvents } = req
 const { sellerCentralDom, prodFormHtml, sellerFormHtml, imagePreview } = require("../components/seller_central");
 const { sellerCentralEvents, keepDataOnInput, setsProductData, removeModal, productPageEvents } = require("../app/sellerLogic");
 const { mobileCategory, speakerCategory, laptopCategory, electronicsCategory, homeCategory, womenCategory, menCategory, allCategories } = require("../components/category");
-const { getsCategoryDataList, eventForShowingProduct } = require("../app/categoryLogic");
+const { getsCategoryDataList, eventForShowingProduct, eventsForSingleCategory } = require("../app/categoryLogic");
 const { reloadCart, productPage } = require("../components/product");
 
 
@@ -89,6 +89,7 @@ const reloadPages = () => {
     if (location.hash === "#categories") {
         sliderRun();
         allCategories();
+        eventsForSingleCategory();
     }
 
     if (location.hash === "#mobiles") {

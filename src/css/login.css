@@ -208,6 +208,11 @@ button {
   text-align: center;
   width: 100%;
 }
+@media screen and (max-width: 500px) {
+  .loginArea {
+    padding: 20px 0px;
+  }
+}
 
 .logo2 {
   width: 100%;

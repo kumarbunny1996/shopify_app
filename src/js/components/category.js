@@ -156,10 +156,10 @@ const categoryDom = (config = {}) => {
     return `
         <div class="${config.class}">
             <div class="img-container">
-                <img alt="product-img" src="${config.img}">
+                <img alt="product-img" src="${config.img}" data-value="${config.value}">
             </div>
             <div class="product-details">
-                <h4>${config.title}</h4>
+                <h4 data-value="${config.value}">${config.title}</h4>
             </div>
         </div>
     `;
@@ -174,39 +174,46 @@ const allCategories = () => {
     let mobileSec = categoryDom({
         class: "mobile-section",
         img: "/public/images/mobilesStore/IPhone-Apple-PNG-File.png",
-        title: "Mobiles"
+        title: "Mobiles",
+        value: "#mobiles"
     });
 
     let speakerSec = categoryDom({
         class: "speaker-section",
         img: "/public/images/speakers/Red-Bluetooth-Speaker-Transparent-PNG-min.png",
-        title: "Speakers"
+        title: "Speakers",
+        value: "#speakers"
     });
     let laptopSec = categoryDom({
         class: "laptop-section",
         img: "/public/images/laptopStore/laptop-hd-png-laptop-png-free-download-485-min.png",
-        title: "Laptops"
-    })
+        title: "Laptops",
+        value: "#laptops"
+    });
     let electronicsSec = categoryDom({
         class: "electronics-section",
         img: "/public/images/electronics/pngkey.com-camera-png-80856-min.png",
-        title: "Electronics"
-    })
+        title: "Electronics",
+        value: "#electronics"
+    });
     let homeSec = categoryDom({
         class: "home-section",
         img: "/public/images/homeStore/pngkey.com-cricket-clipart-png-2494895-min.png",
-        title: "Home-appliances"
-    })
+        title: "Home-appliances",
+        value: "#home-appliances"
+    });
     let womenSec = categoryDom({
         class: "women-section",
         img: "/public/images/womens/pngkey.com-female-model-png-986952-min.png",
-        title: "Women"
+        title: "Women",
+        value: "#women"
     })
     let menSec = categoryDom({
         class: "men-section",
         img: "/public/images/mens/Maroon-T-Shirt-PNG-min.png",
-        title: "Men"
-    })
+        title: "Men",
+        value: "#men",
+    });
 
     const allCategoriesCont = document.getElementById('main-content');
     document.title = "@Shopify_All_categories";

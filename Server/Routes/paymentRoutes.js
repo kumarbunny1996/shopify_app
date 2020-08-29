@@ -3,10 +3,11 @@ const crypto = require("crypto");
 const router = express.Router();
 const authenticateToken = require("../Middlewares/authenticate");
 const { getProfile, saveUser, updateDb } = require("../Utils/dbUtils.js");
+require('dotenv').config();
 
 //generate signature
 const generateSignature = (data) => {
-    const secret = "g1D69PjcGuKkKHvO9FqQ7DTi";
+    const secret = process.env.RAZORPAY_SECRET_KEY;
     let { razorpay_payment_id, razorpay_order_id, razorpay_signature } = data;
     let body = razorpay_order_id + "|" + razorpay_payment_id;
     //used to hash the string

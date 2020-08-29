@@ -203,6 +203,35 @@ button {
   color: #e9b148;
 }
 
+@media screen and (max-width: 950px) {
+  #model-content {
+    width: 70% !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  #model-content {
+    width: 90% !important;
+  }
+}
+@media screen and (max-width: 430px) {
+  #model-content {
+    width: 400px !important;
+    margin: 10px 8px !important;
+  }
+}
+@media screen and (max-width: 380px) {
+  #model-content {
+    width: 340px !important;
+    margin: 10px 10px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  #model-content {
+    width: 300px !important;
+    margin: 10px 10px !important;
+  }
+}
+
 .payment {
   padding: 10px;
 }
@@ -225,9 +254,19 @@ button {
 .payment .summary .title-cont h4 {
   margin-bottom: 10px;
 }
+@media screen and (max-width: 450px) {
+  .payment .summary .title-cont h4 {
+    font-size: 14px;
+  }
+}
 .payment .summary .values {
   align-self: center;
   padding: 10px;
+}
+@media screen and (max-width: 450px) {
+  .payment .summary .values {
+    font-size: 12px;
+  }
 }
 .payment .summary .values em {
   display: block;
@@ -244,9 +283,22 @@ button {
   justify-content: center;
   padding: 10px 0px;
 }
+@media screen and (max-width: 450px) {
+  .payment .input-order {
+    grid-template-columns: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+}
 .payment .input-order label {
   align-self: center;
   justify-self: center;
+}
+@media screen and (max-width: 450px) {
+  .payment .input-order label {
+    align-self: start;
+    justify-self: start;
+  }
 }
 .payment .input-order .input {
   font-size: 16px;

@@ -429,7 +429,7 @@ const checkUsernameForAvailInEdit = debouncing((e) => {
     };
     makeRequestToServer(requestObject)
         .then((msg) => {
-            console.log(msg);
+            //console.log(msg);
             if (msg) {
                 btn.disabled = false;
                 msgCont.innerText = "Username is available";

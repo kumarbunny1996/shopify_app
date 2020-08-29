@@ -37,22 +37,23 @@ let getTokenOfUser = (user) => {
         mobile,
         email
     };
-    let cart = user.cart;
-    let savedItems = user.saved_items;
-    let address = user.delivery_address;
-    let addressObj = user.address;
-    let orders = user.orders;
-    let cancelledOrders = user.cancelledOrders
+    // let cart = user.cart;
+    // let savedItems = user.saved_items;
+    // let address = user.delivery_address;
+    // let addressObj = user.address;
+    // let orders = user.orders;
+    // let cancelledOrders = user.cancelledOrders
     let token = generateAuthToken(userObj);
     return {
         token,
-        cart,
-        savedItems,
-        address,
-        addressObj,
-        orders,
-        cancelledOrders,
-        userObj,
+        user,
+        // cart,
+        // savedItems,
+        // address,
+        // addressObj,
+        // orders,
+        // cancelledOrders,
+        // userObj,
     }
 
 }

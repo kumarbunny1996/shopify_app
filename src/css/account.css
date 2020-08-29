@@ -213,6 +213,11 @@ button {
   width: 60%;
   margin: 30px auto;
 }
+@media screen and (max-width: 700px) {
+  .your-account h2 {
+    width: 100%;
+  }
+}
 .your-account .account-main-block {
   width: 70%;
   margin: 0 auto;
@@ -223,6 +228,14 @@ button {
   padding: 20px;
   justify-content: center;
   align-items: center;
+}
+@media screen and (max-width: 700px) {
+  .your-account .account-main-block {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+  }
 }
 
 .account-block {
@@ -241,17 +254,44 @@ button {
   padding: 15px;
   cursor: pointer;
 }
+@media screen and (max-width: 700px) {
+  .account-block {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .account-block {
+    width: 98%;
+  }
+}
 .account-block img {
   width: 80px;
   height: 80px;
   padding: 10px;
 }
+@media screen and (max-width: 320px) {
+  .account-block img {
+    width: 70px;
+    height: 60px;
+    padding: 10px;
+  }
+}
 .account-block .details-block h3 {
   margin-bottom: 10px;
+}
+@media screen and (max-width: 320px) {
+  .account-block .details-block h3 {
+    font-size: 14px;
+  }
 }
 .account-block .details-block p {
   font-size: 12px;
   font-style: italic;
+}
+@media screen and (max-width: 320px) {
+  .account-block .details-block p {
+    font-size: 10px;
+  }
 }
 
 .edit-account-section {
@@ -259,11 +299,41 @@ button {
   margin: 30px auto;
   color: #032f3e;
 }
+@media screen and (max-width: 950px) {
+  .edit-account-section {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-account-section {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-account-section {
+    width: 95%;
+  }
+}
 .edit-account-section .links-edit {
   width: 60%;
   margin: 0 auto;
   margin-bottom: 20px;
   font-size: 12px;
+}
+@media screen and (max-width: 950px) {
+  .edit-account-section .links-edit {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-account-section .links-edit {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-account-section .links-edit {
+    width: 95%;
+  }
 }
 .edit-account-section .links-edit #style-account {
   cursor: pointer;
@@ -287,10 +357,40 @@ button {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 950px) {
+  .edit-account-section h2 {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-account-section h2 {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-account-section h2 {
+    width: 98%;
+  }
+}
 .edit-account-section .edit-account-block {
   width: 60%;
   margin: 0 auto;
   border: 0.5px solid #d8d4d4;
+}
+@media screen and (max-width: 950px) {
+  .edit-account-section .edit-account-block {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-account-section .edit-account-block {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-account-section .edit-account-block {
+    width: 95%;
+  }
 }
 .edit-account-section .edit-account-block .edit-input {
   display: grid;
@@ -303,12 +403,22 @@ button {
   padding: 20px;
   color: #032f3e;
 }
+@media screen and (max-width: 425px) {
+  .edit-account-section .edit-account-block .edit-input {
+    grid-template-columns: 1fr 80px;
+  }
+}
 .edit-account-section .edit-account-block .edit-input .head-block {
   justify-self: start;
   align-self: center;
 }
 .edit-account-section .edit-account-block .edit-input .head-block h4 {
   margin-bottom: 10px;
+}
+@media screen and (max-width: 425px) {
+  .edit-account-section .edit-account-block .edit-input .head-block p {
+    font-size: 12px;
+  }
 }
 .edit-account-section .edit-account-block .edit-input .edit-btn button {
   border: none;
@@ -330,9 +440,16 @@ button {
   background-color: #e6e6e6 !important;
   box-shadow: 1px 1px 0.5px 1px #d8d4d4, 1px 1px 0.5px 1px #d8d4d4 !important;
 }
+@media screen and (max-width: 425px) {
+  .edit-account-section .edit-account-block .edit-input .edit-btn button {
+    justify-self: end !important;
+    align-self: center !important;
+    width: 60px !important;
+  }
+}
 .edit-account-section .edit-account-block .line {
   height: 2px;
-  width: 95%;
+  width: 85%;
   margin: 10px auto;
   margin-bottom: 0px;
   border: 0.5px solid #d8d4d4;
@@ -366,11 +483,41 @@ button {
   margin: 30px auto;
   color: #032f3e;
 }
+@media screen and (max-width: 950px) {
+  .edit-name-section {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-name-section {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-name-section {
+    width: 95%;
+  }
+}
 .edit-name-section .links-name {
   width: 60%;
   margin: 0 auto;
   margin-bottom: 20px;
   font-size: 12px;
+}
+@media screen and (max-width: 950px) {
+  .edit-name-section .links-name {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-name-section .links-name {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-name-section .links-name {
+    width: 95%;
+  }
 }
 .edit-name-section .links-name #style-account {
   cursor: pointer;
@@ -407,11 +554,31 @@ button {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 950px) {
+  .edit-name-section h2 {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-name-section h2 {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-name-section h2 {
+    width: 95%;
+  }
+}
 .edit-name-section .edit-name-block {
   width: 360px;
   margin: 0 auto;
   padding: 20px;
   border: 0.5px solid #d8d4d4;
+}
+@media screen and (max-width: 450px) {
+  .edit-name-section .edit-name-block {
+    width: 98%;
+  }
 }
 .edit-name-section .edit-name-block h4 {
   margin-bottom: 10px;
@@ -437,6 +604,11 @@ button {
   margin: 15px 0px;
   text-align: end !important;
 }
+@media screen and (max-width: 450px) {
+  .edit-name-section .edit-name-block .btn-name {
+    text-align: center !important;
+  }
+}
 .edit-name-section .edit-name-block .btn-name button {
   border: none;
   text-decoration: none;
@@ -454,17 +626,52 @@ button {
   margin-top: 20px;
   width: 50% !important;
 }
+@media screen and (max-width: 450px) {
+  .edit-name-section .edit-name-block .btn-name button {
+    width: 98% !important;
+  }
+}
 
 .edit-email-section {
   width: 60%;
   margin: 30px auto;
   color: #032f3e;
 }
+@media screen and (max-width: 950px) {
+  .edit-email-section {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-email-section {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-email-section {
+    width: 95%;
+  }
+}
 .edit-email-section .links-email {
   width: 60%;
   margin: 0 auto;
   margin-bottom: 20px;
   font-size: 12px;
+}
+@media screen and (max-width: 950px) {
+  .edit-email-section .links-email {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-email-section .links-email {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-email-section .links-email {
+    width: 95%;
+  }
 }
 .edit-email-section .links-email #style-account {
   cursor: pointer;
@@ -501,11 +708,31 @@ button {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 950px) {
+  .edit-email-section h2 {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-email-section h2 {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-email-section h2 {
+    width: 95%;
+  }
+}
 .edit-email-section .edit-email-block {
   width: 360px;
   margin: 0 auto;
   padding: 20px;
   border: 0.5px solid #d8d4d4;
+}
+@media screen and (max-width: 450px) {
+  .edit-email-section .edit-email-block {
+    width: 98%;
+  }
 }
 .edit-email-section .edit-email-block h4 {
   margin-bottom: 10px;
@@ -531,6 +758,11 @@ button {
   margin: 15px 0px;
   text-align: end !important;
 }
+@media screen and (max-width: 450px) {
+  .edit-email-section .edit-email-block .btn-email {
+    text-align: center !important;
+  }
+}
 .edit-email-section .edit-email-block .btn-email button {
   border: none;
   text-decoration: none;
@@ -548,17 +780,52 @@ button {
   margin-top: 20px;
   width: 50% !important;
 }
+@media screen and (max-width: 450px) {
+  .edit-email-section .edit-email-block .btn-email button {
+    width: 98% !important;
+  }
+}
 
 .edit-mobile-section {
   width: 60%;
   margin: 30px auto;
   color: #032f3e;
 }
+@media screen and (max-width: 950px) {
+  .edit-mobile-section {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-mobile-section {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-mobile-section {
+    width: 95%;
+  }
+}
 .edit-mobile-section .links-mobile {
   width: 60%;
   margin: 0 auto;
   margin-bottom: 20px;
   font-size: 12px;
+}
+@media screen and (max-width: 950px) {
+  .edit-mobile-section .links-mobile {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-mobile-section .links-mobile {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-mobile-section .links-mobile {
+    width: 95%;
+  }
 }
 .edit-mobile-section .links-mobile #style-account {
   cursor: pointer;
@@ -595,11 +862,31 @@ button {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 950px) {
+  .edit-mobile-section h2 {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-mobile-section h2 {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-mobile-section h2 {
+    width: 95%;
+  }
+}
 .edit-mobile-section .edit-mobile-block {
   width: 360px;
   margin: 0 auto;
   padding: 20px;
   border: 0.5px solid #d8d4d4;
+}
+@media screen and (max-width: 450px) {
+  .edit-mobile-section .edit-mobile-block {
+    width: 98%;
+  }
 }
 .edit-mobile-section .edit-mobile-block h4 {
   margin-bottom: 10px;
@@ -625,6 +912,11 @@ button {
   margin: 15px 0px;
   text-align: end !important;
 }
+@media screen and (max-width: 450px) {
+  .edit-mobile-section .edit-mobile-block .btn-mobile {
+    text-align: center !important;
+  }
+}
 .edit-mobile-section .edit-mobile-block .btn-mobile button {
   border: none;
   text-decoration: none;
@@ -642,17 +934,52 @@ button {
   margin-top: 20px;
   width: 50% !important;
 }
+@media screen and (max-width: 450px) {
+  .edit-mobile-section .edit-mobile-block .btn-mobile button {
+    width: 98% !important;
+  }
+}
 
 .edit-password-section {
   width: 60%;
   margin: 30px auto;
   color: #032f3e;
 }
+@media screen and (max-width: 950px) {
+  .edit-password-section {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-password-section {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-password-section {
+    width: 95%;
+  }
+}
 .edit-password-section .links-pswd {
   width: 60%;
   margin: 0 auto;
   margin-bottom: 20px;
   font-size: 12px;
+}
+@media screen and (max-width: 950px) {
+  .edit-password-section .links-pswd {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-password-section .links-pswd {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-password-section .links-pswd {
+    width: 95%;
+  }
 }
 .edit-password-section .links-pswd #style-account {
   cursor: pointer;
@@ -689,11 +1016,31 @@ button {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 950px) {
+  .edit-password-section h2 {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .edit-password-section h2 {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .edit-password-section h2 {
+    width: 95%;
+  }
+}
 .edit-password-section .edit-password-block {
   width: 360px;
   margin: 0 auto;
   padding: 20px;
   border: 0.5px solid #d8d4d4;
+}
+@media screen and (max-width: 450px) {
+  .edit-password-section .edit-password-block {
+    width: 98%;
+  }
 }
 .edit-password-section .edit-password-block p {
   margin-bottom: 10px;
@@ -716,6 +1063,11 @@ button {
   margin: 15px 0px;
   text-align: end !important;
 }
+@media screen and (max-width: 450px) {
+  .edit-password-section .edit-password-block .btn-pswd {
+    text-align: center !important;
+  }
+}
 .edit-password-section .edit-password-block .btn-pswd button {
   border: none;
   text-decoration: none;
@@ -732,4 +1084,9 @@ button {
   transition: all 0.1s ease;
   margin-top: 20px;
   width: 50% !important;
+}
+@media screen and (max-width: 450px) {
+  .edit-password-section .edit-password-block .btn-pswd button {
+    width: 98% !important;
+  }
 }

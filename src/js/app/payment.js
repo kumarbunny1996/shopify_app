@@ -4,9 +4,7 @@ const { loaderDiv } = require("../utils/utils");
 const { removeOverlayLoader } = require("./uiHandler");
 const { removeModal } = require("./sellerLogic");
 const { itemStorage } = require("../utils/userStore");
-const { indexPage, UI_handlerEvents } = require("../components/index");
-const { init } = require("./userslogic");
-const { cartValues } = require("../components/product");
+//const { key } = require('../../../env.config');
 require("../../css/payment.css");
 
 //payment dom
@@ -79,7 +77,7 @@ const verificationToServer = (response, config) => {
     loaderDiv();
     makeRequestToServer(requestObject)
         .then(obj => {
-            console.log(obj);
+            //console.log(obj);
             let ordered_item = obj.resObj;
             removeModal();
             if (itemStorage.getItem('orders')) {
@@ -118,7 +116,7 @@ const cashOnDeliveryRequest = (config = {}) => {
     loaderDiv();
     makeRequestToServer(requestObject)
         .then(obj => {
-            console.log(obj);
+            // console.log(obj);
             let ordered_item = obj.resObj;
             removeModal();
             if (itemStorage.getItem('orders')) {
@@ -160,7 +158,7 @@ const createRazorpay = async(config = {}) => {
                 return;
             }
             let options = {
-                "key": "rzp_test_ITCqf9A3ntRB2N",
+                "key": process.env.RAZORPAY_KEY_ID,
                 "amount": config.amount.toString(),
                 "currency": config.currency,
                 "name": "Shopify store",
@@ -168,7 +166,7 @@ const createRazorpay = async(config = {}) => {
                 "image": "",
                 "order_id": config.id,
                 "handler": function(response) {
-                    console.log(response);
+                    //console.log(response);
                     verificationToServer(response, config);
                 },
                 "prefill": {

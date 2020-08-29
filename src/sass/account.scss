@@ -9,6 +9,9 @@
     h2 {
         width: 60%;
         margin: 30px auto;
+        @include mq(700px) {
+            width: 100%;
+        }
     }
     .account-main-block {
         width: 70%;
@@ -21,6 +24,12 @@
         padding: 20px;
         justify-content: center;
         align-items: center;
+        @include mq(700px) {
+            width: 100%;
+            grid-template-columns: 1fr;
+            grid-column-gap: 20px;
+            grid-row-gap: 10px;
+        }
     }
 }
 
@@ -39,18 +48,35 @@
     justify-self: center;
     padding: 15px;
     cursor: pointer;
+    @include mq(700px) {
+        width: 80%
+    }
+    @include mq(500px) {
+        width: 98%
+    }
     img {
         width: 80px;
         height: 80px;
         padding: 10px;
+        @include mq(320px) {
+            width: 70px;
+            height: 60px;
+            padding: 10px;
+        }
     }
     .details-block {
         h3 {
             margin-bottom: 10px;
+            @include mq(320px) {
+                font-size: 14px;
+            }
         }
         p {
             font-size: 12px;
             font-style: italic;
+            @include mq(320px) {
+                font-size: 10px;
+            }
         }
     }
 }
@@ -60,8 +86,26 @@
     width: 60%;
     margin: 30px auto;
     color: $deepBlue;
+    @include mq(950px) {
+        width: 70%;
+    }
+    @include mq(750px) {
+        width: 80%;
+    }
+    @include mq(550px) {
+        width: 95%;
+    }
     .links-edit {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
         font-size: 12px;
@@ -84,16 +128,37 @@
     }
     h2 {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 98%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
     }
     .edit-account-block {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         border: $border;
         .edit-input {
             display: grid;
             grid-template-columns: 1fr 100px;
+            @include mq(425px) {
+                grid-template-columns: 1fr 80px;
+            }
             grid-column-gap: 10px;
             grid-row-gap: 10px;
             padding: 20px;
@@ -107,20 +172,31 @@
                 h4 {
                     margin-bottom: 10px;
                 }
+                p {
+                    @include mq(425px) {
+                        font-size: 12px;
+                    }
+                }
             }
             .edit-btn {
                 button {
+                    @include mq(425px) {
+                        justify-self: end !important;
+                        align-self: center !important;
+                        width: 60px !important;
+                    }
                     @include buttonStyle();
                     width: 80px !important;
                     padding: 5px 0px !important;
                     background-color: rgb(230, 230, 230) !important;
-                    box-shadow: 1px 1px 0.5px 1px rgb(216, 212, 212), 1px 1px 0.5px 1px rgb(216, 212, 212) !important;
+                    box-shadow: 1px 1px 0.5px 1px rgb(216, 212, 212),
+                    1px 1px 0.5px 1px rgb(216, 212, 212) !important;
                 }
             }
         }
         .line {
             height: 2px;
-            width: 95%;
+            width: 85%;
             margin: 10px auto;
             margin-bottom: 0px;
             border: $border;
@@ -141,10 +217,28 @@
 //edit name input
 .edit-name-section {
     width: 60%;
+    @include mq(950px) {
+        width: 70%;
+    }
+    @include mq(750px) {
+        width: 80%;
+    }
+    @include mq(550px) {
+        width: 95%;
+    }
     margin: 30px auto;
     color: $deepBlue;
     .links-name {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
         font-size: 12px;
@@ -179,11 +273,23 @@
     }
     h2 {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
     }
     .edit-name-block {
         width: 360px;
+        @include mq(450px) {
+            width: 98%;
+        }
         margin: 0 auto;
         padding: 20px;
         border: $border;
@@ -210,7 +316,13 @@
         .btn-name {
             margin: 15px 0px;
             text-align: end !important;
+            @include mq(450px) {
+                text-align: center !important;
+            }
             button {
+                @include mq(450px) {
+                    width: 98% !important;
+                }
                 @include buttonStyle();
                 width: 50% !important;
             }
@@ -221,10 +333,28 @@
 //edit email
 .edit-email-section {
     width: 60%;
+    @include mq(950px) {
+        width: 70%;
+    }
+    @include mq(750px) {
+        width: 80%;
+    }
+    @include mq(550px) {
+        width: 95%;
+    }
     margin: 30px auto;
     color: $deepBlue;
     .links-email {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
         font-size: 12px;
@@ -259,11 +389,23 @@
     }
     h2 {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
     }
     .edit-email-block {
         width: 360px;
+        @include mq(450px) {
+            width: 98%;
+        }
         margin: 0 auto;
         padding: 20px;
         border: $border;
@@ -290,7 +432,13 @@
         .btn-email {
             margin: 15px 0px;
             text-align: end !important;
+            @include mq(450px) {
+                text-align: center !important;
+            }
             button {
+                @include mq(450px) {
+                    width: 98% !important;
+                }
                 @include buttonStyle();
                 width: 50% !important;
             }
@@ -301,10 +449,28 @@
 //edit mobile
 .edit-mobile-section {
     width: 60%;
+    @include mq(950px) {
+        width: 70%;
+    }
+    @include mq(750px) {
+        width: 80%;
+    }
+    @include mq(550px) {
+        width: 95%;
+    }
     margin: 30px auto;
     color: $deepBlue;
     .links-mobile {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
         font-size: 12px;
@@ -339,11 +505,23 @@
     }
     h2 {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
     }
     .edit-mobile-block {
         width: 360px;
+        @include mq(450px) {
+            width: 98%;
+        }
         margin: 0 auto;
         padding: 20px;
         border: $border;
@@ -370,7 +548,13 @@
         .btn-mobile {
             margin: 15px 0px;
             text-align: end !important;
+            @include mq(450px) {
+                text-align: center !important;
+            }
             button {
+                @include mq(450px) {
+                    width: 98% !important;
+                }
                 @include buttonStyle();
                 width: 50% !important;
             }
@@ -381,10 +565,28 @@
 //edit pswd
 .edit-password-section {
     width: 60%;
+    @include mq(950px) {
+        width: 70%;
+    }
+    @include mq(750px) {
+        width: 80%;
+    }
+    @include mq(550px) {
+        width: 95%;
+    }
     margin: 30px auto;
     color: $deepBlue;
     .links-pswd {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
         font-size: 12px;
@@ -419,11 +621,23 @@
     }
     h2 {
         width: 60%;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 80%;
+        }
+        @include mq(550px) {
+            width: 95%;
+        }
         margin: 0 auto;
         margin-bottom: 20px;
     }
     .edit-password-block {
         width: 360px;
+        @include mq(450px) {
+            width: 98%;
+        }
         margin: 0 auto;
         padding: 20px;
         border: $border;
@@ -447,7 +661,13 @@
         .btn-pswd {
             margin: 15px 0px;
             text-align: end !important;
+            @include mq(450px) {
+                text-align: center !important;
+            }
             button {
+                @include mq(450px) {
+                    width: 98% !important;
+                }
                 @include buttonStyle();
                 width: 50% !important;
             }

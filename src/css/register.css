@@ -208,6 +208,11 @@ button {
   padding: 20px;
   width: 100%;
 }
+@media screen and (max-width: 500px) {
+  #registerArea {
+    padding: 20px 0px;
+  }
+}
 
 .logo3 {
   width: 100%;

@@ -3,6 +3,9 @@
 @import "variables";
 .loginArea {
     padding: 20px;
+    @include mq(500px) {
+        padding: 20px 0px;
+    }
     text-align: center;
     width: 100%;
 }

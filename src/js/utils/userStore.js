@@ -30,7 +30,7 @@ let userStore = (() => {
         },
         clear: () => {
             storage = [];
-            console.log(storage);
+            //console.log(storage);
         }
     };
 

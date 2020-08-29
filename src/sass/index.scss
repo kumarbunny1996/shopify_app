@@ -143,7 +143,7 @@ header {
         top: 0px;
         left: 0px;
         width: 82%;
-        padding-left: 7px;
+        padding-left: 5px;
         font-size: 18px;
         @include mq(1100px) {
             width: 65%;
@@ -568,6 +568,18 @@ footer {
     left: 0;
     right: 0;
     width: 82%;
+    @include mq(1100px) {
+        width: 65%;
+    }
+    @include mq(850px) {
+        width: 60%;
+    }
+    @include mq(600px) {
+        position: absolute;
+        top: 31.5px;
+        left: -92px;
+        width: 90%;
+    }
 }
 
 .autocomplete-items div {

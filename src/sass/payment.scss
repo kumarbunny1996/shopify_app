@@ -1,6 +1,27 @@
 @import "variables";
 @import "mixin";
 @import 'common';
+#model-content {
+    @include mq(950px) {
+        width: 70% !important;
+    }
+    @include mq(600px) {
+        width: 90% !important;
+    }
+    @include mq(430px) {
+        width: 400px !important;
+        margin: 10px 8px !important;
+    }
+    @include mq(380px) {
+        width: 340px !important;
+        margin: 10px 10px !important;
+    }
+    @include mq(320px) {
+        width: 300px !important;
+        margin: 10px 10px !important;
+    }
+}
+
 .payment {
     padding: 10px;
     h3 {
@@ -19,11 +40,17 @@
             padding: 10px;
             h4 {
                 margin-bottom: 10px;
+                @include mq(450px) {
+                    font-size: 14px;
+                }
             }
         }
         .values {
             align-self: center;
             padding: 10px;
+            @include mq(450px) {
+                font-size: 12px;
+            }
             em {
                 display: block;
                 margin-bottom: 10px;
@@ -40,9 +67,18 @@
         grid-row-gap: 10px;
         justify-content: center;
         padding: 10px 0px;
+        @include mq(450px) {
+            grid-template-columns: 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
         label {
             align-self: center;
             justify-self: center;
+            @include mq(450px) {
+                align-self: start;
+                justify-self: start;
+            }
         }
         .input {
             font-size: 16px;

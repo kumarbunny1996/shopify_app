@@ -210,7 +210,7 @@ const saveProductToCartFromSavedItems = async(userId, id) => {
     }
 }
 
-//gets the collections [cart],[saved_items]
+//gets the collections [cart],[saved_items] user object
 const getCartObj = async(userId) => {
     let query = {
         _id: userId
@@ -223,31 +223,8 @@ const getCartObj = async(userId) => {
         });
     }
     if (user) {
-        let {
-            username,
-            mobile,
-            email,
-        } = user;
-        let userObj = {
-                username,
-                mobile,
-                email,
-            }
-            //console.log(user);
-        let cart = user.cart;
-        let savedItems = user.saved_items;
-        let address = user.delivery_address;
-        let addressObj = user.address;
-        let orders = user.orders;
-        let cancelledOrders = user.cancelledOrders
         return {
-            cart,
-            savedItems,
-            address,
-            addressObj,
-            orders,
-            cancelledOrders,
-            userObj,
+            user
         }
     }
 }

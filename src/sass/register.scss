@@ -5,6 +5,9 @@
         text-align: center;
         padding: 20px;
         width: 100%;
+        @include mq(500px) {
+            padding: 20px 0px;
+        }
     }
     
     .logo3 {

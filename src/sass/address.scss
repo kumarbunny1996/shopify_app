@@ -63,6 +63,12 @@
         margin: 20px auto;
         padding: 20px;
         border: $border;
+        @include mq(950px) {
+            width: 70%;
+        }
+        @include mq(750px) {
+            width: 100%;
+        }
         .input-block {
             width: 100%;
             padding: 20px;
@@ -70,6 +76,11 @@
             grid-template-columns: 1fr 1fr;
             grid-column-gap: 20px;
             grid-row-gap: 20px;
+            @include mq(450px) {
+                grid-template-columns: 1fr;
+                grid-column-gap: 10px;
+                grid-row-gap: 10px;
+            }
         }
         #qwerty {
             color: $formBorder;
@@ -88,6 +99,9 @@
                     box-shadow: 1px 1px 0.5px 1px $formBorder, 1px 1px 0.5px 1px $formBorder;
                     cursor: default;
                 }
+                @include mq(550px) {
+                    width: 100% !important;
+                }
             }
         }
     }
@@ -100,6 +114,11 @@ label {
     color: $deepBlue;
     justify-self: center;
     align-self: center;
+    @include mq(450px) {
+        text-align: start;
+        justify-self: start;
+        align-self: start;
+    }
 }
 
 .input {
@@ -227,6 +246,25 @@ label {
     background-color: $inputBgColor;
     box-shadow: $boxShadow;
     width: 30% !important;
+    @include mq(1250px) {
+        width: 50% !important;
+    }
+    @include mq(750px) {
+        width: 80% !important;
+    }
+    @include mq(550px) {
+        width: 90% !important;
+    }
+    @include mq(430px) {
+        width: 400px !important;
+        margin: 60px 15px !important;
+    }
+    @include mq(380px) {
+        width: 350px !important;
+    }
+    @include mq(330px) {
+        width: 300px !important;
+    }
     margin: 60px auto !important;
     border: $border !important;
 }
@@ -286,6 +324,9 @@ label {
         font-weight: 600;
         font-size: 18px;
         margin-left: -80px;
+        @include mq(430px) {
+            margin-left: 10px;
+        }
     }
     p {
         color: $deepBlue;

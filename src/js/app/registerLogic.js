@@ -239,7 +239,7 @@ const checkUsernameForAvail = debouncing((e) => {
     };
     makeRequestToServer(requestObject)
         .then((msg) => {
-            console.log(msg);
+            //console.log(msg);
             if (msg) {
                 let msgObj = {
                     value: false,
