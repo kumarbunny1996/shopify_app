@@ -6,7 +6,7 @@ require('dotenv').config();
 
 //initializing app
 const app = express();
-const init = require('./server/routes/mainApiRoutes');
+const init = require('./Server/Routes/mainApiRoutes');
 init(app);
 
 app.use(cors());
