@@ -20,17 +20,17 @@ const sellerDom = () => {
             <h1 class="seller-head">Why sell on @shopify?</h1>
             <div class="seller-middle" id="seller-middle">
                 <div class="seller-middle-content">
-                    <img src="../../../public/images/commonStore/live-chat.svg">
+                    <img src="/public/images/commonStore/live-chat.svg">
                     <h2>E-Commerce: Your next big sales channel</h2>
                     <p>Start selling on @shopify - without building a website. Register now to start selling on @shopify.com</p>
                 </div>
                 <div class="seller-middle-content">
-                    <img src="../../../public/images/commonStore/globe.svg">
+                    <img src="/public/images/commonStore/globe.svg">
                     <h2>Reach crores of customers</h2>
                     <p>Sell to crores of engaged customer visiting @shopify.com on desktop</p>
                 </div>
                 <div class="seller-middle-content">
-                    <img src="../../../public/images/commonStore/pay-min.png">
+                    <img src="/public/images/commonStore/pay-min.png">
                     <h2>Receive timely payments</h2>
                     <p>Shopify ensures your payments are deposited directly in your bank account within 14 days.</p>
                 </div>
