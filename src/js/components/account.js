@@ -12,28 +12,28 @@ const accountDom = () => {
             <h2>Your account</h2>
             <div class="account-main-block">
                 <div class="account-block" id="orders-page">
-                    <img src="/public/images/commonStore/order.svg">
+                    <img src="../../../public/images/commonStore/order.svg">
                     <div class="details-block">
                         <h3>Your orders</h3>
                         <p>Track, return or buy things again</p>
                     </div>
                 </div>
                  <div class="account-block" id="your-address">
-                    <img src="/public/images/commonStore/address.svg">
+                    <img src="../../../public/images/commonStore/address.svg">
                     <div class="details-block">
                         <h3>Your address</h3>
                         <p>Edit your address details</p>
                     </div>
                 </div>
                  <div class="account-block" id="edit-account">
-                    <img src="/public/images/commonStore/padlock.svg">
+                    <img src="../../../public/images/commonStore/padlock.svg">
                     <div class="details-block">
                         <h3>Login& security</h3>
                         <p>Edit login, name, mobile and email</p>
                     </div>
                 </div>
                  <div class="account-block" id="your-payment">
-                    <img src="/public/images/commonStore/shopify.svg">
+                    <img src="../../../public/images/commonStore/shopify.svg">
                     <div class="details-block">
                         <h3>Your payment options</h3>
                         <p>Edit and set new payment methods</p>

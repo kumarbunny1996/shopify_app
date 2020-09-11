@@ -15,7 +15,7 @@ const banner = (config = {}) => {
 const mobileCategory = () => {
     let mobileBanner = banner({
         para: "One step to mobile store",
-        img: "/public/images/mobilesStore/Mobile-Phone-PNG-Transparent-HD-Photo-min.png"
+        img: "../../../public/images/mobilesStore/Mobile-Phone-PNG-Transparent-HD-Photo-min.png"
     });
 
     const mobileCont = document.getElementById('main-content');
@@ -35,7 +35,7 @@ const mobileCategory = () => {
 const speakerCategory = () => {
     let speakerBanner = banner({
         para: `Wireless speaker, headsets,<br> speakers`,
-        img: "/public/images/speakers/Bluetooth-Headset-PNG-Background-Image-min.png"
+        img: "../../../public/images/speakers/Bluetooth-Headset-PNG-Background-Image-min.png"
     });
 
     const speakerCont = document.getElementById('main-content');
@@ -55,7 +55,7 @@ const speakerCategory = () => {
 const laptopCategory = () => {
     let laptopBanner = banner({
         para: `Brand laptops,<br>macbook `,
-        img: "/public/images/laptopStore/pngkey.com-macbook-air-png-1844127-min.png"
+        img: "../../../public/images/laptopStore/pngkey.com-macbook-air-png-1844127-min.png"
     });
 
     const laptopCont = document.getElementById('main-content');
@@ -75,7 +75,7 @@ const laptopCategory = () => {
 const homeCategory = () => {
     let homeBanner = banner({
         para: `looking products for<br> your home `,
-        img: "/public/images/homeStore/Home-Appliance-PNG-Pic-min.png"
+        img: "../../../public/images/homeStore/Home-Appliance-PNG-Pic-min.png"
     });
 
     const homeCont = document.getElementById('main-content');
@@ -95,7 +95,7 @@ const homeCategory = () => {
 const electronicsCategory = () => {
     let electronicsBanner = banner({
         para: `Looking for electronic items`,
-        img: "/public/images/electronics/pngkey.com-table-fan-png-351479-min.png"
+        img: "../../../public/images/electronics/pngkey.com-table-fan-png-351479-min.png"
     });
 
     const electronicsCont = document.getElementById('main-content');
@@ -115,7 +115,7 @@ const electronicsCategory = () => {
 const womenCategory = () => {
     let womenBanner = banner({
         para: `Women's collection`,
-        img: "/public/images/womens/Floral-Dress-PNG-HD-min.png"
+        img: "../../../public/images/womens/Floral-Dress-PNG-HD-min.png"
     });
 
     const womenCont = document.getElementById('main-content');
@@ -135,7 +135,7 @@ const womenCategory = () => {
 const menCategory = () => {
     let menBanner = banner({
         para: `Men's collection`,
-        img: "/public/images/mens/pngkey.com-breaking-bad-png-9530014-min.png"
+        img: "../../../public/images/mens/pngkey.com-breaking-bad-png-9530014-min.png"
     });
 
     const menCont = document.getElementById('main-content');
@@ -168,49 +168,49 @@ const categoryDom = (config = {}) => {
 const allCategories = () => {
     let allBanner = banner({
         para: `Shop by categories`,
-        img: "/public/images/commonStore/amazon-dhamaka-1.png"
+        img: "../../../public/images/commonStore/amazon-dhamaka-1.png"
     });
 
     let mobileSec = categoryDom({
         class: "mobile-section",
-        img: "/public/images/mobilesStore/IPhone-Apple-PNG-File.png",
+        img: "../../../public/images/mobilesStore/IPhone-Apple-PNG-File.png",
         title: "Mobiles",
         value: "#mobiles"
     });
 
     let speakerSec = categoryDom({
         class: "speaker-section",
-        img: "/public/images/speakers/Red-Bluetooth-Speaker-Transparent-PNG-min.png",
+        img: "../../../public/images/speakers/Red-Bluetooth-Speaker-Transparent-PNG-min.png",
         title: "Speakers",
         value: "#speakers"
     });
     let laptopSec = categoryDom({
         class: "laptop-section",
-        img: "/public/images/laptopStore/laptop-hd-png-laptop-png-free-download-485-min.png",
+        img: "../../../public/images/laptopStore/laptop-hd-png-laptop-png-free-download-485-min.png",
         title: "Laptops",
         value: "#laptops"
     });
     let electronicsSec = categoryDom({
         class: "electronics-section",
-        img: "/public/images/electronics/pngkey.com-camera-png-80856-min.png",
+        img: "../../../public/images/electronics/pngkey.com-camera-png-80856-min.png",
         title: "Electronics",
         value: "#electronics"
     });
     let homeSec = categoryDom({
         class: "home-section",
-        img: "/public/images/homeStore/pngkey.com-cricket-clipart-png-2494895-min.png",
+        img: "../../../public/images/homeStore/pngkey.com-cricket-clipart-png-2494895-min.png",
         title: "Home-appliances",
         value: "#home-appliances"
     });
     let womenSec = categoryDom({
         class: "women-section",
-        img: "/public/images/womens/pngkey.com-female-model-png-986952-min.png",
+        img: "../../../public/images/womens/pngkey.com-female-model-png-986952-min.png",
         title: "Women",
         value: "#women"
     })
     let menSec = categoryDom({
         class: "men-section",
-        img: "/public/images/mens/Maroon-T-Shirt-PNG-min.png",
+        img: "../../../public/images/mens/Maroon-T-Shirt-PNG-min.png",
         title: "Men",
         value: "#men",
     });

@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 require('dotenv').config();
 
 //initializing app
@@ -14,8 +15,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //including the static file to server
-app.use(express.static(__dirname));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 //connection to port

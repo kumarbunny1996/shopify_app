@@ -69,7 +69,7 @@ const signInDom = () => {
                 </div>
             </div>
             <div class="sm-banner">
-                <img id="sm-banner" data-id="laptops-cate" src="/public/images/laptopStore/Macbook-Transparent-Background-min.png">
+                <img id="sm-banner" data-id="laptops-cate" src="../../../public/images/laptopStore/Macbook-Transparent-Background-min.png">
             </div>
         </div>
     `;
@@ -87,7 +87,7 @@ const yourAccount = () => {
                     <div class="grid-row row-1">
                         <div class="grid-container contain-1" data-id="your-orders-home">  
                             <div class="card-img">
-                                <img alt="your-orders" src="/public/images/commonStore/6660132.png" data-hires="/public/images/commonStore/6660132.png">
+                                <img alt="your-orders" src="../../../public/images/commonStore/6660132.png" data-hires="/public/images/commonStore/6660132.png">
                             </div>
                             <div class="card-link">
                                 <span>your orders</span>
@@ -95,7 +95,7 @@ const yourAccount = () => {
                         </div>
                         <div class="grid-container contain-2" data-id="mobiles-cate">
                             <div class="card-img">
-                                <img alt="mobiles" src="/public/images/mobilesStore/Mobile-Phone-Download-PNG-Image-min.png" data-hires="/public/images/mobilesStore/Mobile-Phone-Download-PNG-Image-min.png">
+                                <img alt="mobiles" src="../../../public/images/mobilesStore/Mobile-Phone-Download-PNG-Image-min.png" data-hires="/public/images/mobilesStore/Mobile-Phone-Download-PNG-Image-min.png">
                             </div>
                             <div class="card-link">
                                 <span>mobiles</span>
@@ -105,7 +105,7 @@ const yourAccount = () => {
                     <div class="grid-row row-2">
                         <div class="grid-container contain-3" data-id="laptops-cate">                        
                             <div class="card-img">
-                                <img alt="laptops" src="/public/images/laptopStore/pngkey.com-computadoras-png-4085839-min.png"
+                                <img alt="laptops" src="../../../public/images/laptopStore/pngkey.com-computadoras-png-4085839-min.png"
                                 data-hires="/public/images/laptopStore/pngkey.com-computadoras-png-4085839-min.png">
                             </div>
                             <div class="card-link">
@@ -114,7 +114,7 @@ const yourAccount = () => {
                         </div>
                         <div class="grid-container contain-4" data-id="dress-cate">
                             <div class="card-img">
-                                <img alt="fashion" src="/public/images/mens/pngkey.com-snoop-png-10087600-min.png" data-hires="/public/images/mens/pngkey.com-snoop-png-10087600-min.png">
+                                <img alt="fashion" src="../../../public/images/mens/pngkey.com-snoop-png-10087600-min.png" data-hires="/public/images/mens/pngkey.com-snoop-png-10087600-min.png">
                             </div>
                             <div class="card-link">
                                 <span>Dress</span>
@@ -135,26 +135,26 @@ const homePage = () => {
         value: "home-appliances",
         container1: {
             alt: "Foggs",
-            src: "/public/images/homeStore/pngkey.com-fogg-png-2700196-min.png",
-            value: "/public/images/homeStore/pngkey.com-fogg-png-2700196-min.png",
+            src: "../../../public/images/homeStore/pngkey.com-fogg-png-2700196-min.png",
+            value: "../../../public/images/homeStore/pngkey.com-fogg-png-2700196-min.png",
             link: "Foggs",
         },
         container2: {
             alt: "Home appliance",
-            src: "/public/images/homeStore/Home-Appliance-PNG-Pic-min.png",
-            value: "/public/images/homeStore/Home-Appliance-PNG-Pic-min.png",
+            src: "../../../public/images/homeStore/Home-Appliance-PNG-Pic-min.png",
+            value: "../../../public/images/homeStore/Home-Appliance-PNG-Pic-min.png",
             link: "Home appliances",
         },
         container3: {
             alt: "fryer",
-            src: "/public/images/homeStore/pngkey.com-fryer-png-3830030-min.png",
-            value: "/public/images/homeStore/pngkey.com-fryer-png-3830030-min.png",
+            src: "../../../public/images/homeStore/pngkey.com-fryer-png-3830030-min.png",
+            value: "../../../public/images/homeStore/pngkey.com-fryer-png-3830030-min.png",
             link: "fryer",
         },
         container4: {
             alt: "cooking-clipart",
-            src: "/public/images/homeStore/pngkey.com-cooking-clipart-png-4070385-min.png",
-            value: "/public/images/homeStore/pngkey.com-cooking-clipart-png-4070385-min.png",
+            src: "../../../public/images/homeStore/pngkey.com-cooking-clipart-png-4070385-min.png",
+            value: "../../../public/images/homeStore/pngkey.com-cooking-clipart-png-4070385-min.png",
             link: "cooking-clipart",
         },
 
@@ -166,26 +166,26 @@ const homePage = () => {
         value: "women",
         container1: {
             alt: "T-shirts",
-            src: "/public/images/womens/pngkey.com-white-shirt-png-4460853-min.png",
-            value: "/public/images/womens/pngkey.com-white-shirt-png-4460853-min.png",
+            src: "../../../public/images/womens/pngkey.com-white-shirt-png-4460853-min.png",
+            value: "../../../public/images/womens/pngkey.com-white-shirt-png-4460853-min.png",
             link: "T-shirts",
         },
         container2: {
             alt: "Dress",
-            src: "/public/images/womens/Floral-Dress-PNG-Pic-min.png",
-            value: "/public/images/womens/Floral-Dress-PNG-Pic-min.png",
+            src: "../../../public/images/womens/Floral-Dress-PNG-Pic-min.png",
+            value: "../../../public/images/womens/Floral-Dress-PNG-Pic-min.png",
             link: "Dress",
         },
         container3: {
             alt: "T-shirts",
-            src: "/public/images/womens/pngkey.com-the-neighbourhood-logo-png-6427538-min.png",
-            value: "/public/images/womens/pngkey.com-the-neighbourhood-logo-png-6427538-min.png",
+            src: "../../../public/images/womens/pngkey.com-the-neighbourhood-logo-png-6427538-min.png",
+            value: "../../../public/images/womens/pngkey.com-the-neighbourhood-logo-png-6427538-min.png",
             link: "T-shirts",
         },
         container4: {
             alt: "Dress",
-            src: "/public/images/womens/Floral-Dress-PNG-HD-min.png",
-            value: "/public/images/womens/Floral-Dress-PNG-HD-min.png",
+            src: "../../../public/images/womens/Floral-Dress-PNG-HD-min.png",
+            value: "../../../public/images/womens/Floral-Dress-PNG-HD-min.png",
             link: "Dress",
         },
 
@@ -197,26 +197,26 @@ const homePage = () => {
         value: "men",
         container1: {
             alt: "T-shirts",
-            src: "/public/images/mens/Black-T-Shirt-PNG.png",
-            value: "/public/images/mens/Black-T-Shirt-PNG.png",
+            src: "../../../public/images/mens/Black-T-Shirt-PNG.png",
+            value: "../../../public/images/mens/Black-T-Shirt-PNG.png",
             link: "T-shirts",
         },
         container2: {
             alt: "Dress",
-            src: "/public/images/mens/Dress-Shirt-PNG-Clipart-Background-min.png",
-            value: "/public/images/mens/Dress-Shirt-PNG-Clipart-Background-min.png",
+            src: "../../../public/images/mens/Dress-Shirt-PNG-Clipart-Background-min.png",
+            value: "../../../public/images/mens/Dress-Shirt-PNG-Clipart-Background-min.png",
             link: "Dress",
         },
         container3: {
             alt: "T-shirts",
-            src: "/public/images/mens/pngkey.com-breaking-bad-png-9530014-min.png",
-            value: "/public/images/mens/pngkey.com-breaking-bad-png-9530014-min.png",
+            src: "../../../public/images/mens/pngkey.com-breaking-bad-png-9530014-min.png",
+            value: "../../../public/images/mens/pngkey.com-breaking-bad-png-9530014-min.png",
             link: "T-shirts",
         },
         container4: {
             alt: "Dress",
-            src: "/public/images/mens/Polo-Shirt-PNG-Image.png",
-            value: "/public/images/mens/Polo-Shirt-PNG-Image.png",
+            src: "../../../public/images/mens/Polo-Shirt-PNG-Image.png",
+            value: "../../../public/images/mens/Polo-Shirt-PNG-Image.png",
             link: "Dress",
         },
 
@@ -227,26 +227,26 @@ const homePage = () => {
         value: "mobiles",
         container1: {
             alt: "Samsung",
-            src: "/public/images/mobilesStore/Smartphone-Transparent-Background.png",
-            value: "/public/images/mobilesStore/Smartphone-Transparent-Background.png",
+            src: "../../../public/images/mobilesStore/Smartphone-Transparent-Background.png",
+            value: "../../../public/images/mobilesStore/Smartphone-Transparent-Background.png",
             link: "samsung",
         },
         container2: {
             alt: "Vivo",
-            src: "/public/images/mobilesStore/Mobile-Phone-PNG-HD-min.png",
-            value: "/public/images/mobilesStore/Mobile-Phone-PNG-HD-min.png",
+            src: "../../../public/images/mobilesStore/Mobile-Phone-PNG-HD-min.png",
+            value: "../../../public/images/mobilesStore/Mobile-Phone-PNG-HD-min.png",
             link: "Vivo",
         },
         container3: {
             alt: "Redmi",
-            src: "/public/images/mobilesStore/Mobile-Phone-PNG-Transparent-HD-Photo-min.png",
-            value: "/public/images/mobilesStore/Mobile-Phone-PNG-Transparent-HD-Photo-min.png",
+            src: "../../../public/images/mobilesStore/Mobile-Phone-PNG-Transparent-HD-Photo-min.png",
+            value: "../../../public/images/mobilesStore/Mobile-Phone-PNG-Transparent-HD-Photo-min.png",
             link: "Redmi",
         },
         container4: {
             alt: "Apple",
-            src: "/public/images/mobilesStore/IPhone-Apple-PNG-Clipart.png",
-            value: "/public/images/mobilesStore/IPhone-Apple-PNG-Clipart.png",
+            src: "../../../public/images/mobilesStore/IPhone-Apple-PNG-Clipart.png",
+            value: "../../../public/images/mobilesStore/IPhone-Apple-PNG-Clipart.png",
             link: "Apple",
         },
 
@@ -258,26 +258,26 @@ const homePage = () => {
         value: "speakers",
         container1: {
             alt: "speakers",
-            src: "/public/images/speakers/Red-Bluetooth-Speaker-PNG-File-min.png",
-            value: "/public/images/speakers/Red-Bluetooth-Speaker-PNG-File-min.png",
+            src: "../../../public/images/speakers/Red-Bluetooth-Speaker-PNG-File-min.png",
+            value: "../../../public/images/speakers/Red-Bluetooth-Speaker-PNG-File-min.png",
             link: " bluetooth speakers",
         },
         container2: {
             alt: "bluetooth headset",
-            src: "/public/images/speakers/pngkey.com-earphone-png-image-9516249-min.png",
-            value: "/public/images/speakers/pngkey.com-earphone-png-image-9516249-min.png",
+            src: "../../../public/images/speakers/pngkey.com-earphone-png-image-9516249-min.png",
+            value: "../../../public/images/speakers/pngkey.com-earphone-png-image-9516249-min.png",
             link: "bluetooth headset",
         },
         container3: {
             alt: "wireless speakers",
-            src: "/public/images/speakers/Black-Bluetooth-Speaker-PNG-Image-min.png",
-            value: "/public/images/speakers/Black-Bluetooth-Speaker-PNG-Image-min.png",
+            src: "../../../public/images/speakers/Black-Bluetooth-Speaker-PNG-Image-min.png",
+            value: "../../../public/images/speakers/Black-Bluetooth-Speaker-PNG-Image-min.png",
             link: "wireless speakers",
         },
         container4: {
             alt: "speaker",
-            src: "/public/images/speakers/Bluetooth-Headset-PNG-File-min.png",
-            value: "/public/images/speakers/Bluetooth-Headset-PNG-File-min.png",
+            src: "../../../public/images/speakers/Bluetooth-Headset-PNG-File-min.png",
+            value: "../../../public/images/speakers/Bluetooth-Headset-PNG-File-min.png",
             link: "speakers",
         },
 
@@ -289,26 +289,26 @@ const homePage = () => {
         value: "laptops",
         container1: {
             alt: "hp laptops",
-            src: "/public/images/laptopStore/laptop-hd-png-laptop-png-free-download-485-min.png",
-            value: "/public/images/laptopStore/laptop-hd-png-laptop-png-free-download-485-min.png",
+            src: "../../../public/images/laptopStore/laptop-hd-png-laptop-png-free-download-485-min.png",
+            value: "../../../public/images/laptopStore/laptop-hd-png-laptop-png-free-download-485-min.png",
             link: "hp laptops",
         },
         container2: {
             alt: "macbook",
-            src: "/public/images/laptopStore/Macbook-PNG-HD.png",
-            value: "/public/images/laptopStore/Macbook-PNG-HD.png",
+            src: "../../../public/images/laptopStore/Macbook-PNG-HD.png",
+            value: "../../../public/images/laptopStore/Macbook-PNG-HD.png",
             link: "macbook",
         },
         container3: {
             alt: "chromebook",
-            src: "/public/images/laptopStore/laptop-hd-png-chromebook-pixel-detailed-with-world-s-most-hd-laptop-display-820-min-min.png",
-            value: "/public/images/laptopStore/laptop-hd-png-chromebook-pixel-detailed-with-world-s-most-hd-laptop-display-820-min-min.png",
+            src: "../../../public/images/laptopStore/laptop-hd-png-chromebook-pixel-detailed-with-world-s-most-hd-laptop-display-820-min-min.png",
+            value: "../../../public/images/laptopStore/laptop-hd-png-chromebook-pixel-detailed-with-world-s-most-hd-laptop-display-820-min-min.png",
             link: "chromebook",
         },
         container4: {
             alt: "asus",
-            src: "/public/images/laptopStore/laptop-hd-png-asus-laptop-png-transparent-657-min.png",
-            value: "/public/images/laptopStore/laptop-hd-png-asus-laptop-png-transparent-657-min.png",
+            src: "../../../public/images/laptopStore/laptop-hd-png-asus-laptop-png-transparent-657-min.png",
+            value: "../../../public/images/laptopStore/laptop-hd-png-asus-laptop-png-transparent-657-min.png",
             link: "asus",
         },
 
@@ -320,26 +320,26 @@ const homePage = () => {
         value: "electronics",
         container1: {
             alt: "videocon",
-            src: "/public/images/electronics/pngkey.com-digital-camera-png-3402090-min.png",
-            value: "/public/images/electronics/pngkey.com-digital-camera-png-3402090-min.png",
+            src: "../../../public/images/electronics/pngkey.com-digital-camera-png-3402090-min.png",
+            value: "../../../public/images/electronics/pngkey.com-digital-camera-png-3402090-min.png",
             link: "videocon",
         },
         container2: {
             alt: "webcam",
-            src: "/public/images/electronics/pngkey.com-webcam-png-2465477-min.png",
-            value: "/public/images/electronics/pngkey.com-webcam-png-2465477-min.png",
+            src: "../../../public/images/electronics/pngkey.com-webcam-png-2465477-min.png",
+            value: "../../../public/images/electronics/pngkey.com-webcam-png-2465477-min.png",
             link: "webcam",
         },
         container3: {
             alt: "surveillance camera",
-            src: "/public/images/electronics/pngkey.com-surveillance-camera-png-6478255-min.png",
-            value: "/public/images/electronics/pngkey.com-surveillance-camera-png-6478255-min.png",
+            src: "../../../public/images/electronics/pngkey.com-surveillance-camera-png-6478255-min.png",
+            value: "../../../public/images/electronics/pngkey.com-surveillance-camera-png-6478255-min.png",
             link: "surveillance camera",
         },
         container4: {
             alt: "camcorder",
-            src: "/public/images/electronics/pngkey.com-camcorder-png-1238033-min.png",
-            value: "/public/images/electronics/pngkey.com-camcorder-png-1238033-min.png",
+            src: "../../../public/images/electronics/pngkey.com-camcorder-png-1238033-min.png",
+            value: "../../../public/images/electronics/pngkey.com-camcorder-png-1238033-min.png",
             link: "camcorder",
         },
 
