@@ -16,8 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //including the static file to server
 app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static('public'));
+//app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'dist')));
 
 
 //connection to port
