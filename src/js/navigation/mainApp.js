@@ -38,6 +38,7 @@ const navigation = () => {
     if (fragmentId === "login") {
         sliderRun(fragmentId)
         removeModal();
+        document.body.style.overflowY = "scroll";
         if (token) {
             return loginAreaAfterSuccess();
         }
@@ -45,6 +46,7 @@ const navigation = () => {
         loginEvents();
     }
     if (fragmentId === "register") {
+        document.body.style.overflowY = "scroll";
         sliderRun(fragmentId);
         removeModal();
         registerForm();
@@ -52,6 +54,7 @@ const navigation = () => {
         registerEvents();
     }
     if (fragmentId === "home") {
+        document.body.style.overflowY = "scroll";
         removeModal();
         indexPage();
         selectedAll();
@@ -67,6 +70,7 @@ const navigation = () => {
         }
     }
     if (fragmentId === "sell-on-shopify") {
+        document.body.style.overflowY = "scroll";
         sliderRun(fragmentId)
         removeModal();
         indexPage();
@@ -81,6 +85,7 @@ const navigation = () => {
 
     }
     if (fragmentId === "seller-central") {
+        document.body.style.overflowY = "scroll";
         if (token) {
             sliderRun(fragmentId)
             removeModal();
@@ -93,6 +98,7 @@ const navigation = () => {
     }
 
     if (fragmentId === "seller-product") {
+        document.body.style.overflowY = "scroll";
         if (token) {
             let sellerToken = userStore.authSellerToken();
             if (sellerToken) {
@@ -109,6 +115,7 @@ const navigation = () => {
 
     }
     if (fragmentId === "categories") {
+        document.body.style.overflowY = "scroll";
         sliderRun(fragmentId);
         removeModal();
         removeOverlayNav();
@@ -175,6 +182,7 @@ const navigation = () => {
 
     }
     if (fragmentId === "shopify-cart") {
+        document.body.style.overflowY = "scroll";
         if (!token) {
             location.hash = "#login";
         }
@@ -217,6 +225,7 @@ const navigation = () => {
 
     //sets the order items page
     if (fragmentId === "your-orders") {
+        document.body.style.overflowY = "scroll";
         sliderRun(fragmentId);
         if (!token) {
             location.hash = "#login";
@@ -235,6 +244,7 @@ const navigation = () => {
     }
 
     if (fragmentId === "your-account") {
+        document.body.style.overflowY = "scroll";
         sliderRun(fragmentId);
         if (!token) {
             location.hash = "#login";

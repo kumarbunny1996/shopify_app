@@ -370,6 +370,7 @@ function UI_handlerEvents() {
             let value = e.target.dataset.value;
             itemStorage.setItem("value", value);
             location.hash = "#login";
+            document.body.style.overflowY = "scroll";
             return;
         }
     });
@@ -379,6 +380,7 @@ function UI_handlerEvents() {
             let value = e.target.dataset.value;
             itemStorage.setItem("orders", value);
             location.hash = "#login";
+            document.body.style.overflowY = "scroll";
             return;
         }
     });
@@ -388,6 +390,7 @@ function UI_handlerEvents() {
             let value = e.target.dataset.value;
             itemStorage.setItem("orders_2", value);
             location.hash = "#login";
+            document.body.style.overflowY = "scroll";
             return;
         }
     });
@@ -397,6 +400,7 @@ function UI_handlerEvents() {
             let value = e.target.dataset.value;
             itemStorage.setItem("account", value);
             location.hash = "#login";
+            document.body.style.overflowY = "scroll";
             return;
         }
     });
